@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Pleased to meet you. Hope you guess my name.
 
 profile:
   align: right
@@ -10,7 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Bremen, Germany</p>
-    <p>[LinkedIn](https://www.linkedin.com/in/surajkarakulath/)</p>
+    <p><a href="https://www.linkedin.com/in/surajkarakulath/"> LinkedIn </a></p>
  #   <p>Your City, State 12345</p>
 
 news: true  # includes a list of news items
