@@ -4,7 +4,7 @@ title: Quantifying climate change
 description: How Global Temperatures have changed since the Industrial Revolution 
 img:assets/img/TANLP/climate.jpg
 importance: 3
-category: fun
+category: work
 ---
 
 This report analyzes global temperature changes using deviations from a baseline and determines the relationship between GDP and temperature deviation via a linear model. Temperatures have increased globally throughout the years with a sharper increase in the last 50 years. The relationship between global temperatures and GDP is not entirely clear.
