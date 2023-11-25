@@ -2,7 +2,7 @@
 layout: page
 title: Discovering Waste Price Determinants 
 description: Finding correlations between the price of waste and various potential price determinants.
-img: assets/img/KIPA.png
+img: assets/img/KIPA/KIPA.png
 importance: 1
 category: work
 # related_publications: einstein1956investigations, einstein1950meaning
@@ -15,9 +15,8 @@ The wPreis Dataset
 - Could be negative (client received payment for waste) or positive (client paid for waste disposal)
 - 10 unique clusters (collection of Postleitzahl) with 4 unique product categories
 - No null values
-- Correlations observed within categories in the same cluster
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
@@ -30,19 +29,45 @@ The wPreis Dataset
 </div>
 <div class="caption">
     Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
+</div> -->
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/data.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    - Correlations observed within categories in the same cluster
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+**Exploring Potential Price Determinants**
+
+Weather - First Approach
+    Data extracted from an open meteo free API
+    Parameters include temperature at 2 meters, wind speed at 10 meters, precipitation, rain, and snowfall
+    Accessed using latitude and longitude of cities in each cluster
+
+Weather - Second Approach
+    Data obtained from Deutscher Wetterdienst (DWD), the German Meteorological Service
+    Provides weather data dating back to the 1830s
+    Parameters include temperature mean and max
+
+Energy - Electricity
+Data from netztransparenz.de (ct/kWh) for the whole of Germany from Jan 2021
+
+Energy - Oil
+    Global Oil and Gas Market Prices from Yahoo Finance used as proxy data
+    Adjusted Close Price (Adj Close) considered for analysis
+
+Energy - Gas
+    Gas prices collected from Yahoo Finance for the whole of Germany
+    Exploration of correlation with Adjusted Close Price (Adj Close)
+
+Business Cycle - DAX
+    DAX (Deutscher Aktien Index) data obtained from Yahoo Finance
+    Calculated the adjusted close price of the weekly average for correlation analysis
+
+Construction
+    Data on construction permits number (per land per month) taken from Statistik der Baugenehmigungen (code 31111)
 
 
 <div class="row justify-content-sm-center">
