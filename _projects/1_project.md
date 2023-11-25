@@ -1,25 +1,21 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Discovering Waste Price Determinants 
+description: Finding correlations between the price of waste and various potential price determinants.
+img: assets/img/KIPA.png
 importance: 1
 category: work
-related_publications: einstein1956investigations, einstein1950meaning
+# related_publications: einstein1956investigations, einstein1950meaning
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+The goal of this project is to identify correlations and patterns between waste prices and potential price determinants such as weather, energy, and business cycle factors.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+The wPreis Dataset
+- Price of waste from around Sep 2020 until Sep 2023
+- Could be negative (client received payment for waste) or positive (client paid for waste disposal)
+- 10 unique clusters (collection of Postleitzahl) with 4 unique product categories
+- No null values
+- Correlations observed within categories in the same cluster
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
