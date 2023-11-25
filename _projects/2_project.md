@@ -26,41 +26,30 @@ The data has been provided by a Kaggle user in corresponding csv files here http
 
 Some observations from exploring the data:
 
-::: row
-```         
+     
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/AudSeg/Exploration.png" title="Exploration" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
 
 From these graphs, we can see that:
 
 Channels: Google search is the most popular source of visits, followed by Social channels and Direct. Paid search and ads are not a major source. Continents: The Americas receive a greater number of visits compared to any other continent, nearly twice as many as Asia and Europe combined. Countries: When considering individual countries, the USA and India attract the highest number of visitors, followed by the UK. Browser: Chrome is the most commonly used browser, with Safari being the second most popular choice. Device: Most visitors come to the website on a desktop, but there are also a lot of visitors on mobile and a few from tablets as well OS: Most visitors are Windows users, then Apple Mac users. Then comes Android users on mobile, followed by iOS users. This may just be useful to get an idea of visitors’ “lifestyle choices,” such as their preferred operating systems (for example, Mac users versus PC users).
 
-::: row
-```         
+     
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/AudSeg/countries.png" title="Countries" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
 
-::: caption
-```         
+
 The US, India, UK, Canada and Vietnam are the top 5 countries sending traffic.
-```
-:::
+
 
 It is also useful to explore how the visits change over time, throughout the year and on a weekly basis to see if there are any patterns we can take advantage of in the eventual clustering.
 
-::: row
-```         
+
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/AudSeg/time.png" title="Time" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
 
 As we can see here, the store experienced a higher number of visits during the period from October to January. This can be attributed to the start of the holiday season, as people engage in extensive shopping for themselves or to purchase gifts for others.
 
@@ -72,7 +61,8 @@ The timeframe from approximately 11 am to 11 pm appears to be when the store rec
 
 We can drop some of the features. Just to be thorough, we also check for multicollinearity to see if there are any highly correlated variables
 
-![When 2 or more are highly correlated, it can cause issues with model interpretation and stability. We see that hits and pageviews are very highly correlated Bounces, newVisits and isTrueDirect are binary categorical variables so they don’t show up numbers in the above heatmap.](images/paste-1.png)
+When 2 or more are highly correlated, it can cause issues with model interpretation and stability. We see that hits and pageviews are very highly correlated Bounces, newVisits and isTrueDirect are binary categorical variables so they don’t show up numbers in the above heatmap.
+
 
 ## **Clustering** 
 
@@ -86,7 +76,7 @@ And lastly, if channel is not Direct, isTrueDirect will always be false and vice
 
 We first try clustering based only on the numerical variables first. So for the first clustering, we will remove all the other variables.
 
-![What we find is that there are approximately 4 clusters based on visitNumbers, transaction revenue and pageviews.](images/paste-2.png)
+What we find is that there are approximately 4 clusters based on visitNumbers, transaction revenue and pageviews. 
 
 1.  (Green): Low pageviews, lower transaction revenue, low visitNumbers
 
