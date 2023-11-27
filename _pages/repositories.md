@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /repositories/
-title: repositories
+title: Repositories
 description: Look on my works, ye Mighty, and despair!
 nav: true
 nav_order: 3

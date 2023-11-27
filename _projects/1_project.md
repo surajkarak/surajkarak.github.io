@@ -27,7 +27,7 @@ The wPreis Dataset
 
 **Exploring Potential Price Determinants**
 
-Weather - First Approach
+Weather - Fir   st Approach
     Data extracted from an open meteo free API
     Parameters include temperature at 2 meters, wind speed at 10 meters, precipitation, rain, and snowfall
     Accessed using latitude and longitude of cities in each cluster
