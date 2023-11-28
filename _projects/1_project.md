@@ -18,20 +18,6 @@ There were also 10 unique clusters or collection of Postleitzahl (postal code in
 
 The wPreis for all 3 categories in the same cluster are somewhat correlated, with occasional deviations. This is observed in all clusters more or less. For some clusters, there is only one waste category, \*A1 & A2\* for \[1, 4, 6, 7, 8, 9\].
 
-::: row
-```         
-<div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/KIPA/data.png" title="example image" class="img-fluid rounded z-depth-1" %}
-</div>
-```
-:::
-
-::: caption
-```         
-- Correlations observed within categories in the same cluster
-```
-:::
-
 ## **Exploring Potential Price Determinants**
 
 We explored a few different variables to see how they correlated with the wPreis values.
@@ -60,7 +46,7 @@ Checking for correlation with a 1-week lag also does not improve the coefficient
 
 #### Oil
 
-For oil, there was no data available on prices per region in Germany (this may not make sense either). So we looked at [Global Oil and Gas Market Prices as a proxy from Yahoo finance](https://finance.yahoo.com/quote/CL%3DF/history?period1=1599436800&period2=1694649600&interval=1wk&filter=history&frequency=1wk&includeAdjustedClose=true), and assumed that relative changes in global prices would have a proportional impact on the same prices in Germany. We specifically tracked the variable \*\*Adjusted Close Price (Adj Close)\*\* which accounts for events such as stock splits and dividend payments.
+For oil, there was no data available on prices per region in Germany (this may not make sense either). So we looked at [Global Oil Market Prices as a proxy from Yahoo finance](https://finance.yahoo.com/quote/CL%3DF/history?period1=1599436800&period2=1694649600&interval=1wk&filter=history&frequency=1wk&includeAdjustedClose=true), and assumed that relative changes in global prices would have a proportional impact on the same prices in Germany. We specifically tracked the variable Adjusted Close Price (Adj Close) which accounts for events such as stock splits and dividend payments.
 
 We found that there was a close correlation from Sep 2020 to around Jan 2022 for both categories. For A3 - geschreddert, corr. roughly continues until Jun 2022, then inverse corr. until Dec 2022 and then low corr. until Sep 2023. For A2 & A3 - geschreddert, it continues from Jan 2022 to around Mar 2022, then inverse corr. until Dec 2022, and similar to the other category, loses the correlation after that.
 
@@ -70,46 +56,29 @@ Something remained consistent until Jan 2022. After that things began going in t
 
 #### Gas
 
-Gas prices collected from Yahoo Finance for the whole of Germany Exploration of correlation with Adjusted Close Price (Adj Close)
+Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://finance.yahoo.com/quote/NG%3DF/history?p=NG%3DF) for the whole of Germany and explored the correlation of wPreis with Adjusted Close Price (Adj Close).
+
+Unlike oil, for gas, the correlation is lower. The best we can say is that the general trend is rising for both from Jan 2021 until around Dec 2022 and after that the wPreis continues to rise while gas prices rise sharply and fall sharply. This is validated by lower coefficients (around 0.4).
 
 ### 3. Business Cycle
 
-For exploring correlation of wPreis with the business cycle we looked at data from DAY. DAX (Deutscher Aktien Index) data obtained from Yahoo Finance Calculated the adjusted close price of the weekly average for correlation analysis
+For exploring correlation of wPreis with the business cycle we used the [**DAX** - the **Deutscher Aktien Index**](https://finance.yahoo.com/quote/DAX/history?period1=1599955200&period2=1694563200&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true&guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAALsVKvxUJU7SSHyDzboI1z8iQ-95y7S1toJIg2VLrZbrf37W4faU3xh85tMCeYeiNYfRBnbCjvToNimKt0kiy7mOCnb35Hq6HH9lGpYzfe5sgc8ApkLXnaSE2sDCdicidvgkiGkwhak_cly_pc1KzGCnm-XtgAPsc8XwTIPFq7Ew) or the **GER40** : a stock index that represents 40 of the largest and most liquid German companies that trade on the Frankfurt Exchange. From the dataset, we extract the adjusted close price of the weekly average of the GER40.
+
+\
+There isn't any significant difference between the normal wPreis and the lagged wPries, they both range somewhat between **-0.45 to -0.63**
 
 ### 4. Construction
 
-Data on construction permits number (per land per month) taken from Statistik der Baugenehmigungen (code 31111)
+We also tried to explore whether there was any correlation between construction permits in Germany and the wPreis. Data on construction permits number (per land per month) was taken from [Statistik der Baugenehmigungen (code 31111)](https://www-genesis.destatis.de/). This variable was taken because it was the only one available with monthly frequency and per land.
 
-::: {.row .justify-content-sm-center}
-```         
-<div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-</div>
-```
-:::
+The main insight is that the pattern of correlations is the same. The correlation between actual waste prices and number of permits is large and negative. We assume it has something to do with the waste offer: usually the timespan between getting a construction permit and starting the construction itself is forced to be as short as possible =\> construction works start as soon as the permit is obtained =\> the waste is produced immediately =\> there is more waste offered on the market =\> the price decreases.
 
-::: caption
-```         
-You can also have artistically styled 2/3 + 1/3 images, like these.
-```
-:::
+## **Conclusions**
 
-The code is simple. Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system). To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes. Here's the code for the last row of images above:
+Based on this analysis, we find that
 
-{% raw %}
+-   Weather determinants show very low correlation with wPreis (which makes sense somewhat) and can be ignored.
 
-``` html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
+-   Energy determinants show different variations with oil showing a somewhat significant correlation of around 0.6 (that too overall including ‘black swan’ events like the Russia-Ukraine situation. Gas shows lesser correlation than oil and so does electricity.
 
-{% endraw %}
+-   Business Cycle (DAX) shows some significant inverse correlation while construction permits show high inverse correlation for some clusters.
