@@ -32,7 +32,7 @@ The coefficients of wPreis with all other weather variables are too small. Hence
 
 For the Cluster \['40', '41', '42', '44', '45', '46', '47'\], Correlation between wPreis and windspeed: 0.06 and Correlation between wPreis and temperature: 0.03
 
-### 2. Energy 
+### 2. Energy
 
 For energy, we looked at 3 variables – oil, electricity and gas prices.
 
