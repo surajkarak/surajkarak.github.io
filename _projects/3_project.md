@@ -31,7 +31,12 @@ Important: The dataframe’s rows need to be shuffled first to avoid all rows of
 
 Next, the bias values are encoded as 'Left': 0,'Center': 1 and ,'Right': 2, so that we can do numerical calculations. Plotting the distribution of the bias values gives us the following graph.
 
-![](images/corpus.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/TANLP/corpus.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 This shows that the training dataset itself will not be perfectly balanced, as there are more left-biased samples than others.
 
@@ -67,6 +72,7 @@ The accuracies for the three different algorithms are as follows.
 | Random Forest  | 0.65  |
 | Support Vector | 0.77  |
 
+
 Since the Support Vector classifier has the best results on the test data set, it is used to predict the biases for the ChatGPT responses. 
 
 ## Prediction
@@ -77,11 +83,21 @@ The same processes above are repeated on the ChatGPT responses, namely cleaning,
 
 **Political Spectrum Quiz (0 represents left-bias and 2 represents right-bias)**
 
-![](images/quiz1results.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/TANLP/quiz1results.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 **Political Compass Test (0 represents left-bias and 2 represents right-bias)**
 
-![](images/quiz2results.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/TANLP/quiz2results.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 ## Results
 
