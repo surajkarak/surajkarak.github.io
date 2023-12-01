@@ -2,7 +2,7 @@
 layout: page
 title: Quantifying climate change
 description: How Global Temperatures have changed since the Industrial Revolution 
-img:assets/img/TANLP/climate.jpg
+img: assets/img/TANLP/climate.jpg
 importance: 4
 category: work
 ---
