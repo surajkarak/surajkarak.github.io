@@ -62,8 +62,11 @@ Although visually it looks like there was some correlation in some parts, the co
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/elec_correlation.png" title="electricity correlation" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/elec_correlation.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
+</div
+
+<div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
     </div>
@@ -81,10 +84,13 @@ We found that there was a close correlation from Sep 2020 to around Jan 2022 for
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/oil.png" title="electricity correlation" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/oil.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
+</div
+
+<div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/oil_correlation.png.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -98,10 +104,13 @@ Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/oil.png" title="electricity correlation" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/gas.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
+</div
+
+<div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/gas_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -111,6 +120,17 @@ Unlike oil, for gas, the correlation is lower. The best we can say is that the g
 
 For exploring correlation of wPreis with the business cycle we used the [**DAX** - the **Deutscher Aktien Index**](https://finance.yahoo.com/quote/DAX/history?period1=1599955200&period2=1694563200&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true&guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAALsVKvxUJU7SSHyDzboI1z8iQ-95y7S1toJIg2VLrZbrf37W4faU3xh85tMCeYeiNYfRBnbCjvToNimKt0kiy7mOCnb35Hq6HH9lGpYzfe5sgc8ApkLXnaSE2sDCdicidvgkiGkwhak_cly_pc1KzGCnm-XtgAPsc8XwTIPFq7Ew) or the **GER40** : a stock index that represents 40 of the largest and most liquid German companies that trade on the Frankfurt Exchange. From the dataset, we extract the adjusted close price of the weekly average of the GER40.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/dax.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/dax_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 There isn't any significant difference between the normal wPreis and the lagged wPries, they both range somewhat between **-0.45 to -0.63**
 
