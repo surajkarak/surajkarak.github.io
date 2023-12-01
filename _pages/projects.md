@@ -5,10 +5,9 @@ permalink: /projects/
 description: Look on my works, ye Mighty, and despair!
 nav: true
 nav_order: 2
-display_categories: [work]
+display_categories: work
 horizontal: false
 ---
-
 <!-- pages/projects.md -->
 <div class="projects">
 {%- if site.enable_project_categories and page.display_categories %}
@@ -34,7 +33,6 @@ horizontal: false
   </div>
   {%- endif -%}
   {% endfor %}
-
 {%- else -%}
 <!-- Display projects without categories -->
   {%- assign sorted_projects = site.projects | sort: "importance" -%}
