@@ -8,7 +8,7 @@ category: work
 giscus_comments: false
 ---
 
-Marketers do adopt some standard segmentation and clustering techniques to identify and group customers based on their purchase behaviour. But this project explores how a similar clustering approach can be used to segment audiences at the top stage of the funnel, i.e., those that are in the awareness stage and may not have converted yet. Brands spend a lot of time and resources trying to understand their audience before they convert to a customer. Identifying the different groups or clusters of audience characteristics at this stage will help marketers device appropriate strategies, campaigns and tactics to ensure that they target those visitors with the best chance of converting and building loyalty with them further down the line.
+Marketers generally adopt some standard segmentation and clustering techniques to identify and group customers based on their purchase behaviour. But this project explores how a similar clustering approach can be used to segment audiences at the top stage of the funnel, i.e., those that are in the awareness stage and may not have converted yet. Brands spend a lot of time and resources trying to understand their audience before they convert to a customer. Identifying the different groups or clusters of audience characteristics at this stage will help marketers device appropriate strategies, campaigns and tactics to ensure that they target those visitors with the best chance of converting and building loyalty with them further down the line.
 
 In this project, we performed clustering of the web visitors to Google’s Merchandise Store using kMeans clustering, using their web analytics data. The clustering stage is preceded by the standard steps of data science, including cleaning, exploration, feature selectiona and preprocessing.
 
@@ -26,7 +26,11 @@ The data has been provided by a Kaggle user in corresponding csv files here http
 
 Some observations from exploring the data:
 
-![](images/Exploration.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/Exploration.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 From these graphs, we can see that:
 
@@ -42,13 +46,22 @@ From these graphs, we can see that:
 
 -   OS: Most visitors are Windows users, then Apple Mac users. Then comes Android users on mobile, followed by iOS users. This may just be useful to get an idea of visitors’ “lifestyle choices,” such as their preferred operating systems (for example, Mac users versus PC users).
 
-![](images/countries.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/countries.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 The US, India, UK, Canada and Vietnam are the top 5 countries sending traffic.
 
 It is also useful to explore how the visits change over time, throughout the year and on a weekly basis to see if there are any patterns we can take advantage of in the eventual clustering.
 
-![](images/time.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/time.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 As we can see here, the store experienced a higher number of visits during the period from October to January. This can be attributed to the start of the holiday season, as people engage in extensive shopping for themselves or to purchase gifts for others.
 
@@ -60,7 +73,12 @@ The timeframe from approximately 11 am to 11 pm appears to be when the store rec
 
 We can drop some of the features. Just to be thorough, we also check for multicollinearity to see if there are any highly correlated variables
 
-![](images/multicol.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/multicol.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 When 2 or more are highly correlated, it can cause issues with model interpretation and stability. We see that hits and pageviews are very highly correlated Bounces, newVisits and isTrueDirect are binary categorical variables so they don’t show up numbers in the above heatmap.
 
@@ -76,7 +94,11 @@ And lastly, if channel is not Direct, isTrueDirect will always be false and vice
 
 We first try clustering based only on the numerical variables first. So for the first clustering, we will remove all the other variables.
 
-![](images/clustering1.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/clustering1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 What we find is that there are approximately 4 clusters based on visitNumbers, transaction revenue and pageviews.
 
@@ -96,7 +118,11 @@ This was not part of the original Kaggle competition but it came to be as a resu
 
 The data has been provided by a Kaggle user in corresponding csv files here https://www.kaggle.com/datasets/satian/exported-google-analytics-data?select=Train_external_data_2.csv
 
-![](images/clustering2.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/clustering2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 Based on the results of this clustering, we could say there are 3 clear clusters, dark purple, green and dark blue
 
@@ -116,7 +142,12 @@ We includes the numerical variables we previously selected, and new categorical 
 
 Visualising the distribution of categorical variables in each cluster
 
-![](images/clustering3cat.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/clustering3cat.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 -   Cluster 4 seems to be exclusively Mac users who click on external links to the Google Store, on Chrome browsers in their desktops
 
@@ -126,7 +157,12 @@ Visualising the distribution of categorical variables in each cluster
 
 -   Cluster 1 has the most Linux users, Direct visits, some mobile users and some Safari users.
 
-![](images/clustering3num.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/AudSeg/clustering3num.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 Numerical variables in each cluster
 

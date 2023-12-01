@@ -16,6 +16,12 @@ The dataset was provided to us by the professor and teaching assistant. It conta
 
 There were also 10 unique clusters or collection of Postleitzahl (postal code in Germany) and had 4 unique product categories – 'A2 - geschreddert', 'A1 & A2 - geschreddert', 'A2 & A3 - geschreddert', 'A3 - geschreddert'. There were no null values.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/data.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 The wPreis for all 3 categories in the same cluster are somewhat correlated, with occasional deviations. This is observed in all clusters more or less. For some clusters, there is only one waste category, \*A1 & A2\* for \[1, 4, 6, 7, 8, 9\].
 
 ## **Exploring Potential Price Determinants**
@@ -27,6 +33,12 @@ We explored a few different variables to see how they correlated with the wPreis
 **First Approach:** Using data extracted from an [open meteo](https://open-meteo.com/) free API. Parameters include temperature at 2 meters, wind speed at 10 meters, precipitation, rain, and snowfall.Accessed using latitude and longitude of cities in each cluster.
 
 **Second Approach:** Data obtained from [Deutscher Wetterdienst (DWD)](https://www.dwd.de/DE/Home/home_node.html) – the German Meteorological Service – they provide weather data dating back to the 1830s Parameters include temperature mean and max.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/weather.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 The coefficients of wPreis with all other weather variables are too small. Hence this may not be a good determinant.
 
@@ -40,15 +52,41 @@ For energy, we looked at 3 variables – oil, electricity and gas prices.
 
 We used data from [netztransparenz.de](https://www.netztransparenz.de/EEG/Marktpraemie/Spotmarktpreis) (ct/kWh) which contains electricity prices for the whole of Germany from Jan 2021. This was the best choice we could find on electricity prices.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/electricity.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 Although visually it looks like there was some correlation in some parts, the coefficients are not signfiicant. A2 & A3 category alone has 0.52 though.
 
-Checking for correlation with a 1-week lag also does not improve the coefficients much.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/elec_correlation.png" title="electricity correlation" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Checking for correlation with a 1-week lag also does not improve the coefficients much.
+</div>
+
 
 #### Oil
 
 For oil, there was no data available on prices per region in Germany (this may not make sense either). So we looked at [Global Oil Market Prices as a proxy from Yahoo finance](https://finance.yahoo.com/quote/CL%3DF/history?period1=1599436800&period2=1694649600&interval=1wk&filter=history&frequency=1wk&includeAdjustedClose=true), and assumed that relative changes in global prices would have a proportional impact on the same prices in Germany. We specifically tracked the variable Adjusted Close Price (Adj Close) which accounts for events such as stock splits and dividend payments.
 
 We found that there was a close correlation from Sep 2020 to around Jan 2022 for both categories. For A3 - geschreddert, corr. roughly continues until Jun 2022, then inverse corr. until Dec 2022 and then low corr. until Sep 2023. For A2 & A3 - geschreddert, it continues from Jan 2022 to around Mar 2022, then inverse corr. until Dec 2022, and similar to the other category, loses the correlation after that.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/oil.png" title="electricity correlation" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 Correlation coefficients also validate this, with 0.6 for A3 - geschreddert category and 0.62 for A2 & A3 - geschreddert which are above 0.5 and hence significant.
 
@@ -58,13 +96,22 @@ Something remained consistent until Jan 2022. After that things began going in t
 
 Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://finance.yahoo.com/quote/NG%3DF/history?p=NG%3DF) for the whole of Germany and explored the correlation of wPreis with Adjusted Close Price (Adj Close).
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/oil.png" title="electricity correlation" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 Unlike oil, for gas, the correlation is lower. The best we can say is that the general trend is rising for both from Jan 2021 until around Dec 2022 and after that the wPreis continues to rise while gas prices rise sharply and fall sharply. This is validated by lower coefficients (around 0.4).
 
 ### 3. Business Cycle
 
 For exploring correlation of wPreis with the business cycle we used the [**DAX** - the **Deutscher Aktien Index**](https://finance.yahoo.com/quote/DAX/history?period1=1599955200&period2=1694563200&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true&guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAALsVKvxUJU7SSHyDzboI1z8iQ-95y7S1toJIg2VLrZbrf37W4faU3xh85tMCeYeiNYfRBnbCjvToNimKt0kiy7mOCnb35Hq6HH9lGpYzfe5sgc8ApkLXnaSE2sDCdicidvgkiGkwhak_cly_pc1KzGCnm-XtgAPsc8XwTIPFq7Ew) or the **GER40** : a stock index that represents 40 of the largest and most liquid German companies that trade on the Frankfurt Exchange. From the dataset, we extract the adjusted close price of the weekly average of the GER40.
 
-\
+
 There isn't any significant difference between the normal wPreis and the lagged wPries, they both range somewhat between **-0.45 to -0.63**
 
 ### 4. Construction
