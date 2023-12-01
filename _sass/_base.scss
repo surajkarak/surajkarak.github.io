@@ -609,7 +609,7 @@ footer.sticky-bottom {
 
   .grid-sizer,{
     width: 50%; // Set the width to 50% for a 2-column grid
-    // box-sizing: border-box; // Ensure box sizing includes borders and padding
+    box-sizing: border-box; // Ensure box sizing includes borders and padding
   }
   .grid-item {
     // width: 50%; // Set the width to 50% for a 2-column grid
