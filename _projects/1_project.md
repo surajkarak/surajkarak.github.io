@@ -96,7 +96,7 @@ Correlation coefficients also validate this, with 0.6 for A3 - geschreddert cate
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/oil_correlation.png.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/oil_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -152,6 +152,12 @@ There isn't any significant difference between the normal wPreis and the lagged 
 ### 4. Construction
 
 We also tried to explore whether there was any correlation between construction permits in Germany and the wPreis. Data on construction permits number (per land per month) was taken from [Statistik der Baugenehmigungen (code 31111)](https://www-genesis.destatis.de/). This variable was taken because it was the only one available with monthly frequency and per land.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/KIPA/construction.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+    </div>
+</div>
 
 The main insight is that the pattern of correlations is the same. The correlation between actual waste prices and number of permits is large and negative. We assume it has something to do with the waste offer: usually the timespan between getting a construction permit and starting the construction itself is forced to be as short as possible =\> construction works start as soon as the permit is obtained =\> the waste is produced immediately =\> there is more waste offered on the market =\> the price decreases.
 
