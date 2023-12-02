@@ -21,7 +21,7 @@ There is a visible increase in the years from 1900 to 2000 and beyond, with 4-5 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="_projects/images/globaltempchange.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/globaltempchange.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -31,7 +31,7 @@ This displays the entire dataset with temperatures for every month, which fluctu
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="_projects/images/smoothed_year.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/smoothed_year.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -42,7 +42,7 @@ The decade distribution shows the same increase:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="_projects/images/smoothed_decade.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/smoothed_decade.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -55,14 +55,14 @@ Climate science is a constantly evolving field; different models use different b
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="_projects/images/deviations_year.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/deviations_year.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="_projects/images/deviations_decade.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/deviations_decade.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -117,29 +117,10 @@ F-statistic: 0.8724 on 1 and 127 DF,  p-value: 0.3521
 ```
 {% endraw %}
 
-``` R
-Call:
-lm(formula = avg_depart ~ country_mean, data = country_gdp)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--1.07382 -0.18463 -0.03591  0.07786  1.30632 
-
-Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  8.820e-01  2.594e-02  34.001   <2e-16 ***
-country_mean 2.965e-14  3.174e-14   0.934    0.352    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.283 on 127 degrees of freedom
-Multiple R-squared:  0.006822,  Adjusted R-squared:  -0.0009979 
-F-statistic: 0.8724 on 1 and 127 DF,  p-value: 0.3521
-```
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="_projects/images/model.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/model.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
