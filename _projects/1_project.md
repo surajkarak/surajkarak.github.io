@@ -88,7 +88,7 @@ We found that there was a close correlation from Sep 2020 to around Jan 2022 for
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/KIPA/oil.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
-</div
+</div>
 
 
 Correlation coefficients also validate this, with 0.6 for A3 - geschreddert category and 0.62 for A2 & A3 - geschreddert which are above 0.5 and hence significant.
@@ -114,7 +114,7 @@ Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/KIPA/gas.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
-</div
+</div>
 
 
 <div class="row">
@@ -137,7 +137,7 @@ For exploring correlation of wPreis with the business cycle we used the [**DAX**
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/KIPA/dax.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
-</div
+</div>
 
 
 <div class="row">
