@@ -90,7 +90,9 @@ We found that there was a close correlation from Sep 2020 to around Jan 2022 for
     </div>
 </div
 
+
 Correlation coefficients also validate this, with 0.6 for A3 - geschreddert category and 0.62 for A2 & A3 - geschreddert which are above 0.5 and hence significant.
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -98,12 +100,15 @@ Correlation coefficients also validate this, with 0.6 for A3 - geschreddert cate
     </div>
 </div>
 
+
 Something remained consistent until Jan 2022. After that things began going in the opposite direction. And from Dec 2022 onwards they become less correlated.
+
 
 
 #### Gas
 
 Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://finance.yahoo.com/quote/NG%3DF/history?p=NG%3DF) for the whole of Germany and explored the correlation of wPreis with Adjusted Close Price (Adj Close).
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -111,18 +116,22 @@ Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://
     </div>
 </div
 
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/KIPA/gas_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
+
 Unlike oil, for gas, the correlation is lower. The best we can say is that the general trend is rising for both from Jan 2021 until around Dec 2022 and after that the wPreis continues to rise while gas prices rise sharply and fall sharply. This is validated by lower coefficients (around 0.4).
+
 
 
 ### 3. Business Cycle
 
 For exploring correlation of wPreis with the business cycle we used the [**DAX** - the **Deutscher Aktien Index**](https://finance.yahoo.com/quote/DAX/history?period1=1599955200&period2=1694563200&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true&guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAALsVKvxUJU7SSHyDzboI1z8iQ-95y7S1toJIg2VLrZbrf37W4faU3xh85tMCeYeiNYfRBnbCjvToNimKt0kiy7mOCnb35Hq6HH9lGpYzfe5sgc8ApkLXnaSE2sDCdicidvgkiGkwhak_cly_pc1KzGCnm-XtgAPsc8XwTIPFq7Ew) or the **GER40** : a stock index that represents 40 of the largest and most liquid German companies that trade on the Frankfurt Exchange. From the dataset, we extract the adjusted close price of the weekly average of the GER40.
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
