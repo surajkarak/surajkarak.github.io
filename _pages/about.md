@@ -24,10 +24,20 @@ I am a Data scientist with domain expertise in marketing, cybersecurity, SaaS pr
 
 I grew up in India, lived and worked in Singapore for 16 years and now I'm finishing a Masters in Data Science in Bremen, Germany. *Ich lerne derzeit auch Deutsch und habe vor, bald von A2 auf B1 zu kommen.*
 
+**My specialties in Data Science include**: Data Mining, Data Exploration, Data Modeling, Machine Learning, NLP, Time Series.
+**Tools/skills that I work with**: Python, R, SQL, BigQuery, Google Analytics, Tableau, Google Data Studio, PowerBI 
+
+Some projects that I am proud of:
+- Time series analysis to identify determinants of waste price
+- Unsupervised clustering to segment website audiences (not customer segmentation)
+- Using NLP to detect political bias in ChatGPT responses
+- Quantifying global temperature rise from climate change data
+
 My other interests include technology, cinema and film history, music, politics, psychology and science.
 
 When I'm not working, I'm usually 
 - travelling (mostly Europe now since I am here)
 - reading (non-fiction - psychology, science, humanism; fiction - classics)
 - watching films (classics - a bit obsessed with Danny Boyle and Aaron Sorkin these days) or checking out what's on at local arthouse theatres 
+- learning German
 - or catching up with friends.
