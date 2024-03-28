@@ -147,7 +147,9 @@
           {%- if entry.bibtex_show %}
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
           {%- endif %}
-          {%- if entry.html %}
+          {%- if entry.slides %}
+            <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+          {%- elsif entry.html %}
             <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
           {%- endif %}
           {%- if entry.pdf %}
