@@ -45,28 +45,11 @@ C = Mean rating across the entire dataset
 
 Using the weightedRating, applying a threshold of minimum 10,000 votes and normalizing the votes to get a color scale:
 
-<!-- <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div> -->
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="/assets/img/imdbdata/topmovies.png" title="toprated movies" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<!-- <div class="caption">
-    This image can also have a caption. It's like magic.
-</div> -->
 
 This reveals what is more common knowledge about the IMDb ratings, as it shows the top 10 rated films being similar to the ones at the IMDb Top 10 list. Interestingly, The Shawshank Redemption and The Dark Knight has a higher vote count, which makes sense since these are also wildly popular films that were seen by people during release in theatres and also on DVD and home viewing later.
 
@@ -79,9 +62,6 @@ Exploring the weightedRating averaged for all films in a year, it looks like the
         {% include figure.html path="/assets/img/imdbdata/ratingovertime.png" title="rating averaged per year" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-
-<!-- <div class="row justify-content-sm-center"> -->
-    <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
@@ -146,20 +126,3 @@ Lastly, I also looked at whether film duration has a measurable impact on audien
 
 There is no clear correlation between runtime and weightedRating. But we do see that the majority of highly rated films are in the range of 100 to 200 minutes. And also noticeable is the fact that there are some outliers with runtimes of over 300 minutes (even up to 550 minutes). These outliers are usually higher rated (over 7.5) and the ratings don’t tend to decrease the longer the film gets. However, keep in mind that there was a 10,000 vote limit for this threshold, meaning that this insight is only applicable for those films which had more than this threshold of votes. And also worth considering is the behavior and traits of the users who do manage to watch the entire length of these high-runtime films. It is reasonably to expect that these users may have liked the film or found it engaging enough to sit through the entire runtime, which makes it more likely for them to give the film a higher rating. In contrast, those who did not watch the entire length of the film may have not bothered voting a rating at all.
 
-
-<!-- Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %} -->
