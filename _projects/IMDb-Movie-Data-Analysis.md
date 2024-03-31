@@ -3,8 +3,8 @@ layout: page
 title: What does IMDb data say about the Golden Age of cinema?
 description: Analyzing movie ratings using IMDb data
 img: assets/img/imdbdata/buster-keaton-smile.gif
-importance: 3
-category: fun
+importance: 1
+category: work
 ---
 
 This project analyses the IMDb movie ratings, and looks at trends, patterns, and factors that influence the reception of a film. By analying the IMDb dataset, we explore movie ratings across genres, time periods, and key metrics such as weighted ratings.
