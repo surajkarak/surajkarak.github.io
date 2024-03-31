@@ -3,7 +3,7 @@ layout: page
 title: Audience segmentation using unsupervised learning
 description: kMeans clustering of the web visitors to Google’s Merchandise Store  
 img: assets/img/AudSeg/Audseg.png
-importance: 2
+importance: 3
 category: work
 giscus_comments: false
 ---
@@ -11,6 +11,9 @@ giscus_comments: false
 Marketers generally adopt some standard segmentation and clustering techniques to identify and group customers based on their purchase behaviour. But this project explores how a similar clustering approach can be used to segment audiences at the top stage of the funnel, i.e., those that are in the awareness stage and may not have converted yet. Brands spend a lot of time and resources trying to understand their audience before they convert to a customer. Identifying the different groups or clusters of audience characteristics at this stage will help marketers device appropriate strategies, campaigns and tactics to ensure that they target those visitors with the best chance of converting and building loyalty with them further down the line.
 
 In this project, we performed clustering of the web visitors to Google’s Merchandise Store using kMeans clustering, using their web analytics data. The clustering stage is preceded by the standard steps of data science, including cleaning, exploration, feature selectiona and preprocessing.
+
+*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/segmenting-website-visitors-into-personas-using-unsupervised-learning-649ea8e39c9e">  check out the long-form article at Medium </a>.)*
+
 
 ## **Data Collection**
 

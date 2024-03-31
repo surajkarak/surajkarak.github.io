@@ -3,13 +3,13 @@ layout: page
 title: Quantifying climate change
 description: How global temperatures have changed since the Industrial Revolution 
 img: assets/img/ClimateChange/climate.jpg
-importance: 4
+importance: 5
 category: work
 ---
 
 This project analyzes global temperature changes using deviations from a baseline and determines the relationship between GDP and temperature deviation via a linear model. It shows that temperatures have increased globally throughout the years with a sharper increase in the last 50 years. The relationship between global temperatures and GDP is not entirely clear.
 
-(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/quantifying-climate-change-f304eff918cf">  check out the long-form article at Medium </a>.)
+*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/quantifying-climate-change-f304eff918cf">  check out the long-form article at Medium </a>.)*
 
 ## Data set
 
