@@ -2,96 +2,59 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Suraj Karakulath
+    - name: Occupation
+      value: Data Scientist
     - name: Languages
       value: English, German
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+    - title: MSc. Data Science
+      institution: Constructor University Bremen
+      year: 2022
+    - title: BSc. Physics and Mathematics
+      institution: National University of Singapore
+      year: 2010
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Product Intern
+      institution: Constructor Technology Group, Bremen
+      year: 2023-Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Finished a 6-week internship as part of my Masters degree 
+        - Working in the Product team responsible for the Alemira LMS
+        - Planned and developed User Stories for new features based on customer needs
+        - Continued the engagement on a part-time basis
+    - title: Regional Content Manager
+      institution: Google, Singapore
+      year: 2020-2021
       description:
-        - Description 1.
-        - Description 2.
+        - Managed the Digital Guru agency certification program
+        - Defined product messaging in collaboration with Global Product Leads
+        - Created content with subject matter experts, data scientists and external media production agencies.
+    - title: Data Science Consultant
+      institution: Independent Consulting, Remote.
+      year: 2020-2022
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Content Marketer
+      institution: WorldQuant, Singapore
+      year: 2018 - 2020
       description:
+        - Managed the firm's content marketing, focusing on Asia and Europe
+        - Developed brand strategy & performance reporting frameworks
+        - Managed thought leadership & social content with researchers across the firm
+        - Covered WorldQuant's global events & conferences for the quarterly journal
+        - Executed global & local paid campaigns on Facebook, LinkedIn & Adwords
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items: 
-        - Nobel Prize in Physics 
-        - Matteucci Medal
-    - year: 2029
-      items: 
-        - Max Planck Medal
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+    - title: Content Strategist and Editor
+      institution: King Content (Isentia), Singapore
+      year: 2015 - 2017
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Cinema, Traveling, Reading, Politics, Pop psychology etc.
