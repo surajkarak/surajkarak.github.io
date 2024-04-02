@@ -17,6 +17,9 @@ While David's approach involved asking ChatGPT questions based standard politica
 
 The trained model will then aim to classify the texts from ChatGPT’S responses into 3 categories - Biased Left, Neutral and Biased Right - using some of the common classification algorithms – Naive Bayes, Random Forest and Support Vector Machines. The expectation is that there will be a similar left-leaning bias in the responses.
 
+*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/detecting-political-bias-in-chatgpt-responses-using-nlp-ba782c41a816"> check out the long-form article at Medium </a>.)*
+
+
 ## Data and corpus
 
 The data analysed was the text responses from ChatGPT to carefully posed questions that are based on the political orientation tests or subtle variations of these. These responses, along with the questions are collected in a tabular format that can be viewed in the associated GitHub repository.
