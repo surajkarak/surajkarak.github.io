@@ -20,6 +20,13 @@ The trained model will then aim to classify the texts from ChatGPT’S responses
 *(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/detecting-political-bias-in-chatgpt-responses-using-nlp-ba782c41a816"> check out the long-form article at Medium </a>.)*
 
 
+## Tech and techniques used
+
+- Python in Visual Studio
+- ChatGPT 
+- Natural Language Processing 
+- Classification algorithms: Naive Bayes, Random Forest and Support Vector Machines
+
 ## Data and corpus
 
 The data analysed was the text responses from ChatGPT to carefully posed questions that are based on the political orientation tests or subtle variations of these. These responses, along with the questions are collected in a tabular format that can be viewed in the associated GitHub repository.

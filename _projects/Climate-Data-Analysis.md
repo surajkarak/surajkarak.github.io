@@ -11,6 +11,11 @@ This project analyzes global temperature changes using deviations from a baselin
 
 *(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/quantifying-climate-change-f304eff918cf">  check out the long-form article at Medium </a>.)*
 
+## Tech used
+
+- R and Quarto in RStudio
+
+
 ## Data set
 
 Berkeley Earth put together the data set, which compiles three of the most cited land and ocean temperature data sets: NOAA’s MLOST, NASA’s GISTEMP, and the UK’s HadCrut. It combines **1.6 billion temperature reports from 16 pre-existing archives**, including Global Land and Ocean-and-Land Temperatures (GlobalTemperatures.csv), which tracks the **average land and ocean temperatures from 1750** along with their uncertainties and their maximums and minimums (from 1850) until 2015. Additionally, it contains sheets that slice the data by country, state, and city.

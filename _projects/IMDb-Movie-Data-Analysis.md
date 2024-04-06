@@ -9,6 +9,10 @@ category: work
 
 This project analyses the IMDb movie ratings, and looks at trends, patterns, and factors that influence the reception of a film. By analying the IMDb dataset, we explore movie ratings across genres, time periods, and key metrics such as weighted ratings.
 
+## Tech used 
+
+- R and Quarto in RStudio
+
 ## Data set
 
 For this analysis I used the <a href="https://developer.imdb.com/non-commercial-datasets/"> IMDb Non-commercial dataset </a>, a repository of movie-related information sourced from IMDb. The main datasets that we will use are the following:

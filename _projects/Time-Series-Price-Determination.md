@@ -10,6 +10,11 @@ category: work
 
 This was a group project that we did for the course MDSSB-DSAI-01 DIGITAL TRANSFORMATION as part of our Masters program in Data Science at Constructor University Bremen. The goal was to identify correlations and patterns between waste prices and potential price determinants such as weather, energy, and business cycle factors, and to recommend which were the best ones to consider for future prediction and modeling work.
 
+## Tech used
+
+- Python in Visual Studio
+- Time series analysis
+
 ## The wPreis Dataset
 
 The dataset was provided to us by the professor and teaching assistant. It contained the price of waste as recorded by an anonymous waste recycling company in Bremen from Sep 2020 until Sep 2023. The prices corresponded to the amounts that the company paid for collecting waste from various sources (positive values), or which the company paid for collecting waste (negative values.

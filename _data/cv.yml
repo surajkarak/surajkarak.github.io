@@ -1,10 +1,12 @@
-- title: General Information
+- title: Bio
   type: map
   contents:
     - name: Full Name
       value: Suraj Karakulath
     - name: Occupation
       value: Data Scientist
+    - name: Location
+      value: Bremen, Germany
     - name: Languages
       value: English, German
 
@@ -37,8 +39,14 @@
         - Defined product messaging in collaboration with Global Product Leads
         - Created content with subject matter experts, data scientists and external media production agencies.
     - title: Data Science Consultant
-      institution: Independent Consulting, Remote.
+      institution: Independent Consulting, Remote
       year: 2020-2022
+      description:
+        - Worked with multiple enterprises and startups, providing data science and marketing analytics services 
+        - Set up web data analytics and measurement frameworks using Google Analytics
+        - Managed paid Google Ads campaigns and organic social content
+        - Created dashboards for insights integrating various web analytics data sources
+        - Advising and creating thought leadership content for C-Suite
 
     - title: Content Marketer
       institution: WorldQuant, Singapore
@@ -50,9 +58,25 @@
         - Covered WorldQuant's global events & conferences for the quarterly journal
         - Executed global & local paid campaigns on Facebook, LinkedIn & Adwords
 
+    - title: Digital Marketing Consultant
+      institution: Independent Consulting, Remote
+      year: 2017 - 2018
+      description:
+        - Provided data science and marketing services to various clients including setting up of measurement frameworks
+        - Managed writers and designers on content creation 
+        - Partnered with market researchers and data analysts for surveys and owned research
+        - Conducted competitor analysis and content audit to identify gaps and opportunities
+        - Monitored trends on artificial intelligence and machine learning for content opportunities
+
     - title: Content Strategist and Editor
       institution: King Content (Isentia), Singapore
       year: 2015 - 2017
+      description:
+        - Managed end-to-end content marketing for clients across a number of sectors in Asia
+        - Developed data-driven content marketing strategies to meet clients' business objectives
+        - Managed the editorial production and commissioning content briefs to writers and journalists
+        - Conducted SEO keyword research, content audits and competitor analysis to aid strategy
+        - Developed content performance reports with insights and recommendations for optimisation
 
 - title: Other Interests
   type: list

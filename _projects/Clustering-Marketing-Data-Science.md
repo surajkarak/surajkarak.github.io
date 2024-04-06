@@ -14,6 +14,10 @@ In this project, we performed clustering of the web visitors to Google’s Merch
 
 *(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/segmenting-website-visitors-into-personas-using-unsupervised-learning-649ea8e39c9e">  check out the long-form article at Medium </a>.)*
 
+## Tech and techniques used
+
+- Python in Visual Studio
+- kMeans clustering
 
 ## **Data Collection**
 
