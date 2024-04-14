@@ -59,7 +59,7 @@ So I filtered the dataset for songs before the breakup.
 
 (This is an interactive map, hover over the circles to see more details on each song)
 
-<iframe src="/assets/img/Beatles/temporelease.html" width="600" height="400"></iframe>
+<iframe src="/assets/img/Beatles/temporelease.html" width="900" height="800"></iframe>
 
 At this point, I also noticed that there were some repetitions. It seems like the Super Deluxe version contains multiple takes, instrumental versions and the 2 singles Penny Lane and Strawberry Fields Forever, along with their different takes. The same goes for the Deluxe Edition. This might be too much redundancy. So I just picked the 2 singles Strawberry Fields Forever - Stereo Mix 2015 and Penny Lane - Stereo Mix 2017 and add to the Remastered dataframe and work with this dataset.
 
@@ -86,7 +86,7 @@ And finally I wanted to get a look of how the songs are placed in relation to Te
 
 *(This is an interactive map, hover over the circles to see more details on each song)*
 
-<iframe src="/assets/img/Beatles/tempoduration.html" width="600" height="400"></iframe>
+<iframe src="/assets/img/Beatles/tempoduration.html" width="900" height="800"></iframe>
 
 
 Some observations from this plot that stand out:
