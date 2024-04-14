@@ -2,7 +2,7 @@
 layout: page
 title: How "positive" and "energetic" are The Beatles songs?
 description: Interactive visualization of energy, positivity and more from Spotify API data
-img:img: /assets/img/Beatles/beatles.jpg
+img: /assets/img/Beatles/beatles.gif
 importance: 1
 category: work  
 ---
