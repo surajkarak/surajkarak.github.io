@@ -1,6 +1,6 @@
 ---
 layout: page
-title: How positive and energetic are The Beatles songs
+title: How "positive" and "energetic" are The Beatles songs?
 description: Interactive visualization of energy, positivity and others in the songs of The Beatles
 img:img: /assets/img/Beatles/beatles.gif
 importance: 1
@@ -45,7 +45,11 @@ After these were extracted, I stored them in a csv file because I didn’t want 
 
 After retrieving the data from the csv file for analysis, my first instinct was to see if all of the select audio features were equally relevant for analysis. I assumed that there would be some correlation between something like Loudness and Energy, which would mean one of them was redundant.
 
-![](images/corrmatrix.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/Beatles/corrmatrix.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 > Interestingly the only significant correlation is between Energy and Loudness which makes sense. A somewhat significant inverse correlation between Energy and Acousticness is also expected, as acoustic versions tend to be calmer and quieter. Similarly, the more "speechy" a song, the less loud it tends to be.
 
@@ -55,9 +59,7 @@ So I filtered the dataset for songs before the breakup.
 
 (This is an interactive map, hover over the circles to see more details on each song)
 
-``` HTML
-<iframe src="temporelease.html" width="600" height="400"></iframe>
-```
+<iframe src="/assets/img/Beatles/temporelease.html" width="600" height="400"></iframe>
 
 At this point, I also noticed that there were some repetitions. It seems like the Super Deluxe version contains multiple takes, instrumental versions and the 2 singles Penny Lane and Strawberry Fields Forever, along with their different takes. The same goes for the Deluxe Edition. This might be too much redundancy. So I just picked the 2 singles Strawberry Fields Forever - Stereo Mix 2015 and Penny Lane - Stereo Mix 2017 and add to the Remastered dataframe and work with this dataset.
 
@@ -71,7 +73,12 @@ First I want to explore how some of the important audio features are distributed
 
 -   Acousticness (because this would also be generally even distribution as their songs contained a mixture of acoustic and other new sounds)
 
-![](images/distribution.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/Beatles/distribution.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 The distributions show that the Tempo, Key, Energy, Danceability and Valence are somewhat normally distributed with some double peaks. Songs are generally on the louder side and between 100-200 seconds (approx.1.5 to 3 minutes).
 
@@ -79,9 +86,8 @@ And finally I wanted to get a look of how the songs are placed in relation to Te
 
 *(This is an interactive map, hover over the circles to see more details on each song)*
 
-``` HTML
-<iframe src="tempoduration.html" width="600" height="400"></iframe>
-```
+<iframe src="/assets/img/Beatles/tempoduration.html" width="600" height="400"></iframe>
+
 
 Some observations from this plot that stand out:
 
