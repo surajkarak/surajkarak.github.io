@@ -1,15 +1,22 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
+title: How positive and energetic are The Beatles songs
+description: Interactive visualization of energy, positivity and others in the songs of The Beatles
 img:
-importance: 4
+importance: 1
 category:  
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+So I have been going through one of those phases where I revisit the music of The Beatles (partly driven by the release of their new song Now and Then last year). It made me reflect on the enduring quality of their music and how varied the emotions are in their song catalogue. 
+
+Knowing that the Spotify API provides some attributes regarding each song I decided to do a quick analysis of the songs of The Beatles.
+
+## What I used
+
+- Python in Visual Studio for extraction and analysis
+- Spotify API for extraction of the albums, songs and their audio features
+- Plotly package for interactive visualisation
+
 
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
