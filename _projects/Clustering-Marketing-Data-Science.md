@@ -12,7 +12,7 @@ Marketers generally adopt some standard segmentation and clustering techniques t
 
 In this project, we performed clustering of the web visitors to Google’s Merchandise Store using kMeans clustering, using their web analytics data. The clustering stage is preceded by the standard steps of data science, including cleaning, exploration, feature selectiona and preprocessing.
 
-*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/segmenting-website-visitors-into-personas-using-unsupervised-learning-649ea8e39c9e">  check out the long-form article at Medium </a>.)*
+*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/segmenting-website-visitors-into-personas-using-unsupervised-learning-649ea8e39c9e">  check out the long-form article at Medium </a> or if you want to run the code along with each step, <a href="https://www.kaggle.com/code/surajkarakulath/clustering-audiences-to-create-personas/"> see the Kaggle notebook </a> .)*
 
 ## Tech and techniques used
 
@@ -21,13 +21,11 @@ In this project, we performed clustering of the web visitors to Google’s Merch
 
 ## **Data Collection**
 
-The data used for this project are from select files used for the Google Customer Revenue Prediction Competition on Kaggle.
+The data used for this project are from select files used for the <a href = "https://www.kaggle.com/c/ga-customer-revenue-prediction/overview">  Google Customer Revenue Prediction Competition on Kaggle </a>. A Kaggle user was able to <a href = "https://www.kaggle.com/code/ogrellier/create-extracted-json-fields-dataset/outputwhich">  extract this data into json files here </a> which might be easier to work with.
 
 The first dataset involves 903653 observations of visits to Google’s Merchandise Store for a period of a year between the 1st of August 2016 to 1st of August 2017.
 
-The second is another dataset related to this same Google store data, that includes more numerical variables like Sessions, Average Session Duration, Bounce Rate, Transcations and Goal Conversion Rate. This was not part of the original Kaggle competition but it came to be as a result of a “leak” in the competition dataset which sparked some discussion in their forum after which the competition was shut down. https://www.kaggle.com/c/ga-customer-revenue-prediction/discussion/68235#401950
-
-The data has been provided by a Kaggle user in corresponding csv files here https://www.kaggle.com/datasets/satian/exported-google-analytics-data?select=Train_external_data_2.csv. We can use this to marge into the first dataset when needed.
+The second is another dataset related to this same Google store data, that includes more numerical variables like Sessions, Average Session Duration, Bounce Rate, Transcations and Goal Conversion Rate. This was not part of the original Kaggle competition but it came to be as a result of a “leak” in the competition dataset which sparked <a href="https://www.kaggle.com/c/ga-customer-revenue-prediction/discussion/68235#401950" > some discussion in their forum after which the competition was shut down. </a> This second dataset has been provided by a Kaggle user in <a href = "https://www.kaggle.com/datasets/satian/exported-google-analytics-data?select=Train_external_data_2.csv"> corresponding csv files here </a>. We can use this to merge into the first dataset when needed. 
 
 ## **Data Exploration**
 
