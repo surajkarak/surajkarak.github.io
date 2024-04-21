@@ -35,12 +35,11 @@ And I could not analyse all the content in these subreddits since the beginning 
 
 To extract the data, I used [Reddit’s API](https://www.reddit.com/dev/api/) after registering, creating an app, creating the credentials and requesting the access token.
 
-In every API call, I would pull the new posts from one subreddit by specifying the endpoint as <https://oauth.reddit.com/r/%7Bsubreddit_name%7D/new>.
+In every API call, I would pull the new posts from one subreddit by specifying the endpoint as "https://oauth.reddit.com/r/{subreddit_name}/new".
 
 I had to set a limit of 100 but doing this in 10 loops allowed me to get 1000 posts. After pulling the 1000 posts, I would save this into a SQLite database using SQL queries. This is so that every time All this was defined in a function and I would just call the function by passing the name of the subreddit. Then I queried all the data from the database into a dataframe. I ran the code notebook I didn’t have to execute the API call, and could just work with the stored database.
 
-## 
-Data cleaning and exploration 
+## Data cleaning and exploration 
 
 In total there were 4795 posts extracted across the 5 subreddits. The data extracted included features such as
 
@@ -54,25 +53,20 @@ The title is what I want to explore and analyse so I apply the basic cleaning st
 
 ## Sentiment analysis
 
-First I did a quick sentiment analysis to check how positive or negative each of the subreddits are. For this I used the AFINN and TextBlob Lexicon based analysis. (You can use better techniques including VADER and pretrained models for this but I just wanted a quick check before proceeding to the political bias). I got the sentiment scores which vary from -18 to just under 10.After retrieving the data from the csv file for analysis, my first instinct was to see if all of the select audio features were equally relevant for analysis. I assumed that there would be some correlation between something like Loudness and Energy, which would mean one of them was redundant.
+First I did a quick sentiment analysis to check how positive or negative each of the subreddits are. For this I used the AFINN and TextBlob Lexicon based analysis. (You can use better techniques including VADER and pretrained models for this but I just wanted a quick check before proceeding to the political bias). I got the sentiment scores which vary from -18 to just under 10. 
 
-::: row
-```         
+
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="/assets/img/RedditBias/sentiment_score_distribution.png" title="Sentiment Score Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
+
 
 Categorising the scores above 0 to be positive, below 0 to be negative and 0 as neutral, I checked how each subreddit fared for each category.
 
-::: row
-```         
+ 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="/assets/img/RedditBias/sentiment_category_distribution.png" title="Sentiment Category Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
 
 Interestingly, all the politics-related subreddits were leaning towards negative (not surprising as these subreddits often or even mostly share posts from news outlets, which of course are catered towards grabbing attention and building audience which means they tend to be negative). AskReddit is the only one which has a neutral majority, which makes sense as that subreddit is not exclusively about politics.
 
@@ -88,13 +82,9 @@ The files in each folder are read and their content extracted into one dataframe
 
 When put together, the dataframe has 17362 rows, with no missing values. The dataframe’s rows need to be shuffled first to avoid all rows of the same labels being together. Next, the bias values are encoded as ‘Left’: 0,’Center’: 1 and ,’Right’: 2, to do numerical calculations. Plotting the distribution of the bias values shows the following graph.
 
-::: row
-```         
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="/assets/img/RedditBias/labelled_data_distribution.png" title="Labelled Data Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
 
 This shows that the training dataset itself will not be perfectly balanced, as there are more left-biased samples than others.
 
@@ -114,19 +104,18 @@ The accuracies for the three different algorithms are as follows.
 | Random Forest  | 0.77 |
 | Support Vector | 0.92 |
 
+
 Since the Support Vector classifier has the best results on the test data set, I decided to use that predict the biases for the subreddit texts.
 
 ### Prediction
 
 Next, I wanted to predict the bias for the subreddit texts using SVC. For this, I first tokenised the cleaned text from the subreddits and vectorised it using the same Doc2Vec model. Passing these vectors to the SVC function, I got the bias values (0, 1 or 2) in a new column ‘Label’. Grouping the labels into categories {0: 'Left', 1: 'Center', 2: 'Right'} and plotting a distribution gave me this:
 
-::: row
-```         
+   
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="/assets/img/RedditBias/subreddit_bias_distribution.png" title="Subreddit Political Bias Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
-```
-:::
+
 
 As expected, all the subreddits show a left-leaning bias. There are some right-leaning bias but very little neutral. It is important to keep in mind that the reddit community tends to be skewed towards younger, progressive, tech and digitally savvy crowds (although there are subreddits that are almost fully conservative and even extreme right-wing).
 
