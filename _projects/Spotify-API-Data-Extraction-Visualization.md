@@ -9,7 +9,7 @@ category: work
 
 So I have been going through one of those phases where I revisit the music of The Beatles (partly driven by the release of their new song Now and Then last year). It made me reflect on the enduring quality of their music and how varied the emotions are in their song catalogue.
 
-Knowing that the Spotify API provides some attributes regarding each song I decided to do a quick analysis of the songs of The Beatles.
+Knowing that the Spotify API provides some attributes regarding each song I decided to do a quick analysis of the songs of The Beatles. 
 
 ## What I used
 
