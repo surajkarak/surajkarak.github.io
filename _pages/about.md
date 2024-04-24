@@ -31,6 +31,7 @@ I grew up in India, lived and worked in Singapore for 16 years and now I'm finis
 Some projects that I am proud of:
 - <a href="https://surajkarak.github.io/projects/Time-Series-Price-Determination/"> Time series analysis to identify determinants of waste price </a>
 - <a href="https://surajkarak.github.io/projects/Clustering-Marketing-Data-Science/"> Unsupervised clustering to segment website audiences (not customer segmentation) </a>
+- <a href= "https://surajkarak.github.io/projects/Spotify-API-Data-Extraction-Visualization/"> An interactive visualization of audio features of The Beatles songs with Spotify API </a>
 - <a href="https://surajkarak.github.io/projects/NLP-ChatGPT-Bias/"> Using NLP to detect political bias in ChatGPT responses </a>
 - <a href="https://surajkarak.github.io/projects/Climate-Data-Analysis/"> Quantifying global temperature rise from climate change data </a>
 
