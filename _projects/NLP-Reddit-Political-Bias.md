@@ -7,7 +7,7 @@ importance: 1
 category: work  
 ---
 
-One of the topics I used to follow closely was the polarisation among online communities. Certain communities tend to attract audiences of a specific leaning, in their political leanings or other viewpoints.
+One of the topics I used to follow closely was the polarisation among online communities. Certain communities tend to attract audiences of a specific leaning, in their political or other viewpoints.
 
 So, having analysed the responses from [ChatGPT for political bias](https://surajkarak.github.io/projects/NLP-ChatGPT-Bias/), I decided to see if I could replicate the same thing for reddit communities, or subreddits as they are known.
 
@@ -23,7 +23,7 @@ First, I had to think about which subreddits to analyse and how. There are count
 
 -   AskReddit
 
-And I could not analyse all the content in these subreddits since the beginning - that would take days or weeks or more to extract and maybe still doable with some hacks. So I decided to look at the latest posts from these subreddits (more specifically, those which show up when you sort by “new” at the top.
+And I could not analyse all the content in these subreddits since the beginning - that would take days or weeks or more to extract and maybe still doable with some hacks. So I decided to look at the latest posts from these subreddits (more specifically, those which show up when you sort by “new” at the top).
 
 ## What I used
 
@@ -125,4 +125,4 @@ Interestingly, the AskReddit community seems to be the one with the most differe
 
 Firstly, we could compare the results with those produced by other models, even pre-trained LLM models. One could also analyse the discussion in the comments section under the subreddit’s posts and layer them on top of the post content itself to get a more holistic view of the bias in that specific thread. This will give us a better idea of what a general user can expect when they land on and spend time with the thread.
 
-There are also other more extreme and potentially more incendiary subreddits that could analyse. One interesting use case I can think of is to have real-time monitor of the bias of a thread (and a continuous one at that, instead of a discrete one) so that visitors and “lurkers” can get an idea of whether they should spend time on it before proceeding. One could also give users and option to view a more “balanced” feed where, depending on the overall bias, more content from other viewpoints are surfaced, so that readers can avoid spiralling into the much-talked about political “eco-chambers”.
+There are also other more extreme and potentially more incendiary subreddits that could analyse. One interesting use case I can think of is to have real-time monitor of the bias of a thread (and a continuous one at that, instead of a discrete one) so that visitors and “lurkers” can get an idea of whether they should spend time on it before proceeding. One could also give users and option to view a more “balanced” feed where, depending on the overall bias, more content from other viewpoints are surfaced, so that readers can avoid spiralling into the much-talked about political “echo-chambers”.
