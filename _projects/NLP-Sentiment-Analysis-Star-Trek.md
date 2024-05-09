@@ -4,14 +4,14 @@ title: Visualization of sentiment and narrative in Star Trek scripts
 description: Boldly going where no sentiment analysis has gone before
 img: /assets/img/startrek/startrek.gif
 importance: 1
-category:    
+category: work   
 ---
 
-As I was playing around with NLP, I got thinking about this wonderful clip of Stephen Fry talking about Star Trek.
+As I was playing around with NLP and sentiment analysis, I remembered watching this wonderful clip of Stephen Fry talking about Star Trek years ago, well before I had even watched a single episode.
 
 <div>
 
-<iframe width="1470" height="629" src="https://www.youtube.com/embed/mlpklo4VLak" title="Stephen Fry on Star Trek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+<iframe width="900" height="800" src="https://www.youtube.com/embed/mlpklo4VLak" title="Stephen Fry on Star Trek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
 
 </div>
 
@@ -51,7 +51,7 @@ Next I group lines by character. To do this I create a function that takes in an
 
 <div>
 
-``` python
+```python
 def group_by_character(episode_text):
     if isinstance(episode_text, str):
         lines_by_character = {}
@@ -74,10 +74,10 @@ def group_by_character(episode_text):
     else:
         return {}  # Return an empty dictionary if it's not a string
 ```
-
 </div>
 
 I apply this function to the column of cleaned lines and store it in a dictionary.
+
 
 ## How many words and lines are spoken by each character
 
@@ -109,13 +109,14 @@ Spock has very low sentiment, even negative. This makes sense. But strangely, Ki
 
 But this could also be because sentiment captures positive aspects in the language used. And both Spock and McCoy tend to speak of dangers and warnings, while Kirk is usually the one who is optimistic and confident.
 
+
 ## How do the sentiments vary across episodes?
 
 For some reason, I also felt like tracking how each of their sentiment changes across the seasons. But I also wanted to weight the sentiment scores by the word counts for that character per each episode so that I could get an idea of how positive each character was in an episode in proportion to the number of words they spoke. For this I simply normalized the word count for each character per episode and multiplied their sentiment for that episode with this value.
 
 <div>
 
-``` python
+```python
 max_word_count = char_data['word count'].max()
 char_data['normalized_word_count'] = char_data['word count'] / max_word_count
 
