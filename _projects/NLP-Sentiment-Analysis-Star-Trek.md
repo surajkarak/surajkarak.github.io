@@ -124,7 +124,7 @@ char_data['weighted_sentiment'] = char_data['sent_per_episode'] * char_data['nor
 
 The weighted sentiment scores is plotted in an interactive graph as below:
 
-<iframe src="/assets/img/startrek/sentperepisode.html" width="900" height="800"></iframe>
+<iframe src="/assets/img/startrek/sentperepisode.html" width="900" height="600"></iframe>
 
 Spock can be seen to be more negative, although slightly more balanced than the other two. His lowest comes in The Galileo Seven, the 16th episode of the 1st season, which I remember being one of his best ones. It is the one where he crashes with his team on a planet populated by aggressive giants and has to lead his team out. He has to make some quick moves to escape the planet's gravity at the end and interestingly, refuses to admit that his final actions were motivated by emotion than logic.
 
@@ -140,13 +140,13 @@ For this, I calculated the sentiment for each line in an episode and added it to
 
 I couldn’t do this for all episodes so I just choose from the first few.
 
-<iframe src="/assets/img/startrek/sentep0.html" width="900" height="800"></iframe>
+<iframe src="/assets/img/startrek/sentep0.html" width="900" height="700"></iframe>
 
-<iframe src="/assets/img/startrek/sentep2.html" width="900" height="800"></iframe>
+<iframe src="/assets/img/startrek/sentep2.html" width="900" height="700"></iframe>
 
-<iframe src="/assets/img/startrek/sentep3.html" width="900" height="800"></iframe>
+<iframe src="/assets/img/startrek/sentep3.html" width="900" height="700"></iframe>
 
-<iframe src="/assets/img/startrek/sentep4.html" width="900" height="800"></iframe>
+<iframe src="/assets/img/startrek/sentep4.html" width="900" height="700"></iframe>
 
 
 The result was not what I expected. There does not seem to be a common pattern. Episodes rise with positive sentiment sometimes while at other times it begins with negative sentiment, while in some cases it can just be fluctuating from the outset. What is common though is that at some point in the narrative the positive sentiment keeps building and after a drop towards the end, it rises back up again.
