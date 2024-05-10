@@ -7,13 +7,14 @@ importance: 1
 category: work   
 ---
 
-As I was playing around with NLP and sentiment analysis, I remembered watching this wonderful clip of Stephen Fry talking about Star Trek years ago, well before I had even watched a single episode.
+As I was playing around with NLP and sentiment analysis, I remembered this wonderful clip of Stephen Fry talking about Star Trek years ago, well before I had even watched a single episode.
 
 <div>
 
 <iframe width="800" height="600" src="https://www.youtube.com/embed/mlpklo4VLak" title="Stephen Fry on Star Trek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
 
 </div>
+
 
 I must admit I was never a hardcore “Trekkie” but I did remember having a blast binging The Original Series during COVID.
 
@@ -27,7 +28,7 @@ Stephen Fry’s proposition that Kirk balances out Spock’s logic and McCoy’s
 
 ## Data source
 
-Thankfully I didn't have to manually transcribe the episodes. Someone had already created a json file on Kaggle (which seems to have disappeared from there now (but you can retrieve it at my [Github repository](https://github.com/surajkarak/star_trek)).
+Thankfully I didn't have to manually transcribe the episodes. Someone had already created a json file on Kaggle, which seems to have disappeared from there now (but you can retrieve it at my [Github repository](https://github.com/surajkarak/star_trek)).
 
 ## Data cleaning and exploration
 
@@ -128,11 +129,9 @@ The weighted sentiment scores is plotted in an interactive graph as below:
 
 Spock can be seen to be more negative, although slightly more balanced than the other two. His lowest comes in The Galileo Seven, the 16th episode of the 1st season, which I remember being one of his best ones. It is the one where he crashes with his team on a planet populated by aggressive giants and has to lead his team out. He has to make some quick moves to escape the planet's gravity at the end and interestingly, refuses to admit that his final actions were motivated by emotion than logic.
 
-McCoy’s most positive episode is the The Tholian Web,
+McCoy’s most positive episode is the The Tholian Web. Interestingly, it looks like Kirk is also the one who fluctuates between the highest of positives to the lowest of negatives throughout. His highest weighted sentiment score comes in the episodes "A Piece of the Action" and “The Immunity Syndrome" (the 17th and 18th episodes of the 2nd season respectively). A Piece of the Action is the one in which they visit the planet with Earth-like 1920s gangster culture, with Tommy guns and where Kirk teaches them the fictitious game of “fizzbin” to distract the guards who captured his team. In The Immunity Syndrome, the team encounters an energy-draining, space-dwelling organism and has to send a member to pilot a shuttlecraft into the gelatinous mass of the creature and conduct analysis. His lowest sentiments comes in the episodes “The Deadly Years”, where the crew experiences rapid aging after being exposed to radiation, “Obsession” in which Kirk becomes obsessed with hunting down a deadly creature that killed members of his previous crew and “Wolf in the Fold”, where the crew becomes embroiled in a murder investigation on a pleasure planet when a series of killings occur under mysterious circumstances.
 
-Interestingly, it looks like Kirk is also the one who fluctuates between the highest of positives to the lowest of negatives throughout. His highest weighted sentiment score comes in the episodes "A Piece of the Action" and “The Immunity Syndrome" (the 17th and 18th episodes of the 2nd season respectively). A Piece of the Action is the one in which they visit the planet with Earth-like 1920s gangster culture, with Tommy guns and where Kirk teaches them the fictitious game of “fizzbin” to distract the guards who captured his team. In The Immunity Syndrome, the team encounters an energy-draining, space-dwelling organism and has to send a member to pilot a shuttlecraft into the gelatinous mass of the creature and conduct analysis. His lowest sentiments comes in the episodes “The Deadly Years”, where the crew experiences rapid aging after being exposed to radiation, “Obsession” in which Kirk becomes obsessed with hunting down a deadly creature that killed members of his previous crew and “Wolf in the Fold”, where the crew becomes embroiled in a murder investigation on a pleasure planet when a series of killings occur under mysterious circumstances.
-
-## How does the overall sentiment during an episode narrative?
+## How does the overall sentiment progress during an episode narrative?
 
 One interesting but obvious aspect that I noticed when I watched the original series was how it usually followed a standard narrative progression template. The crew finds something to investigate, either on a planet or in outer space, have to send a team to collect data, more dangers are observed, the usual character interactions and bickering ensue between Spock-Kirk-McCoy, a major event peaks the tension followed by climax and eventual resolution. This follows the standard narrative arc that all stories tend to have. I wanted to explore how the sentiment changes through an episode, and if it follows a similar trajectory.
 
