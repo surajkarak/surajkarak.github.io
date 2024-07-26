@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: Papers & Presentations
+title: Publications
 description: Some papers and presentations that happened along the way.
 nav: true
 nav_order: 2
