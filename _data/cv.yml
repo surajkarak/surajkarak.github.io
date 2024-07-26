@@ -25,15 +25,15 @@
   contents:
     - title: Data Scientist
       institution: Constructor Technology Group, Bremen
-      year: Jul 2023-Present
+      year: 07.2024-Present
       description:
-        - Joined the research team under [Prof. Petr Popov](https://constructor.university/faculty-member/petr-popov)
+        - Joined the research team under  <a href="https://constructor.university/faculty-member/petr-popov" target="_blank">Prof. Petr Popov</a>
         - Conducting Spatiotemporal analysis of protein-ligand interactions
         - Extracting and exploring distributions of interaction parameters from PDB files
         - Developing interactive Streamlit dashboards for easy communication of research findings
     - title: Product Intern
       institution: Constructor Technology Group, Bremen
-      year: May 2023 - Jun 2024
+      year: 05.2023 - 06.2024
       description:
         - Finished a 6-week internship as part of my Masters degree 
         - Working in the Product team responsible for the Alemira LMS
