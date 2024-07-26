@@ -26,7 +26,7 @@ I grew up in India, lived and worked in Singapore for 16 years and now I'm finis
 
 **My specialties in Data Science include**: Data Mining, Data Exploration, Data Modeling, Machine Learning, NLP, Time Series.
 
-**Tools/skills that I work with**: Python, R, SQL, BigQuery, Google Analytics, Tableau, Google Data Studio, PowerBI 
+**Tools/skills that I work with**: Python, R, SQL, BigQuery, Google Analytics, Tableau, Google Data Studio, PowerBI, Streamlit 
 
 Some projects that I am proud of:
 - <a href="https://surajkarak.github.io/projects/Time-Series-Price-Determination/"> Time series analysis to identify determinants of waste price </a>
