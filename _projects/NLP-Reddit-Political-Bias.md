@@ -4,7 +4,7 @@ title: How politically biased are some of the top subreddits?
 description: Using NLP to detect political bias in some top subreddits
 img: /assets/img/RedditBias/Subreddit_Political_Bias.png
 importance: 3
-category: work  
+category: fun  
 ---
 
 One of the topics I used to follow closely was the polarisation among online communities. Certain communities tend to attract audiences of a specific leaning, in their political or other viewpoints.

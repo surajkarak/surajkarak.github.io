@@ -4,7 +4,7 @@ title: How "positive" and "energetic" are The Beatles songs?
 description: Interactive visualization of energy, positivity and more from Spotify API data
 img: /assets/img/Beatles/beatles.gif
 importance: 4
-category: work  
+category: fun  
 ---
 
 So I have been going through one of those phases where I revisit the music of The Beatles (partly driven by the release of their new song Now and Then last year). It made me reflect on the enduring quality of their music and how varied the emotions are in their song catalogue. 

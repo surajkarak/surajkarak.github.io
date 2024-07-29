@@ -4,7 +4,7 @@ title: Visualization of sentiment and narrative in Star Trek scripts
 description: Boldly going where no sentiment analysis has gone before
 img: /assets/img/startrek/startrek.gif
 importance: 2
-category: work   
+category: fun   
 ---
 
 As I was playing around with NLP and sentiment analysis, I remembered this wonderful clip of Stephen Fry talking about Star Trek years ago, well before I had even watched a single episode.
