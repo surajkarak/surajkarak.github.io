@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Time Series Forecasting for Non-Transparent Markets (Wood Waste)
+title: Time series forecasting for non-transparent markets (wood waste)
 description: Comparing ARIMA, Decision Tree, Random Forest, XGBoost and Prophet for time series forecasting
 img: assets/img/time_series_forecasting/ARIMA_WF.png
 importance: 1 
@@ -60,7 +60,7 @@ When the wPreis values were plotted, it was seen that for all 3 categories in th
 
 There could be a number of factors behind this structure for these time series. If one had to hypothesize, one could say that the gradual increase in 2020 could be in part due to the post-COVID-19 recovery and resumption of economic activities, which may also have had an effect on the demand for wood-based products. The sharp rise in early to mid 2020 may have been driven by the energy crisis, exacerbated by geopolitical tensions, and the increased demand for alternative energy sources, including biomass and wood waste, not to mention the rising inflation rates. The subsequent drops in prices from the middle of 2022 may have resulted in part due to the stabilisation of supply chains as producers and suppliers adjusted to the increased demand, as well as the economic slowdown or recession in 2023.
 
-## Time series modelling 
+## **Time series modelling **
 
 For this project, I used the following time series models for forecasting. 
 
@@ -101,8 +101,7 @@ main components – Trend, Seasonality and Residuals – a process called seaso
 Similar to the ACF and PACF, the functions seasonal_decompose from the from
 statsmodels.tsa.seasonal can be used to extract the trend, seasonal and residual components. For the “period” parameter, I chose 4, based on what the ACF and PCF plots suggested to be lags worth considering. 
 
-When applied on the price values for the cluster ['25', '24'] and for the category 'A1 & A2
-- geschreddert' we observe the following components.
+When applied on the price values for the cluster ['25', '24'] and for the category 'A1 & A2 - geschreddert' we observe the following components.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -120,7 +119,7 @@ the statistical properties such as mean and variance stay constant over time.
 
 Checking for stationarity is crucial for determining the appropriate modelling approach as some models such as ARIMA assume stationarity. To check for stationarity there are statistical tests such as the Augmented Dickey-Fuller (ADF) test.
 
-### Differencing
+#### Differencing
 
 Converting a time series to stationary can be achieved with differencing. This involves
 computing the differences between consecutive observations. The result is a stabilization of the
@@ -148,7 +147,7 @@ Applying the test for all the categories and clusters showed that most were non-
 
 Hence, wherever applicable in the modelling (such as ARIMA models), the difference order of 2 can be taken. 
 
-## Modeling
+## **Modeling**
 
 To account for the possible difference in the number of observations across all the time series (across clusters and categories), the training test split is based on a ratio of 95-5 % ratio.  
 
@@ -167,7 +166,7 @@ Autoregression refers to how the current value depends on past values. Integrati
 
 The model is generally denoted by ARIMA(𝑝,𝑑,𝑞) where the parameters are lag (p), differencing (d) and residual error (q).
 
-### *Choice of p and d for ARIMA*
+#### *Choice of p and d for ARIMA*
 
 As seen from the ADF tests and differencing steps, the value of d can be taken as 2. To arrive at a single value of p for standardizing the predictions and comparing across all categories and clusters, the AIC values for p values up to 10 are compared as below.
 
@@ -179,7 +178,7 @@ As seen from the ADF tests and differencing steps, the value of d can be taken a
 
 Getting the predictions for the cluster ['25', '24'] and for the category 'A1 & A2 - geschreddert' using static and walk-forward validation method gives the following:
 
-**Static**
+#### **Static**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -192,7 +191,7 @@ Getting the predictions for the cluster ['25', '24'] and for the category 'A1 & 
     </div>
 </div>
 
-**Walk-forward**
+#### **Walk-forward**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -205,12 +204,14 @@ Getting the predictions for the cluster ['25', '24'] and for the category 'A1 & 
     </div>
 </div>
 
+<br>
+
 
 ### Decision Tree
 
 Decision trees are non-parametric supervised learning methods which work by partitioning the feature space into a set of disjoint regions based on recursive binary splitting of the feature space. At each step, the algorithm selects the feature and the split point that optimally separates the data according to some criterion, such as maximizing information gain or minimizing impurity. For time series forecasting, decision trees can be adapted by incorporating lagged variables as features. When this is done in each of the forecasting methods for the cluster ['25', '24'] and for the category 'A1 & A2 - geschreddert' I got the following results.
 
-**Static**
+#### **Static**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -223,7 +224,7 @@ Decision trees are non-parametric supervised learning methods which work by part
     </div>
 </div>
 
-**Rolling**
+#### **Rolling**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -236,7 +237,7 @@ Decision trees are non-parametric supervised learning methods which work by part
     </div>
 </div>
 
-**Walk-forward**
+#### **Walk-forward**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -249,13 +250,15 @@ Decision trees are non-parametric supervised learning methods which work by part
     </div>
 </div>
 
+<br>
+
 ### Random Forest
 Random Forest is an ensemble learning technique that combines the predictions of
 multiple decision trees to improve overall performance. It works by constructing a collection of decision trees, each trained on a random subset of the training data and a random subset of the input features. It is based on the bootstrap aggregation (bagging, which involves the creation of decision trees, where each is constructed from a different bootstrap sample in the training dataset. A bootstrap sample is one where an observation may appear more than once in the sample. This means that decision tree is fit on a slightly different training dataset, which gives slightly different performance for each. Predictions from the trees are averaged across all decision trees, to produce better performance than that given by any single tree.
 
 When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - geschreddert' within it gives the following results.
 
-**Static**
+#### **Static**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -268,7 +271,7 @@ When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - g
     </div>
 </div>
 
-**Rolling**
+#### **Rolling**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -281,7 +284,7 @@ When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - g
     </div>
 </div>
 
-**Walk-forward**
+#### **Walk-forward**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -294,6 +297,7 @@ When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - g
     </div>
 </div>
 
+<br>
 
 ### XGBoost
 
@@ -301,7 +305,7 @@ XGBoost, which stands for eXtreme Gradient Boosting, is an efficient implementat
 
 When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24'] and for the category 'A1 & A2 - geschreddert', it gives the following results:
 
-**Static**
+#### **Static**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -314,7 +318,7 @@ When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24']
     </div>
 </div>
 
-**Rolling**
+#### **Rolling**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -327,7 +331,7 @@ When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24']
     </div>
 </div>
 
-**Walk-forward**
+#### **Walk-forward**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -340,6 +344,7 @@ When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24']
     </div>
 </div>
 
+<br>
 
 ### Prophet
 
@@ -349,7 +354,7 @@ make accurate forecasts for data with trends and seasonal structure. It is known
 
 Using Prophet, the 3 forecasting methods for the same cluster and category yielded the following results:
 
-**Static**
+#### **Static**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -362,7 +367,7 @@ Using Prophet, the 3 forecasting methods for the same cluster and category yield
     </div>
 </div>
 
-**Walk-forward**
+#### **Walk-forward**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -375,7 +380,9 @@ Using Prophet, the 3 forecasting methods for the same cluster and category yield
     </div>
 </div>
 
-## Insights
+<br>
+
+## **Insights**
 
 The results of forecasting using each of the available methods for ARIMA, Decision Tree,
 Random Forest, XGBoost and Prophet models illustrate the following points.
