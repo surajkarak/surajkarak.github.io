@@ -607,7 +607,10 @@ footer.sticky-bottom {
     }
   }
 
-  .grid-sizer,
+  .grid-sizer{
+    width: 100%;
+  }
+
   .grid-item {
     width: 350px;
     margin-bottom: 10px;
