@@ -6,7 +6,7 @@ description: Look on my works, ye Mighty, and despair!
 nav: true
 nav_order: 1
 display_categories: [work, fun]
-horizontal: false
+horizontal: true
 ---
 <!-- pages/projects.md -->
 <div class="projects">
