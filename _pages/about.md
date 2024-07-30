@@ -17,7 +17,7 @@ news: false  # includes a list of news items
 projects: true
 latest_posts: false  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: false  # includes social icons at the bottom of the page
+social: true  # includes social icons at the bottom of the page
 ---
 
 I am a Data scientist with domain expertise in marketing, media, SaaS products and technology. I have over 10 years of experience in product, strategy, content, data analytics and measurement that included stints at various startups, large enterprises like Google and WorldQuant. I have also provided independent consulting for startups specialising in computer vision, artificial intelligence, retail, geospatial data analytics and conversational AI/chatbot development.
