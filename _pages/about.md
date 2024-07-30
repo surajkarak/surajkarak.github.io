@@ -7,7 +7,7 @@ subtitle: Pleased to meet you. Hope you guess my name.
 profile:
   align: right
   image: Profile_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   more_info: >
     <p>Bremen, Germany</p>
     <p><a href="https://www.linkedin.com/in/surajkarakulath/"> LinkedIn </a></p>
