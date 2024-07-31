@@ -9,7 +9,8 @@ profile:
   image: Profile_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p>Bremen, Germany</p>
+    <p> Bremen, Germany </p>
+
     <p><a href="https://www.linkedin.com/in/surajkarakulath/"> LinkedIn </a></p>
  #   <p>Your City, State 12345</p>
 
@@ -24,11 +25,11 @@ I am a Data scientist with domain expertise in marketing, media, SaaS products a
 
 I grew up in India, lived and worked in Singapore for 16 years and now I'm finishing a Masters in Data Science in Bremen, Germany. *Ich lerne derzeit auch Deutsch und habe vor, bald von A2 auf B1 zu kommen.*
 
-**My specialties in Data Science include**: Data Mining, Data Exploration, Data Modeling, Machine Learning, NLP, Time Series.
+**My specialties in Data Science include**: Data Mining, Data Exploration, Data Modeling, Machine Learning, NLP, Time Series, Data Visualization.
 
-**Tools/skills that I work with**: Python, R, SQL, BigQuery, Google Analytics, Tableau, Google Data Studio, PowerBI, Streamlit 
+**Tools/skills that I work with**: Python, R, SQL, BigQuery, Google Analytics, Tableau, Google Data Studio, PowerBI, Streamlit.
 
-Some projects that I am proud of:
+Some projects that I had fun working on:
 - <a href="https://surajkarak.github.io/projects/Time-Series-Forecasting/"> Time series forecasting in non-transparent markets using ARIMA, XGBoost and Prophet </a>
 - <a href="https://surajkarak.github.io/projects/Clustering-Marketing-Data-Science/"> Unsupervised clustering to segment website audiences (not customer segmentation) </a>
 - <a href= "https://surajkarak.github.io/projects/Spotify-API-Data-Extraction-Visualization/"> An interactive visualization of audio features of The Beatles songs with Spotify API </a>
