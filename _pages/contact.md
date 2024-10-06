@@ -6,11 +6,11 @@ description: Here's how you can work with me.
 nav: true
 nav_order: 5
 ---
-<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw_pvTXWeLi-0jVwf1i8bz2wZdZmFr3T6EYyKD4OcKkH61tg/viewform?embedded=true" width="640" height="810" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw_pvTXWeLi-0jVwf1i8bz2wZdZmFr3T6EYyKD4OcKkH61tg/viewform?embedded=true" width="640" height="810" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>  
 
-<div class="form-container">
+<!-- <div class="form-container">
   <h3>Just drop me a quick note</h3>
-  <form id="contact-form">
+  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec" method="POST">
     <input type="text" id="name" name="name" placeholder="Your Name" required>
     <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
     <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
@@ -32,7 +32,7 @@ nav_order: 5
       message: form.message.value
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbyFgMQ2eTCUNIKI44DPgzhkqI-JqDPLTPurJWJ1jLdf/dev', {
+    fetch('https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -91,4 +91,4 @@ nav_order: 5
     text-align: center;
     color: #28a745;
   }
-</style>
+</style> -->
