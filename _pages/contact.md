@@ -32,7 +32,7 @@ nav_order: 5
       message: form.message.value
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyFgMQ2eTCUNIKI44DPgzhkqI-JqDPLTPurJWJ1jLdf/dev', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
