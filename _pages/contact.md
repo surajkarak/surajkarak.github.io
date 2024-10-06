@@ -3,17 +3,17 @@ layout: page
 permalink: /contact/
 title: Contact
 description: Here's how you can work with me.
-nav: false
+nav: true
 nav_order: 5
 ---
 <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw_pvTXWeLi-0jVwf1i8bz2wZdZmFr3T6EYyKD4OcKkH61tg/viewform?embedded=true" width="640" height="810" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
 
 <div class="form-container">
-  <h2>Contact Me</h2>
+  <h3>Just drop me a quick note</h3>
   <form id="contact-form">
     <input type="text" id="name" name="name" placeholder="Your Name" required>
-    <input type="email" id="email" name="email" placeholder="Your Email" required>
-    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+    <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
+    <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
     <input type="submit" value="Send">
   </form>
   <p id="form-status"></p>
@@ -32,7 +32,7 @@ nav_order: 5
       message: form.message.value
     };
 
-    fetch('AKfycbyFgMQ2eTCUNIKI44DPgzhkqI-JqDPLTPurJWJ1jLdf', {
+    fetch('https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ nav_order: 5
   }
 
   input[type="submit"] {
-    background-color: #28a745;
+    background-color: var(--global-theme-color);
     color: white;
     border: none;
     cursor: pointer;
@@ -82,7 +82,7 @@ nav_order: 5
     background-color: #218838;
   }
 
-  h2 {
+  h3 {
     text-align: center;
     margin-bottom: 20px;
   }
