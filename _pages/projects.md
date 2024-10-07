@@ -5,7 +5,7 @@ permalink: /projects/
 description: Look on my works, ye Mighty, and despair!
 nav: true
 nav_order: 1
-display_categories: [work, fun, tinkering]
+display_categories: [work, tinkering, fun]
 horizontal: false
 ---
 <!-- pages/projects.md -->

@@ -31,6 +31,7 @@ If you prompt ChatGPT with a question, it can respond based on its training, whi
 
 ## **The structure of this project**
 
+
 ### 1. Load and process PDF
 
 First, take the PDF and extract the content using `PyPDFLoader`. 
@@ -87,7 +88,7 @@ vectorstore = Chroma.from_documents(documents=unique_chunks,
 ids help keep track of each chunk in a document, and ensure that only unique documents with unique ids are stored. This is to avoid duplication – when 2 documents may end up having the same id. 
 
 
-### 5.	Querying and generating responses
+### 5. Querying and generating responses
 
 Ideally what I want next is for the user to enter a query and for the most relevant chunks from the vector store database to be retrieved using a similarity search. From these relevant chunks, a language model should then generates an answer. For this project, I chose the LLM to be the `gpt-4o-mini` model from OpenAI.  And since I wanted to just extract basic metadata such as the titles and authors from the papers, I preset the query as "*Give me the title, summary, publication date, and authors of the research paper.*” and the user only has to click on a button “Generate table” to retrieve this data in a tabular format. 
 
@@ -139,6 +140,7 @@ So I decided to go with Docker. Docker is useful for running apps like these bec
 ##  **Next steps**
 
 - The extraction from PDFs is most likely what is causing the inconsistency. My guess is that different PDFs may have different ways they were rendered - some were saved as PDFs from Word or Google docs, while others may have been formatted using LaTex or other designer software.
+- So far I have only been able to extract the metadata of the papers into a tabular format. Now I want to explore if it would be possible to automatically format them into a set citation standard like APA, MLA, Chicago etc.
 - This uses OpenAI API credits, so I want to find out if it can be done using only free resources – i.e. open-source LLMs and embeddings from Huggingface. (I did try fiddling around with Ollama but it was crashing my laptop quite bad so I switched to the simpler Huggingface models).
 - I still need to deploy the Docker Image on a Cloud Platform so public users can access the dashboard.
 - More to come...
