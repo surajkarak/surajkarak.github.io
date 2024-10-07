@@ -2,8 +2,8 @@
 layout: page
 title: RAG + Langchain – Interacting with PDF documents using prompts 
 description: Experimenting with OpenAI LLM to extract info from PDFs through prompts
-img:  
-importance:  
+img: assets/img/RAG-Lanchain-PDF/RAG-LangChain-OpenAI-Interact-with-PDF.jpg 
+importance: 1 
 category: tinkering  
 
 ---
@@ -24,50 +24,93 @@ So I wondered whether it was possible to automate this task - i.e. given a set o
 
 ## Quick note on RAG
 
-RAG stands for Retrieval Augmented Generation. It is a way of retrieving specific, relevant information from  from a database or a set of documents (like PDFs or text files) and using natural language processing (NLP) and large language models (LLMs) to generate an answer to a user query. 
+RAG stands for **Retrieval Augmented Generation**. It is a way of retrieving specific, relevant information from  from a database or a set of documents (like PDFs or text files) and using natural language processing (NLP) and large language models (LLMs) to generate an answer to a user query. 
 
 If you prompt ChatGPT with a question, it can respond based on its training, which may not include your specific document, or it may hallucinate. Using RAGs allows LLMs to provide more accurate and contextually relevant responses based on real, user-provided data.
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/dataframe.png" title="dataframe" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
  
 
-## **The structure of this project**
+## The structure of this project
 
-1. Load and process PDF 
-First, take the PDF and extract the content using PyPDFLoader. 
+**1. Load and process PDF**
 
-2. Split document into chunks
+First, take the PDF and extract the content using `PyPDFLoader`. 
 
-The documents on their whole can be huge, and need to be split into smaller chunks so that the LLM model can efficiently search for the most relevant parts to retrieve and base their responses on. This is done using the RecursiveCharacterTextSplitter function in the langchain framework. 
+{% raw %}
+loader = PyPDFLoader(file.name)
+documents = loader.load()
 
-3. Embedding the data
+{% endraw %}
 
-The text in each chunk has to be converted to vector embeddings – numeric representations of text in a multi-dimensional space. Think of how numerical representations of the words “Berlin” and “currywurst” may be closer in distance to each other than “Berlin” and “pasta” for example, or how those of “Paris” and “cafe” may be closer than “Paris” and “fishing”. 
+**2. Split document into chunks**
+
+The documents on their whole can be huge, and need to be split into smaller chunks so that the LLM model can efficiently search for the most relevant parts to retrieve and base their responses on. This is done using the `RecursiveCharacterTextSplitter` function in the langchain framework. 
+
+{% raw %}
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size,
+                                        chunk_overlap=chunk_overlap,
+                                        length_function=len,
+                                        separators=["\n\n", "\n", " "])
+
+{% endraw %}
+
+chunk_size is the length of each chunk, chunk_overlap is the text that is common between each neighbouring chunk and separators indicate where the chunks should be separated (we don't want a chunk to end and another to start mid-sentence).
+
+
+**3. Embedding the data**
+
+The text in each chunk has to be converted to vector embeddings – numeric representations of text in a multi-dimensional space. Think of how numerical representations of the words “*Berlin*” and “*currywurst*” may be closer in distance to each other than *“Berlin”* and *“pasta”* for example, or how those of *“Paris”* and *“cafe”* may be closer than *“Paris”* and *“fishing”*. 
 
 This embedding is to help the LLM model calculate how similar the different chunks are to the query provided (which will also be converted into a vector embedding later) so that the most relevant chunks from the document can be used for the final response.
 
-There are various embedding models that can be used here and they vary in their accuracy and effectiveness. For this project, I have the text-embedding-ada-002 model from OpenAIEmbeddings
+There are various embedding models that can be used here and they vary in their accuracy and effectiveness. For this project, I have the `text-embedding-ada-002` model from OpenAIEmbeddings
 
-4. Storing the embeddings in a vector database
+{% raw %}
+
+embeddings = OpenAIEmbeddings(
+        model="text-embedding-ada-002", openai_api_key=api_key
+    )
+
+{% endraw %}
+
+**4. Storing the embeddings in a vector database**
 
 The vector representations need to be stored in a vector database, which is a special kind of database for embeddings. This is the database from where the chunks most relevant to a query are retrieved to generate the response.
 
 For this project, I have used the ChromaDB database. FAISS is another option that you can try.
 
-5.	Querying and generating responses
+{% raw %}
 
-Ideally what I want next is for the user to enter a query and for the most relevant chunks from the vector store database to be retrieved using a similarity search. From these relevant chunks, a language model should then generates an answer. For this project, I chose the LLM to be the gpt-4o-mini model from OpenAI.  And since I wanted to just extract basic metadata such as the titles and authors from the papers, I preset the query as "Give me the title, summary, publication date, and authors of the research paper.” and the user only has to click on a button “Generate table” to retrieve this data in a tabular format. 
+vectorstore = Chroma.from_documents(documents=unique_chunks, 
+                                        collection_name=clean_filename(file_name),
+                                        embedding=embedding_function, 
+                                        ids=list(unique_ids), 
+                                        persist_directory = vector_store_path)
 
-6. Building an interactive frontend with Streamlit 
+{% endraw %}
+
+ids help keep track of each chunk in a document, and ensure that only unique documents with unique ids are stored. This is to avoid duplication – when 2 documents may end up having the same id. 
+
+
+**5.	Querying and generating responses**
+
+Ideally what I want next is for the user to enter a query and for the most relevant chunks from the vector store database to be retrieved using a similarity search. From these relevant chunks, a language model should then generates an answer. For this project, I chose the LLM to be the `gpt-4o-mini` model from OpenAI.  And since I wanted to just extract basic metadata such as the titles and authors from the papers, I preset the query as "*Give me the title, summary, publication date, and authors of the research paper.*” and the user only has to click on a button “Generate table” to retrieve this data in a tabular format. 
+
+{% raw %}
+
+vectorstore = Chroma.from_documents(documents=unique_chunks, 
+                                        collection_name=clean_filename(file_name),
+                                        embedding=embedding_function, 
+                                        ids=list(unique_ids), 
+                                        persist_directory = vector_store_path)
+
+{% endraw %}
+
+
+**6. Building an interactive frontend with Streamlit**
 
 To make the process interactive for the user, I created a simple dashboard on Streamlit with an upload option, where the user can enter their OpenAI API key, upload a PDF file (which can also be displayed as an iFrame element), and the button to generate the table with the data. 
 
-7. Deployment with Docker
+**7. Deployment with Docker**
 
 Initially I thought of deploying on Streamlit Cloud but I was getting some errors pertaining to incompatibility in some packages. This was most likely ChromaDB, which requires certain specific versions of  `sqlite3`, but the version on Streamlit Cloud seems to be older. Unfortunately, in serverless environments like Streamlit Cloud, you cannot typically control how system-level packages like `sqlite3` behaves.
 
