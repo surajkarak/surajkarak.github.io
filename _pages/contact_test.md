@@ -20,33 +20,34 @@ nav_order: 5
 </div>
 
 <script>
-  const form = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
+  document.getElementById('contact-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
     const data = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value
+      name: event.target.name.value,
+      email: event.target.email.value,
+      message: event.target.message.value,
     };
-
-    fetch('https://script.google.com/macros/s/AKfycbxGLOouZrzm2TtDftH401OSGhQ6xMnugtju-OcmBKLKARSbIyzfeNGxZFJdVC9tMIyS/exec', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(response => {
-      formStatus.textContent = 'Message sent successfully!';
-      form.reset();
-    })
-    .catch(error => {
-      formStatus.textContent = 'An error occurred. Please try again.';
-    });
+    
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxGLOouZrzm2TtDftH401OSGhQ6xMnugtju-OcmBKLKARSbIyzfeNGxZFJdVC9tMIyS/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      const result = await response.json();
+      if (result.result === 'success') {
+        alert('Message sent successfully!');
+      } else {
+        alert('An error occurred: ' + result.message);
+      }
+    } catch (error) {
+      alert('An error occurred. Please try again.');
+      console.error(error);
+    }
   });
 </script>
 
