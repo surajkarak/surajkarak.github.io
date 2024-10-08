@@ -14,7 +14,7 @@ nav_order: 5
     <input type="text" id="name" name="name" placeholder="Your Name" required>
     <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
     <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
-    <input type="submit" value="Send">
+    <button type="submit" value="Send" </button>
   </form>
   <p id="form-status"></p>
 </div>
@@ -71,7 +71,7 @@ nav_order: 5
     box-sizing: border-box;
   }
 
-  input[type="submit"] {
+  button[type="submit"] {
     background-color: var(--global-theme-color);
     color: white;
     border: none;
@@ -79,7 +79,7 @@ nav_order: 5
     font-size: 16px;
   }
 
-  input[type="submit"]:hover {
+  button[type="submit"]:hover {
     background-color: #218838;
   }
 
