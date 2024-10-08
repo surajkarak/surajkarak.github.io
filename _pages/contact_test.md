@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /contact/
-title: Contact
+permalink: /contact-test/
+title: Contact-Test
 description: Here's how you can work with me.
 nav: false
 nav_order: 5
