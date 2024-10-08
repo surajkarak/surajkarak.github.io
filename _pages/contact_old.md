@@ -1,8 +1,8 @@
 ---
 layout: page
-permalink: /contact/
-title: Contact
-description: Here's how you can work with me.
+permalink:  
+title:  
+description:  
 nav: false
 nav_order: 
 ---
