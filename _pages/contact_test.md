@@ -20,40 +20,6 @@ nav_order: 5
 </div>
 
 <script>
-  function submitForm(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
-    const form = document.getElementById('contact-form');
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value
-    };
-
-    fetch('https://script.google.com/macros/s/AKfycbz9wpDs2xXyGaUnFk2SaAxbPVs_pkKkGXNcE22h2QOHRTu2pF_XNMjS_u6gLJU2wC9Tdg/exec', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.result === 'success') {
-        alert('Your message has been sent!');
-        form.reset(); // Clear the form
-      } else {
-        alert('There was a problem with your submission.');
-      }
-    })
-    .catch(error => {
-      alert('An error occurred. Please try again.');
-      console.error('Error:', error);
-    });
-  }
-</script>
-
-<!-- <script>
   const form = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
 
@@ -66,7 +32,7 @@ nav_order: 5
       message: form.message.value
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyEV5KI0a_c28-35d507yXXn0EgVy0NmuNQ4h3CkUo/dev', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +48,7 @@ nav_order: 5
       formStatus.textContent = 'An error occurred. Please try again.';
     });
   });
-</script> -->
+</script>
 
 <style>
   .form-container {
