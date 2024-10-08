@@ -25,8 +25,8 @@ nav_order: 5
     const form = document.forms['contact-form']
     const formStatus = document.getElementById('form-status');
 
-    form.addEventListener('submit', e => {
-      e.preventDefault()
+    form.addEventListener('submit', async(e) => {
+      e.preventDefault();
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         formStatus.textContent = 'Message sent successfully!';
@@ -59,7 +59,7 @@ nav_order: 5
     box-sizing: border-box;
   }
 
-  button[type="submit"] {
+  input[type="submit"] {
     background-color: var(--global-theme-color);
     color: white;
     border: none;
@@ -67,7 +67,7 @@ nav_order: 5
     font-size: 16px;
   }
 
-  button[type="submit"]:hover {
+  input[type="submit"]:hover {
     background-color: #218838;
   }
 
