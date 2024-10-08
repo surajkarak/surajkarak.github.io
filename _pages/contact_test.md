@@ -10,7 +10,7 @@ nav_order: 5
 
 <div class="form-container">
   <h3>Just drop me a quick note</h3>
-  <form id="contact-form" onsubmit="submitForm(event)">
+  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxGLOouZrzm2TtDftH401OSGhQ6xMnugtju-OcmBKLKARSbIyzfeNGxZFJdVC9tMIyS/exec" method="POST">
     <input type="text" id="name" name="name" placeholder="Your Name" required>
     <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
     <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
@@ -32,7 +32,7 @@ nav_order: 5
       message: form.message.value
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbzgIJiQuvIbqJW2K5iZStkRUgJA64_dKiGSCaXqE2mCPPrSspA2-May6LVI5jNzoSKq/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxGLOouZrzm2TtDftH401OSGhQ6xMnugtju-OcmBKLKARSbIyzfeNGxZFJdVC9tMIyS/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
