@@ -6,49 +6,37 @@ description: Here's how you can work with me.
 nav: true
 nav_order: 5
 ---
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw_pvTXWeLi-0jVwf1i8bz2wZdZmFr3T6EYyKD4OcKkH61tg/viewform?embedded=true" width="640" height="810" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>  
 
-<!-- <div class="form-container">
-  <h3>Just drop me a quick note</h3>
-  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec" method="POST">
-    <input type="text" id="name" name="name" placeholder="Your Name" required>
-    <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
-    <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
-    <input type="submit" value="Send">
-  </form>
-  <p id="form-status"></p>
+<div class="form-container">
+    <h3>Just drop me a quick note</h3>
+    <form method="post" action="https://script.google.com/macros/s/AKfycbyV_QoGxxHrttPuNMpPHu0mbWBi-P9cS1c1pUxlGXXrnD4R-KJH14r15ePfAJMkJ8mO/exec" name="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
+      <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
+      <input type="submit" value="Send" id="submit">
+    </form>
+    <p id="form-status"></p>
 </div>
 
 <script>
-  const form = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyV_QoGxxHrttPuNMpPHu0mbWBi-P9cS1c1pUxlGXXrnD4R-KJH14r15ePfAJMkJ8mO/exec'
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+    const form = document.forms['contact-form']
+    const formStatus = document.getElementById('form-status');
 
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value
-    };
-
-    fetch('https://script.google.com/macros/s/AKfycbx3B4FT-E127k8PWV--2GA1VoRfIqm6CaQvY5uCnKmrDxZx6izuOiOd5JAzAoaXiEnbfg/exec', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+    form.addEventListener('submit', async(e) => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        formStatus.textContent = 'Message sent successfully!';
+        form.reset();
+      })
+      .catch(error => {
+        formStatus.textContent = 'An error occurred. Please try again.';
+      })
     })
-    .then(response => response.json())
-    .then(response => {
-      formStatus.textContent = 'Message sent successfully!';
-      form.reset();
-    })
-    .catch(error => {
-      formStatus.textContent = 'An error occurred. Please try again.';
-    });
-  });
-</script>
+
+  </script>
 
 <style>
   .form-container {
@@ -91,4 +79,4 @@ nav_order: 5
     text-align: center;
     color: #28a745;
   }
-</style> -->
+</style>
