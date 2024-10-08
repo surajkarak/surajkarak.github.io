@@ -9,47 +9,35 @@ nav_order: 5
 <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw_pvTXWeLi-0jVwf1i8bz2wZdZmFr3T6EYyKD4OcKkH61tg/viewform?embedded=true" width="640" height="810" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>   -->
 
 <div class="form-container">
-  <h3>Just drop me a quick note</h3>
-  <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxGLOouZrzm2TtDftH401OSGhQ6xMnugtju-OcmBKLKARSbIyzfeNGxZFJdVC9tMIyS/exec" method="POST">
-    <input type="text" id="name" name="name" placeholder="Your Name" required>
-    <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
-    <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
-    <button type="submit" value="Send" </button>
-  </form>
-  <p id="form-status"></p>
+    <h3>Just drop me a quick note</h3>
+    <form method="post" action="https://script.google.com/macros/s/AKfycbzH3E5nUaPeSk5-eHeyGn1SGeKfmxriEVmXJX6Qi7w0AFFnYPLb2sSuXWr-H6iugu_T/exec" name="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email for me to get back to" required>
+      <textarea id="message" name="message" rows="5" placeholder="Any info you want to share..." required></textarea>
+      <input type="submit" value="Send" id="submit">
+    </form>
+    <p id="form-status"></p>
 </div>
 
 <script>
-  document.getElementById('contact-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    
-    const data = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      message: event.target.message.value,
-    };
-    
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxGLOouZrzm2TtDftH401OSGhQ6xMnugtju-OcmBKLKARSbIyzfeNGxZFJdVC9tMIyS/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      
-      const result = await response.json();
-      if (result.result === 'success') {
-        alert('Message sent successfully!');
-      } else {
-        alert('An error occurred: ' + result.message);
-      }
-    } catch (error) {
-      alert('An error occurred. Please try again.');
-      console.error(error);
-    }
-  });
-</script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzH3E5nUaPeSk5-eHeyGn1SGeKfmxriEVmXJX6Qi7w0AFFnYPLb2sSuXWr-H6iugu_T/exec'
+
+    const form = document.forms['contact-form']
+    const formStatus = document.getElementById('form-status');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        formStatus.textContent = 'Message sent successfully!';
+        form.reset();
+      })
+      .catch(error => {
+        formStatus.textContent = 'An error occurred. Please try again.';
+      })
+    })
+
+  </script>
 
 <style>
   .form-container {
