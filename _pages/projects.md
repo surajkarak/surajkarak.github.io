@@ -8,6 +8,14 @@ nav_order: 1
 display_categories: [work, tinkering, fun]
 horizontal: false
 ---
+
+<style>
+  .custom-projects-width {
+    max-width: 1200px; /* Adjust to your desired width */
+    margin: 0 auto; /* Center the content */
+  }
+</style>
+
 <!-- pages/projects.md -->
 <div class="projects">
 {%- if site.enable_project_categories and page.display_categories %}
