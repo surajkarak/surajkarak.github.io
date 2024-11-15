@@ -3,7 +3,7 @@ layout: page
 title: Quantifying climate change
 description: How global temperatures have changed since the Industrial Revolution 
 img: assets/img/ClimateChange/climate.jpg
-importance: 9
+importance: 10
 category: work
 ---
 
