@@ -3,8 +3,8 @@ layout: page
 title: A/B Testing for marketing campaign selection 
 description: Using t-test to determine the best of 3 marketing campaigns
 img: assets/img/AB-test/ab-testing.jpg  
-importance: 1
-category: work   
+importance:  
+category:     
 ---
 
 A/B testing is one of the most common practices followed in data-driven organisations. It can be used to tweak product features, optimise ad campaigns, improve checkout experiences in e-commerce stores and in many other use cases. In fact, it is seen as a go-to, tried-and-tested approach based on trust and evidence for determining whether to proceed with a major businsess decision or not. It is also a data science task that brings together domain knowledge, expertise in statistics and experimentation and communication skills. In this project, I explore the marketing campaign data from a company that is launching a new product and use A/B testing to determine which among 3 variants of a campaign yields the best results. 
