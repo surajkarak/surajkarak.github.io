@@ -612,6 +612,8 @@ footer.sticky-bottom {
   .grid-item {
     width: 300px;
     margin-bottom: 10px;
+    height: 250px; /* Set a fixed height for uniformity */
+    overflow: hidden; /* Hide overflow content */
   }
 
   h2.category {
