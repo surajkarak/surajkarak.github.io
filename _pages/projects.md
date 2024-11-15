@@ -14,7 +14,7 @@ horizontal: false
     max-width: 2000px; /* Adjust to your desired width */
     margin: 0 auto; /* Center the content */
   }
-</style>
+
 
 
 <!-- pages/projects.md -->
@@ -65,3 +65,5 @@ horizontal: false
   {%- endif -%}
   </div>
 </div>
+
+</style>
