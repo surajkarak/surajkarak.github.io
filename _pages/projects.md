@@ -11,10 +11,10 @@ horizontal: false
 
 <style>
   .custom-projects-width {
-    max-width: 2000px; /* Adjust to your desired width */
+    max-width: 1200px; /* Adjust to your desired width */
     margin: 0 auto; /* Center the content */
   }
-
+</style>
 
 
 <!-- pages/projects.md -->
@@ -66,4 +66,3 @@ horizontal: false
   </div>
 </div>
 
-</style>
