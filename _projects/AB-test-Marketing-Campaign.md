@@ -3,7 +3,7 @@ layout: page
 title: A/B Testing for marketing campaign selection 
 description: Using t-test to determine the best of 3 marketing campaigns
 img: assets/img/AB-test/ab-testing.jpg  
-importance: 1
+importance: 2
 category: work   
 ---
 
