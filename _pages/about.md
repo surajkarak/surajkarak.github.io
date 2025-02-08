@@ -9,10 +9,9 @@ profile:
   image: Profile_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p> Bremen, Germany </p>
-
-    <p><a href="https://www.linkedin.com/in/surajkarakulath/"> LinkedIn </a></p>
- #   <p>Your City, State 12345</p>
+    <p style="font-family: monospace;"> Bremen, Germany </p>
+    <p style="font-family: monospace;"><a href="https://www.linkedin.com/in/surajkarakulath/"> LinkedIn </a></p>
+    <p style="font-family: monospace;"><a href="https://bsky.app/profile/surajkarak.bsky.social"> BlueSky </a></p>
 
 news: false  # includes a list of news items
 projects: true
@@ -23,11 +22,27 @@ social: true  # includes social icons at the bottom of the page
 
 I am a Data scientist with domain expertise in marketing, media, SaaS products and technology. I have over 10 years of experience in product, strategy, content, data analytics and measurement that included stints at various startups, large enterprises like Google and WorldQuant. I have also provided independent consulting for startups specialising in computer vision, artificial intelligence, retail, geospatial data analytics and conversational AI/chatbot development.
 
-I grew up in India, lived and worked in Singapore for 16 years and now I'm finishing a Masters in Data Science in Bremen, Germany. *Ich lerne derzeit auch Deutsch und habe vor, bald von A2 auf B1 zu kommen.*
+I grew up in India, lived and worked in Singapore for 16 years and now I'm based in Germany. *Ich lerne derzeit auch Deutsch und habe vor, bald von A2 auf B1 zu kommen.*
 
-**My specialties in Data Science include**: Data Mining, Data Exploration, Data Modeling, Machine Learning, NLP, Time Series, Data Visualization.
+**My specialties in Data Science include**: 
+- Data Mining
+- Data Exploration
+- Data Modeling
+- Machine Learning
+- NLP
+- Time Series
+- Data Visualization.
 
-**Tools/skills that I work with**: Python, R, SQL, BigQuery, Google Analytics, Tableau, Google Data Studio, PowerBI, Streamlit.
+**Tools/skills that I work with**: 
+- Python in VSCode
+- R in RStudio
+- SQL
+- BigQuery
+- Google Analytics
+- Tableau
+- Google Data Studio 
+- PowerBI
+- Streamlit.
 
 Some projects that I had fun working on:
 - <a href="https://surajkarak.github.io/projects/Time-Series-Forecasting/"> Time series forecasting in non-transparent markets using ARIMA, XGBoost and Prophet </a>
