@@ -1,13 +1,13 @@
 ---
 layout: page
-title: A/B Testing for marketing campaign selection 
-description: Using t-test to determine the best of 3 marketing campaigns
+title: Spatiotemporal analysis of protein ligand interaction
+description: ETL pipeline for processing of PDB files, analysing interaction fingerprints and visualizing distributions
 img: assets/img/AB-test/ab-testing.jpg  
 importance:  
 category:     
 ---
 
-A/B testing is one of the most common practices followed in data-driven organisations. It can be used to tweak product features, optimise ad campaigns, improve checkout experiences in e-commerce stores and in many other use cases. In fact, it is seen as a go-to, tried-and-tested approach based on trust and evidence for determining whether to proceed with a major businsess decision or not. It is also a data science task that brings together domain knowledge, expertise in statistics and experimentation and communication skills. In this project, I explore the marketing campaign data from a company that is launching a new product and use A/B testing to determine which among 3 variants of a campaign yields the best results. 
+Understanding the structural and dynamic properties of molecules is fundamental to many fields, from drug discovery to materials science. In this project, I explored a set of molecular data derived from Protein Data Bank (PDB) files and accompanying JSON metadata to derive meaningful insights. The goal was to process, analyse, and visualise intricate metrics such as hydrophobic distances, hydrogen bonds, and residue interactions, all while addressing the challenges presented by nested data structures and diverse units of measurement.
 
 
 ## Data set

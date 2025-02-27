@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Churn prediction using classification models
-description: Predicting bank customer churn using Random Forest, AdaBoost and SVM
+title: Predicting bank customer churn with ML
+description: Classification models with Random Forest, AdaBoost and SVM
 img: assets/img/churn-prediction/total_trans_amt.png 
 importance: 1 
 category: work    
