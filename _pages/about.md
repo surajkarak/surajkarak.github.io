@@ -25,33 +25,30 @@ I am a Data scientist with a background in marketing. I have worked primarily in
 
 I grew up in India, lived and worked in Singapore for 16 years and now I'm based in Germany.  
 
-**My specialties in Data Science include**: 
-- Data Mining
-- Data Exploration
-- Data Modeling
-- Machine Learning
-- NLP
-- Time Series
-- Data Visualization
+**My specialties include**: 
+- Data mining
+- Data exploration
+- Data modeling
+- Machine learning
+- Deep learning
+- Natural language processing 
+- Time series
+- Data visualisation
 
 **Tools/skills that I work with**: 
-- Python in VSCode
-- R in RStudio
-- SQL
-- BigQuery
-- Google Analytics
-- Tableau
-- Google Data Studio 
-- PowerBI
-- Streamlit
+- General programming: Python R 
+- IDE: Visual Studio, RStudio
+- General data science and ML: pandas, numpy, scikit-learn, statsmodels, NLTK, Spacy, XGBoost
+- Deep learning: PyTorch
+- Database: SQL, BigQuery
+- Data visualisation: matplotlib, seaborn, plotly for packages and other specialised tools: Tableau, Google Data Studio (Looker Studio), PowerBI, Streamlit
+- Web analytics: Google Analytics, Search Console, Adobe Analytics, HubSpot
 
-Some projects that I had fun working on:
-- <a href="https://surajkarak.github.io/projects/Time-Series-Forecasting/"> Time series forecasting in non-transparent markets using ARIMA, XGBoost and Prophet </a>
-- <a href="https://surajkarak.github.io/projects/Clustering-Marketing-Data-Science/"> Unsupervised clustering to segment website audiences (not customer segmentation) </a>
-- <a href= "https://surajkarak.github.io/projects/Spotify-API-Data-Extraction-Visualization/"> An interactive visualization of audio features of The Beatles songs with Spotify API </a>
-- <a href="https://surajkarak.github.io/projects/NLP-ChatGPT-Bias/"> Using NLP to detect political bias in ChatGPT responses </a>
-- <a href="https://surajkarak.github.io/projects/NLP-Sentiment-Analysis-Star-Trek/"> An interactive visualization of characters' sentiment in Star Trek scripts </a>
-- <a href="https://surajkarak.github.io/projects/Climate-Data-Analysis/"> Quantifying global temperature rise from climate change data </a>
+
+Some projects that I did for work include <a href="https://surajkarak.github.io/projects/Time-Series-Forecasting/"> a time series forecasting study </a> in non-transparent markets using ARIMA, XGBoost and Prophet for a market-leading energy supplier in Germany, <a href="https://surajkarak.github.io/projects/Clustering-Marketing-Data-Science/"> an unsupervised clustering </a> of website audiences into different segments and an attempt at <a href="https://surajkarak.github.io/projects/Climate-Data-Analysis/"> quantifying global temperature rise from climate change data </a>.
+
+Some sideprojects that I had fun with include  <a href= "https://surajkarak.github.io/projects/Spotify-API-Data-Extraction-Visualization/"> an interactive visualization of audio features of The Beatles songs </a> using Spotify API, another <a href="https://surajkarak.github.io/projects/NLP-Sentiment-Analysis-Star-Trek/"> interactive visualization of characters' sentiment </a> from the scripts of the Star Trek (original) series and <a href="https://surajkarak.github.io/projects/NLP-ChatGPT-Bias/"> an analysis to detect political bias in ChatGPT responses </a>  using NLP.
+
 
 My other interests include technology, cinema and film history, music, politics, psychology and science.
 
