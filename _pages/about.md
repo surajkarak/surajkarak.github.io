@@ -21,9 +21,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a Data scientist with domain expertise in marketing, media, SaaS products and technology. I have over 10 years of experience in product, strategy, content, data analytics and measurement that included stints at various startups, large enterprises like Google and WorldQuant. I have also provided independent consulting for startups specialising in computer vision, artificial intelligence, retail, geospatial data analytics and conversational AI/chatbot development.
+I am a Data scientist with a background in marketing. I have worked primarily in content, strategy and product, while also handling data analytics and measurement. I have also provided independent consulting for startups specialising in computer vision, artificial intelligence, retail, geospatial data analytics and conversational AI/chatbot development.
 
-I grew up in India, lived and worked in Singapore for 16 years and now I'm based in Germany. *Ich lerne derzeit auch Deutsch und habe vor, bald von A2 auf B1 zu kommen.*
+I grew up in India, lived and worked in Singapore for 16 years and now I'm based in Germany.  
 
 **My specialties in Data Science include**: 
 - Data Mining
@@ -32,7 +32,7 @@ I grew up in India, lived and worked in Singapore for 16 years and now I'm based
 - Machine Learning
 - NLP
 - Time Series
-- Data Visualization.
+- Data Visualization
 
 **Tools/skills that I work with**: 
 - Python in VSCode
@@ -43,7 +43,7 @@ I grew up in India, lived and worked in Singapore for 16 years and now I'm based
 - Tableau
 - Google Data Studio 
 - PowerBI
-- Streamlit.
+- Streamlit
 
 Some projects that I had fun working on:
 - <a href="https://surajkarak.github.io/projects/Time-Series-Forecasting/"> Time series forecasting in non-transparent markets using ARIMA, XGBoost and Prophet </a>
@@ -60,4 +60,4 @@ When I'm not working, I'm usually
 - reading (non-fiction - psychology, science, humanism; fiction - classics)
 - watching films (classics - a bit obsessed with Danny Boyle and Aaron Sorkin these days) or checking out what's on at local arthouse theatres 
 - learning German
-- or catching up with friends.
+- or catching up with friends
