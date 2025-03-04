@@ -260,7 +260,7 @@ blockquote {
 
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 
     &:hover {
       color: var(--global-hover-color);
@@ -280,7 +280,7 @@ blockquote {
   .navbar-brand.social {
     padding-bottom: 0;
     padding-top: 0;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 
     a {
       i::before {
@@ -996,7 +996,7 @@ nav[data-toggle="toc"] {
   top: 5rem;
 
   .nav .nav>li>a {
-    font-size: .75rem;
+    font-size: 1rem;
   }
 
   .nav>li>a {
