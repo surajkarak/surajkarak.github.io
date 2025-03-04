@@ -24,7 +24,7 @@
   type: time_table
   contents:
     - title: Data Scientist
-      institution: Constructor Technology Group, Bremen
+      institution: <a href="https://constructor.tech/" target="_blank"> Constructor Technology Group </a>, Bremen
       year: 07.2024 -
       description:
         - Joined the research team under  <a href="https://constructor.university/faculty-member/petr-popov" target="_blank">Prof. Petr Popov</a>
@@ -32,7 +32,7 @@
         - Extracting and exploring distributions of interaction parameters from PDB files
         - Developing interactive Streamlit dashboards for easy communication of research findings
     - title: Product Manager
-      institution: Constructor Technology Group, Bremen
+      institution: <a href="https://constructor.tech/" target="_blank"> Constructor Technology Group </a>, Bremen
       year: 05.2023 - 06.2024
       description:
         - Finished a 6-week internship as part of my Masters degree 
@@ -47,7 +47,7 @@
         - Defined product messaging in collaboration with Global Product Leads
         - Created content with subject matter experts, data scientists and external media production agencies.
     - title: Data Science Consultant
-      institution: Independent Consulting, Remote
+      institution: <a href="https://parseinsight.com/" target="_blank">ParseInsight </a>, Remote
       year: 2020-2022
       description:
         - Worked with multiple enterprises and startups, providing data science and marketing analytics services 
@@ -57,7 +57,7 @@
         - Advising and creating thought leadership content for C-Suite
 
     - title: Content Marketer
-      institution: WorldQuant, Singapore
+      institution: <a href="https://www.worldquant.com/ target="_blank"> WorldQuant </a>, Singapore
       year: 2018 - 2020
       description:
         - Managed the firm's content marketing, focusing on Asia and Europe
