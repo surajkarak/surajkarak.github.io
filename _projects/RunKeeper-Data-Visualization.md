@@ -1,8 +1,8 @@
 ---
 layout: page
-title: What my RunKeeper cardio data says about my relationship with the sunset
+title: What my RunKeeper data says about my cardio habits
 description: I analysed my RunKeeper data for free to see trends in distance, calories burned and more  
-img: /assets/img/br_sunset_with_duration.png
+img: /assets/img/runkeeper/br_sunset_with_duration.png
 importance: 1
 category: fun   
 ---

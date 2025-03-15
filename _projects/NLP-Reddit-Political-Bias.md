@@ -3,7 +3,7 @@ layout: page
 title: How politically biased are some of the top subreddits? 
 description: Using NLP to detect political bias in some top subreddits
 img: /assets/img/RedditBias/Subreddit_Political_Bias.png
-importance: 2
+importance: 3
 category: fun  
 ---
 
