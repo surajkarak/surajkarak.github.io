@@ -2,9 +2,9 @@
 layout: page
 title: What my RunKeeper cardio data says about my relationship with the sunset
 description: I analysed my RunKeeper data for free to see trends in distance, calories burned and more  
-img: /assets/img/activity_time.png
-importance: 
-category:    
+img: /assets/img/br_sunset_with_duration.png
+importance: 1
+category: fun   
 ---
 
 This is a simple idea for a sideproject that came to me as I was thinking about my daily routine and how it has changed over the years. 
@@ -168,3 +168,73 @@ cardio['Time_seconds'] = cardio['Time'].apply(lambda x: x.hour * 3600 + x.minute
 As expected, the workouts were usually in the evening before late 2022, after it got dark. Some were even well into the night, close to 10 pm. Looking back at it now, I can't believe I was out that late! 
 
 But after moving to Bremen, I started running earlier, before the sunset, to catch as much light as I could outside. This also meant that I would change my start time to match the changing sunset times throughout the seasons in the year, usually around 1 hour or so before the sunset. This can be seen in the wave like pattern in the graph post 2023.
+
+#### Comparison of activity time with sunset time
+
+Just to visualise this, I also wanted to overlay this graph with the sunset times - in Singapore for pre-2022 August and in Bremen for post-2022 August.
+Getting the sunset times was not as easy as I thought. After some research, I found a Python package called pvlib which can retrieve the sunset times from the past for specific latitude and longitude coordinates.
+
+Since the sunset times for Singapore and Bremen are obviously different, I got the sunset times in Singapore for dates from 2018-06-01 to 2022-08-01 and in Bremen for dates from 2022-08-01 to 2024-12-31. 
+
+```python
+sg_lat =  1.35
+sg_long = 103.82
+sg_timezone = "Singapore"
+sg_dates = pd.date_range(start="2018-06-01 ", end="2022-08-01", freq="D", tz=sg_timezone)
+sg = pvlib.location.Location(sg_lat, sg_long, tz=sg_timezone)
+sg_sun_times = sg.get_sun_rise_set_transit(sg_dates)
+
+br_lat =  53.07
+br_long = 8.80
+br_timezone = "Europe/Berlin"
+br_dates = pd.date_range(start="2022-08-01", end="2024-12-31", freq="D", tz=br_timezone)
+br = pvlib.location.Location(br_lat, br_long, tz=br_timezone)
+br_sun_times = br.get_sun_rise_set_transit(br_dates)
+
+```
+Both these returned a dataframe with sunrise, sunset and transit times for each day in YYYY-MM-DD HH:MM:SS format. I just had to get the sunset times from these, extract the date and time from each row, convert the time to seconds for calculation and merge the dataframe for each location with the cardio dataframe. That automatically extracted the cardio data corresponding dates for each location.
+
+For example:
+
+```python
+sg_sunset_df = pd.DataFrame({
+    "Date": sg_sun_times['sunset'].dt.date,
+    "Sunset_Time": sg_sun_times['sunset'].dt.time
+})
+
+sg_sunset_df['Sunset_Time_Seconds'] = sg_sunset_df['Sunset_Time'].apply(lambda x: x.hour * 3600 + x.minute * 60 + x.second)
+sg_sunset_df.set_index('Date', inplace=True)
+cardio['Date'] = cardio.index.date  # Extract the date component from the index of df2
+cardio.set_index('Date', inplace=True)
+sg_merged_df = cardio.merge(sg_sunset_df, left_index=True, right_index=True)
+```
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/runkeeper/sg_sunset.png" title="Activity start time vs Singapore sunset time" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+As mentioned earlier, the workouts in Singapore were usually in the evening well after the sun had gone down, and some even late into the night. This also speaks to how safe Singapore is, and also how well-lit and well-maintained the main roads are throughout the island. 
+
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/runkeeper/br_sunset.png" title="Activity start time vs Bremen sunset time" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+In Bremen, I initially started getting out after sunset, as that was what I was used to. Then I started running earlier, partly because it was cold and dark in the winter period, and partly because I wanted to catch as much light as I could outside. Soon I started following the seasonal pattern of sunset times, almost mirroring it exactly and only very rarley did I start after the sun had gone down.  
+
+One more point - I can also clearly see how I adjusted my workout start times to the Daylight savings, when the clocks went forward an hour in March and back in October. I started running an hour later from late March and an hour earlier from October onwards to catch the light before the sunset.
+
+A bit of fancy visualisation to add: I wanted to also see how I run "past the sunset", i.e. I might start before the sun went down but by the time I had returned, it would have been past the sunset (although it was still light outside - the "twilight" period). So I added a vertical line starting at each Activity start time, proportional to the Duration of that corresponding activity, to show how I crossed the sunset time.
+
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/runkeeper/br_sunset_with_duration.png" title="Activity start time vs Bremen sunset time with Duration" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+That looks nice. So I did finish after the sunset time for the most part of the winter but in the summer of 2024 I began to prefer getting to be outside more when the sun was out so rarely did I cross the sunset time then. 
