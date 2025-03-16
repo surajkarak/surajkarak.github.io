@@ -2,7 +2,7 @@
 layout: page
 title: Quantifying climate change
 description: Global temperature change since the Industrial Revolution 
-img: assets/img/ClimateChange/climate.jpg
+img: assets/img/ClimateChange/deviations_year.jpg
 importance: 7
 category: work
 ---
