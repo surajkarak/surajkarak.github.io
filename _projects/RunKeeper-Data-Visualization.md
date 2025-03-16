@@ -2,7 +2,7 @@
 layout: page
 title: What my RunKeeper data says about my cardio habits
 description: I analysed my RunKeeper data for free to see trends in distance, calories burned and more  
-img: /assets/img/runkeeper/br_sunset_with_duration.png
+img: /assets/img/runkeeper/runkeeper_cardio_data.png
 importance: 1
 category: fun   
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: Time series forecasting for non-transparent markets (wood waste)
 description: ARIMA, Decision Tree, Random Forest, XGBoost & Prophet for forecasting
-img: assets/img/time_series_forecasting/ARIMA_WF.png
+img: assets/img/time_series_forecasting/time_series_forecasting.png
 importance: 3 
 category: work  
 related_publications: TimeSeriesWoodWaste
