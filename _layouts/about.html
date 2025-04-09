@@ -53,6 +53,19 @@ layout: default
             {%- include latest_posts.html %}
           {%- endif %}
 
+          </section> -->
+          <section id="featured-projects">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+              {%- assign featured_projects = site.projects | where: "featured", true -%}
+              <div class="grid">
+                {%- for project in featured_projects -%}
+                  {% include projects.html %}
+                {%- endfor %}
+              </div>
+            </div>
+          </section>
+
           <!-- Selected papers -->
           {% if page.selected_papers -%}
             <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Some papers/presentations</a></h2>
