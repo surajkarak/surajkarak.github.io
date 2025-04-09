@@ -4,6 +4,7 @@ title: Does ChatGPT have a political bias?
 description: Detecting political bias in ChatGPT responses using NLP
 img: assets/img/TANLP/chatgpt.jpg
 importance: 6
+featured: true
 category: work
 related_publications: chatgpt_nlp_paper
 ---
