@@ -3,8 +3,7 @@ layout: post
 title:  On context switching 
 date:   2024-03-29 09:04:16
 description: How I try to deal with this silent productivity killer
-tags: 
-    - context-switching
+tags: context-switching
 categories: productivity
 ---
 Over the last two years and a bit more, I have had to work on more things that were significantly different from each other than before. And I have come to experience the real toll that the mind suffers when context switching. 
