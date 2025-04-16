@@ -3,8 +3,8 @@ layout: post
 title: On context switching
 date: 2024-03-29 09:04:16
 description: How I try to deal with this silent productivity killer
-tags: formatting bib
-categories: sample-posts
+tags: contextswitching
+categories: productivity
 related_posts: false
 
 ---
