@@ -3,7 +3,7 @@ layout: page
 title: Discovering waste price determinants 
 description: Finding correlations between the price of waste and various potential price determinants.
 img: assets/img/KIPA/KIPA.png
-importance: 4
+importance: 5
 category: work
 # related_publications: einstein1956investigations, einstein1950meaning
 ---
