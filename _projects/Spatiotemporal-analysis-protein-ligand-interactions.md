@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Spatiotemporal analysis of protein ligand interaction
-description: ETL pipeline for processing PDB files, interaction fingerprints & visualizing distributions
+description: ETL pipeline to process PDB files, analyse interaction fingerprints & visualize distributions
 img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized)_resized.png
 importance: 1  
 featured: true
@@ -45,6 +45,7 @@ The end result of the extraction looked something like this:
     {% include figure.html path="assets/img/protein-ligand/dataframe.png" title="Dataframe" class="img-fluid rounded z-depth-1" %}
 </div>
 
+<p>
 
 ## Exploration 
 
@@ -85,6 +86,7 @@ This gave me some idea of how the metrics were distributed and interestingly, po
 
 To help the research team quickly visualize this I created a simple [interactive Streamlit dashboard visualization](https://protein-ligand-xj5vzns6f8ivxyaygaxroh.streamlit.app/) that was shareable.
 
+<p>
 
 ### Gaussian smoothing
 
@@ -94,7 +96,7 @@ Based on the research team’s request, I also did a Gaussian smoothing on the d
 To approximate a smoothed distribution for each interaction metric, I placed a Gaussian (normal) distribution at each data point, using a fixed standard deviation (σ) specified by a smoothing parameter. For each bin in a defined range, I computed the cumulative contribution from all Gaussians, weighted by how close each data point was to that bin center. This is so that each value can “influence” nearby bins based on a normal curve, producing a smoother alternative to a traditional histogram. (Technically it is not a true KDE but more of a binned approximation of KDE). 
 
 I was able to provide the research team with these plots as results:
-
+<p>
 
 
 <div style="display: flex; gap: 16px; justify-content: center;">
@@ -106,7 +108,7 @@ I was able to provide the research team with these plots as results:
   </div>
 </div>
 
- 
+ <p>
 
 
 ### Time series analysis
@@ -131,7 +133,7 @@ final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
 The time series for all the parameters follow a similar trend - with random fluctuations around a mean and occasional spikes but there is no clear trend to observe.
 
 
-
+<p>
 
 ### ACF, PCF and Seasonality decomposition
 
@@ -162,14 +164,14 @@ The trend component extract any long-term direction or pattern in the data, smoo
     {% include figure.html path="assets/img/protein-ligand/trend.png" title="Trend component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
-
+<p>
 The seasonal component looks for any repeating patterns or cycles in the data that occur at fixed intervals. There does seem to be a regular wave-like pattern in this plot but this could also be a result of oscillations.
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/seasonal.png" title="Seasonal component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
-
+<p>
 The residual component represents what's left of the original data after the trend and seasonal components have been removed. Here, they fluctuate around zero, which is good and there are no obvious patterns. That means that the trend and seasonal components have successfully captured the systematic variations in the data.
 
 <div class="col-sm mt-3 mt-md-0">
@@ -177,8 +179,9 @@ The residual component represents what's left of the original data after the tre
 </div>
 
 
-
+<p>
 I also explored if there were any correlations between the parameters themselves in a correlation matrix (after scaling all the values using a StandardScaler).
+<p>
 
 <div style="flex: 1; max-width: 800px;">
     {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
@@ -187,7 +190,7 @@ I also explored if there were any correlations between the parameters themselves
 
 There was no major correlations other than the distance and angle for PiStacking, which is to be expected.
 
-
+<p>
 
 ## Deploying into production with an ETL pipeline
 
@@ -197,19 +200,19 @@ For this, I created an ETL pipeline that would load the PDB files from a specifi
 
 - an `extraction.py` file with all the functions mentioned in the Data extraction step above
 - a `viz.py` file with the following functions
-    - build_smooth_distribution - that takes in as input a dataframe columns (the interaction fingerprint metrics, the scale for smoothing the Gaussian distributions, the smooth tolerance parameter and the bin parameters among others. It returns the smoothed distributions and bin centres from the input
-    - process_dataframes - that takes in as input the folder with the PDB files, the box_size, ligand_name and ligand_path for columns for extraction and the same arguments that build_smooth_distribution should take in, so that it can call the function. It returns the plots we need.
-    - a viz function - that takes in a json path where you can specify all the input arguments and calls the process_dataframes using these arguments
-    - main function to parse the argument from the user, namely the path to the json file which is passed to the viz function
+    - **build_smooth_distribution** - that takes in as input a dataframe columns (the interaction fingerprint metrics, the scale for smoothing the Gaussian distributions, the smooth tolerance parameter and the bin parameters among others. It returns the smoothed distributions and bin centres from the input
+    - **process_dataframes** - that takes in as input the folder with the PDB files, the box_size, ligand_name and ligand_path for columns for extraction and the same arguments that build_smooth_distribution should take in, so that it can call the function. It returns the plots we need.
+    - a **viz** function - that takes in a json path where you can specify all the input arguments and calls the process_dataframes using these arguments
+    - **main** function to parse the argument from the user, namely the path to the json file which is passed to the viz function
 
-
+<p>
 
 
 ## Some challenges and lessons from this project
 
-- The data extraction was a bit tricky. The data type (pdb files) were new to me so I had to discuss with the research team in-depth and understand the ideas of “frame”, “ligand”, “amino acids”, ”interaction fingerprints” and protein structure, what metrics needed to be extracted and how to go about doing that.
+- The **data extraction** was a bit tricky. The data type (pdb files) were new to me so I had to discuss with the research team in-depth and understand the ideas of “frame”, “ligand”, “amino acids”, ”interaction fingerprints” and protein structure, what metrics needed to be extracted and how to go about doing that.
 - The packages used for extraction - **MDAnalysis** and **ProLIF** - were new to me so I had to spend some time understanding the documentation and testing out object outputs.
-- The extraction process itself was not straightforward (calculate center of mass of ligand, then list of interacting amino acids and then get interaction fingerprints)
-- Unlike data science projects I was used to, the research team preferred using command line prompts to accept inputs - generally a path to a folder with a json file containing everything - files to extract, parameters for various functions, metrics to explore and arguments for plotting and smoothening the distributions. This took some getting used to but was manageable.
-- Learning to think of the frames as snapshots and looking at them as a “time series”, and also thinking of the time series and distributions as almost interchangeable. Again, not how I have traditionally done time series projects but in this particular use case I can see how it makes sense and got used to it.
-- Perhaps the most important lesson was taking the time to understand the domain, data structure and features, and discussing with the subject matter experts in-depth at the start.
+- The **extraction process** itself was not straightforward (calculate center of mass of ligand, then list of interacting amino acids and then get interaction fingerprints)
+- Unlike data science projects I was used to, the research team preferred **using command line prompts to accept inputs** - generally a path to a folder with a json file containing everything - files to extract, parameters for various functions, metrics to explore and arguments for plotting and smoothening the distributions. This took some getting used to but was manageable.
+- **Learning to think of the frames as snapshots** and looking at them as a “time series”, and also thinking of the time series and distributions as almost interchangeable. Again, not how I have traditionally done time series projects but in this particular use case I can see how it makes sense and got used to it.
+- Perhaps the most important lesson was **taking the time to understand the domain**, data structure and features, and discussing with the subject matter experts in-depth at the start.
