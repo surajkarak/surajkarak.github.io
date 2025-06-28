@@ -2,7 +2,7 @@
 layout: page
 title: Spatiotemporal analysis of protein ligand interaction
 description: ETL pipeline for processing of PDB files, analysing interaction fingerprints and visualizing distributions
-img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized).png
+img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized)_resized.png
 importance: 1  
 featured: true
 category: work     
@@ -42,7 +42,7 @@ Another function `process_multiple_pdb_files` iterates over a list of PDB file
 The end result of the extraction looked something like this:
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/dataframe.jpg  " title="Dataframe" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/dataframe.png" title="Dataframe" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -70,20 +70,29 @@ fig = px.histogram(
 ```
 The histnorm='probability density' argument shows the relative frequency of values rather than raw counts, so it’s easier to compare across metrics with different scales. 
 
-<div class="col-sm mt-3 mt-md-0">
+<div style="display: flex; gap: 16px; justify-content: center;">
+  <div style="flex: 1; max-width: 300px;">
+    {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div style="flex: 1; max-width: 300px;">
+    {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+
+<!-- <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
 </div>
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
-</div>
+</div> -->
 
 
 This gave me some idea of how the metrics were distributed and interestingly, pointed out that some of the metrics were Gaussian in nature while others were multi-modal.
 
 To help the research team quickly visualize this I created a simple [interactive Streamlit dashboard visualization](https://protein-ligand-xj5vzns6f8ivxyaygaxroh.streamlit.app/) that was shareable.
 
-## Gaussian smoothing
+### Gaussian smoothing
 
 Based on the research team’s request, I also did a Gaussian smoothing on the distributions. This means that not only is the exact occurrences in each bin counted but the counts of each data point is spread across neighbouring bins according to a Gaussian distribution. This is what is called a [kernel density estimation](https://www.youtube.com/watch?v=t1PEhjyzxLA&ab_channel=ritvikmath) (KDE), where each data point contributes to multiple bins based on a Gaussian kernel. 
 
@@ -99,11 +108,14 @@ I was able to provide the research team with these plots as results:
     {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_VdWContact.distance (normalized).png" title="Gaussian_smoothed_VdWContact.distance (normalized)" class="img-fluid rounded z-depth-1" %}
 </div>
 
-## Time series analysis
+
+### Time series analysis
 
 Next, I thought of checking how the different parameters changed throughout the snapshots, in a time series-like manner. However, there were multiple residues within each snapshot, with their own values for the interaction fingerprints. So it made more sense to calculate the mean value of each parameter and how that changed through the frames. A simple grouping and mean did the job here.
-final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
 
+```python
+final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
+``` 
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/Mean of Hydrophobic.distance across frames.png" title="Mean of Hydrophobic.distance across frames" class="img-fluid rounded z-depth-1" %}
@@ -115,7 +127,8 @@ final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
 
 The time series for all the parameters follow a similar trend - with random fluctuations around a mean and occasional spikes but there is no clear trend to observe.
 
-## ACF, PCF and Seasonality decomposition
+
+### ACF, PCF and Seasonality decomposition
 
 I thought it might also be useful to check if there were any signals that suggested that such a time series could be modelled in the future (e.g. if there was a need to predict how the various distances and metrics would change over different new frames).
 
@@ -161,20 +174,20 @@ I also explored if there were any correlations between the parameters themselves
 
 There was no major correlations other than the distance and angle for PiStacking, which is to be expected.
 
-# Deploying into production with an ETL pipeline
+## Deploying into production with an ETL pipeline
 
 The research team did find the analysis on the visualizations of the distributions to be useful though for their ongoing work. So they wanted a way of setting their own parameters to visualize - such as the folders with new PDB files, properties to visualize, the bin sizes and number of bins, the smoothing tolerance and smoothing distribution.
 
 For this, I created an ETL pipeline that would load the PDB files from a specified folder, extract the data, transform them to calculate the distribution and produce the visualizations. This was done with the following set up
 
-- an [extraction.py](http://extraction.py) file with all the functions mentioned in the Data extraction step above
-- a viz.py file with the following functions
+- an `extraction.py` file with all the functions mentioned in the Data extraction step above
+- a `viz.py` file with the following functions
     - build_smooth_distribution - that takes in as input a dataframe columns (the interaction fingerprint metrics, the scale for smoothing the Gaussian distributions, the smooth tolerance parameter and the bin parameters among others. It returns the smoothed distributions and bin centres from the input
     - process_dataframes - that takes in as input the folder with the PDB files, the box_size, ligand_name and ligand_path for columns for extraction and the same arguments that build_smooth_distribution should take in, so that it can call the function. It returns the plots we need.
     - a viz function - that takes in a json path where you can specify all the input arguments and calls the process_dataframes using these arguments
     - main function to parse the argument from the user, namely the path to the json file which is passed to the viz function
 
-# Some challenges and lessons from this project
+## Some challenges and lessons from this project
 
 - The data extraction was a bit tricky. The data type (pdb files) were new to me so I had to discuss with the research team in-depth and understand the ideas of “frame”, “ligand”, “amino acids”, ”interaction fingerprints” and protein structure, what metrics needed to be extracted and how to go about doing that.
 - The packages used for extraction - MDAnalysis and ProLIF - were new to me so I had to spend some time understanding the documentation and testing out object outputs.
