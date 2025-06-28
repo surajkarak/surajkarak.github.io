@@ -3,7 +3,7 @@ layout: page
 title: What does IMDb data say about the Golden Age of cinema?
 description: Analyzing movie ratings using IMDb data to identify a period of top rated films
 img: assets/img/imdbdata/buster-keaton-smile.gif
-importance: 5
+importance: 14
 featured: true
 category: fun
 ---

@@ -58,8 +58,9 @@ layout: default
             <h2>Featured projects</h2>
             <div class="projects">
               {%- assign featured_projects = site.projects | where: "featured", true -%}
+              {%- assign sorted_featured_projects = featured_projects | sort: "importance" %}
               <div class="grid">
-                {%- for project in featured_projects -%}
+                {%- for project in sorted_featured_projects -%}
                   {% include projects.html %}
                 {%- endfor %}
               </div>
