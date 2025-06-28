@@ -26,6 +26,8 @@ Then I made a call to their album endpoint for the specific artist_id in Spotify
 
 Now I also wanted to know what sort of audio attributes were available with Spotify that I could extract. And [based on their documentation](https://developer.spotify.com/documentation/web-api/reference/get-audio-features), here are some select ones that I thought were interesting.
 
+> **UPDATE**: Sadly, in November 2024, Spotify deprecated access to these audio features, along with a few other endpoints. This analysis was done before that, so if you trying a similar project for yourself today, this may not be possible. But I am leaving it here for reference. 
+
 -   **Tempo**: Beats per minute (BPM). This is like the speed of the track, as an average of the beat duration.
 
 -   **Key:** As per the standard [Pitch Class notation](https://en.wikipedia.org/wiki/Pitch_class). E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. -1 if no key was detected.

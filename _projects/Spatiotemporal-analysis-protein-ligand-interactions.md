@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Spatiotemporal analysis of protein ligand interaction
-description: ETL pipeline for processing of PDB files, analysing interaction fingerprints and visualizing distributions
+description: ETL pipeline for processing PDB files, analysing interaction fingerprints & visualizing distributions
 img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized)_resized.png
 importance: 1  
 featured: true
@@ -71,28 +71,23 @@ fig = px.histogram(
 The histnorm='probability density' argument shows the relative frequency of values rather than raw counts, so it’s easier to compare across metrics with different scales. 
 
 <div style="display: flex; gap: 16px; justify-content: center;">
-  <div style="flex: 1; max-width: 300px;">
+  <div style="flex: 1; max-width: 400px;">
     {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
-  <div style="flex: 1; max-width: 300px;">
+  <div style="flex: 1; max-width: 400px;">
     {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 
-<!-- <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
-</div>
-
-<div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
-</div> -->
 
 
 This gave me some idea of how the metrics were distributed and interestingly, pointed out that some of the metrics were Gaussian in nature while others were multi-modal.
 
 To help the research team quickly visualize this I created a simple [interactive Streamlit dashboard visualization](https://protein-ligand-xj5vzns6f8ivxyaygaxroh.streamlit.app/) that was shareable.
 
+
 ### Gaussian smoothing
+
 
 Based on the research team’s request, I also did a Gaussian smoothing on the distributions. This means that not only is the exact occurrences in each bin counted but the counts of each data point is spread across neighbouring bins according to a Gaussian distribution. This is what is called a [kernel density estimation](https://www.youtube.com/watch?v=t1PEhjyzxLA&ab_channel=ritvikmath) (KDE), where each data point contributes to multiple bins based on a Gaussian kernel. 
 
@@ -100,13 +95,18 @@ To approximate a smoothed distribution for each interaction metric, I placed a G
 
 I was able to provide the research team with these plots as results:
 
-<div class="col-sm mt-3 mt-md-0">
+
+
+<div style="display: flex; gap: 16px; justify-content: center;">
+  <div style="flex: 1; max-width: 400px;">
     {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized).png" title="Gaussian_smoothed_Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div style="flex: 1; max-width: 400px;">
+    {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_VdWContact.distance (normalized).png" title="Gaussian_smoothed_VdWContact.distance (normalized)" class="img-fluid rounded z-depth-1" %}
+  </div>
 </div>
 
-<div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_VdWContact.distance (normalized).png" title="Gaussian_smoothed_VdWContact.distance (normalized)" class="img-fluid rounded z-depth-1" %}
-</div>
+ 
 
 
 ### Time series analysis
@@ -117,6 +117,7 @@ Next, I thought of checking how the different parameters changed throughout the 
 final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
 ``` 
 
+
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/Mean of Hydrophobic.distance across frames.png" title="Mean of Hydrophobic.distance across frames" class="img-fluid rounded z-depth-1" %}
 </div>
@@ -125,7 +126,11 @@ final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
     {% include figure.html path="assets/img/protein-ligand/Mean of VdWContact.distance across frames.png" title="Mean of VdWContact.distance across frames" class="img-fluid rounded z-depth-1" %}
 </div>
 
+
+
 The time series for all the parameters follow a similar trend - with random fluctuations around a mean and occasional spikes but there is no clear trend to observe.
+
+
 
 
 ### ACF, PCF and Seasonality decomposition
@@ -142,6 +147,8 @@ For this the commonly used ACF and PCF plots were as follows:
     {% include figure.html path="assets/img/protein-ligand/pacf.png" title="Partial Autocorrelation Function" class="img-fluid rounded z-depth-1" %}
 </div>
 
+
+
 ACF (Autocorrelation Function) measures how much a data point is correlated with its own past values at different lags in the time series. The correlation is always 1 at Lag 0 (a value is perfectly correlated with itself). But after that, all the metrics show a sharp drop to close to 0.1, showing that any correlation quickly diminishes. 
 
 PACF (Partial Autocorrelation Function) measures the correlation between a data point and a past value in the time series, after removing the effects of the intervening data points - i.e. the direct relationship between a point and a past point, without the "middlemen." Similar to ACF, there is a sharp drop after lag 0. 
@@ -150,9 +157,11 @@ The seasonality decomposition breaks down the time series into trend, seasonal a
 
 The trend component extract any long-term direction or pattern in the data, smoothing out the short-term ups and downs. The trend for all metrics isn't flat, meaning there isn't a constant average value over time. (Although there appears to be repeating peaks and valleys around every 100 or so frames, this was not seen for the other metrics, suggesting it could just be random oscillations or noise)
 
+
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/trend.png" title="Trend component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
+
 
 The seasonal component looks for any repeating patterns or cycles in the data that occur at fixed intervals. There does seem to be a regular wave-like pattern in this plot but this could also be a result of oscillations.
 
@@ -160,19 +169,25 @@ The seasonal component looks for any repeating patterns or cycles in the data th
     {% include figure.html path="assets/img/protein-ligand/seasonal.png" title="Seasonal component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
+
 The residual component represents what's left of the original data after the trend and seasonal components have been removed. Here, they fluctuate around zero, which is good and there are no obvious patterns. That means that the trend and seasonal components have successfully captured the systematic variations in the data.
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/residual.png" title="Residual component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
+
+
 I also explored if there were any correlations between the parameters themselves in a correlation matrix (after scaling all the values using a StandardScaler).
 
-<div class="col-sm mt-3 mt-md-0">
+<div style="flex: 1; max-width: 400px;"
     {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
 </div>
 
+
 There was no major correlations other than the distance and angle for PiStacking, which is to be expected.
+
+
 
 ## Deploying into production with an ETL pipeline
 
@@ -186,6 +201,9 @@ For this, I created an ETL pipeline that would load the PDB files from a specifi
     - process_dataframes - that takes in as input the folder with the PDB files, the box_size, ligand_name and ligand_path for columns for extraction and the same arguments that build_smooth_distribution should take in, so that it can call the function. It returns the plots we need.
     - a viz function - that takes in a json path where you can specify all the input arguments and calls the process_dataframes using these arguments
     - main function to parse the argument from the user, namely the path to the json file which is passed to the viz function
+
+
+
 
 ## Some challenges and lessons from this project
 
