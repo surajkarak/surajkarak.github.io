@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Spatiotemporal analysis of protein ligand interaction
-description: ETL pipeline for processing PDB files, analysing interaction fingerprints & visualizing distributions
+description: ETL pipeline for processing PDB files, interaction fingerprints & visualizing distributions
 img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized)_resized.png
 importance: 1  
 featured: true
@@ -71,10 +71,10 @@ fig = px.histogram(
 The histnorm='probability density' argument shows the relative frequency of values rather than raw counts, so it’s easier to compare across metrics with different scales. 
 
 <div style="display: flex; gap: 16px; justify-content: center;">
-  <div style="flex: 1; max-width: 400px;">
+  <div style="flex: 1; max-width: 600px;">
     {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
-  <div style="flex: 1; max-width: 400px;">
+  <div style="flex: 1; max-width: 600px;">
     {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
@@ -98,10 +98,10 @@ I was able to provide the research team with these plots as results:
 
 
 <div style="display: flex; gap: 16px; justify-content: center;">
-  <div style="flex: 1; max-width: 400px;">
+  <div style="flex: 1; max-width: 600px;">
     {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized).png" title="Gaussian_smoothed_Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
-  <div style="flex: 1; max-width: 400px;">
+  <div style="flex: 1; max-width: 600px;">
     {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_VdWContact.distance (normalized).png" title="Gaussian_smoothed_VdWContact.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
@@ -180,7 +180,7 @@ The residual component represents what's left of the original data after the tre
 
 I also explored if there were any correlations between the parameters themselves in a correlation matrix (after scaling all the values using a StandardScaler).
 
-<div style="flex: 1; max-width: 400px;">
+<div style="flex: 1; max-width: 800px;">
     {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
 </div>
 
@@ -208,7 +208,7 @@ For this, I created an ETL pipeline that would load the PDB files from a specifi
 ## Some challenges and lessons from this project
 
 - The data extraction was a bit tricky. The data type (pdb files) were new to me so I had to discuss with the research team in-depth and understand the ideas of “frame”, “ligand”, “amino acids”, ”interaction fingerprints” and protein structure, what metrics needed to be extracted and how to go about doing that.
-- The packages used for extraction - MDAnalysis and ProLIF - were new to me so I had to spend some time understanding the documentation and testing out object outputs.
+- The packages used for extraction - **MDAnalysis** and **ProLIF** - were new to me so I had to spend some time understanding the documentation and testing out object outputs.
 - The extraction process itself was not straightforward (calculate center of mass of ligand, then list of interacting amino acids and then get interaction fingerprints)
 - Unlike data science projects I was used to, the research team preferred using command line prompts to accept inputs - generally a path to a folder with a json file containing everything - files to extract, parameters for various functions, metrics to explore and arguments for plotting and smoothening the distributions. This took some getting used to but was manageable.
 - Learning to think of the frames as snapshots and looking at them as a “time series”, and also thinking of the time series and distributions as almost interchangeable. Again, not how I have traditionally done time series projects but in this particular use case I can see how it makes sense and got used to it.
