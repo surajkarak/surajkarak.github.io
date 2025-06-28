@@ -180,7 +180,7 @@ The residual component represents what's left of the original data after the tre
 
 I also explored if there were any correlations between the parameters themselves in a correlation matrix (after scaling all the values using a StandardScaler).
 
-<div style="flex: 1; max-width: 400px;"
+<div style="flex: 1; max-width: 400px;">
     {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
 </div>
 
