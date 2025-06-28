@@ -45,7 +45,7 @@ The end result of the extraction looked something like this:
     {% include figure.html path="assets/img/protein-ligand/dataframe.png" title="Dataframe" class="img-fluid rounded z-depth-1" %}
 </div>
 
-<p>
+
 
 ## Exploration 
 
@@ -86,7 +86,7 @@ This gave me some idea of how the metrics were distributed and interestingly, po
 
 To help the research team quickly visualize this I created a simple [interactive Streamlit dashboard visualization](https://protein-ligand-xj5vzns6f8ivxyaygaxroh.streamlit.app/) that was shareable.
 
-<p>
+
 
 ### Gaussian smoothing
 
@@ -96,7 +96,7 @@ Based on the research team’s request, I also did a Gaussian smoothing on the d
 To approximate a smoothed distribution for each interaction metric, I placed a Gaussian (normal) distribution at each data point, using a fixed standard deviation (σ) specified by a smoothing parameter. For each bin in a defined range, I computed the cumulative contribution from all Gaussians, weighted by how close each data point was to that bin center. This is so that each value can “influence” nearby bins based on a normal curve, producing a smoother alternative to a traditional histogram. (Technically it is not a true KDE but more of a binned approximation of KDE). 
 
 I was able to provide the research team with these plots as results:
-<p>
+
 
 
 <div style="display: flex; gap: 16px; justify-content: center;">
@@ -108,7 +108,7 @@ I was able to provide the research team with these plots as results:
   </div>
 </div>
 
- <p>
+
 
 
 ### Time series analysis
@@ -133,7 +133,7 @@ final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
 The time series for all the parameters follow a similar trend - with random fluctuations around a mean and occasional spikes but there is no clear trend to observe.
 
 
-<p>
+
 
 ### ACF, PCF and Seasonality decomposition
 
@@ -164,14 +164,14 @@ The trend component extract any long-term direction or pattern in the data, smoo
     {% include figure.html path="assets/img/protein-ligand/trend.png" title="Trend component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
-<p>
+
 The seasonal component looks for any repeating patterns or cycles in the data that occur at fixed intervals. There does seem to be a regular wave-like pattern in this plot but this could also be a result of oscillations.
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/protein-ligand/seasonal.png" title="Seasonal component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
-<p>
+
 The residual component represents what's left of the original data after the trend and seasonal components have been removed. Here, they fluctuate around zero, which is good and there are no obvious patterns. That means that the trend and seasonal components have successfully captured the systematic variations in the data.
 
 <div class="col-sm mt-3 mt-md-0">
@@ -179,9 +179,9 @@ The residual component represents what's left of the original data after the tre
 </div>
 
 
-<p>
+
 I also explored if there were any correlations between the parameters themselves in a correlation matrix (after scaling all the values using a StandardScaler).
-<p>
+
 
 <div style="flex: 1; max-width: 800px;">
     {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
@@ -190,7 +190,7 @@ I also explored if there were any correlations between the parameters themselves
 
 There was no major correlations other than the distance and angle for PiStacking, which is to be expected.
 
-<p>
+
 
 ## Deploying into production with an ETL pipeline
 
@@ -205,7 +205,7 @@ For this, I created an ETL pipeline that would load the PDB files from a specifi
     - a **viz** function - that takes in a json path where you can specify all the input arguments and calls the process_dataframes using these arguments
     - **main** function to parse the argument from the user, namely the path to the json file which is passed to the viz function
 
-<p>
+
 
 
 ## Some challenges and lessons from this project
