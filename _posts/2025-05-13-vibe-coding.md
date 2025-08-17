@@ -6,10 +6,11 @@ description: In a good way and a bad way
 tags: vibe-coding
 categories: productivity
 thumbnail: /assets/post_imgs/vibe-coding.png
+featured: true
 related_posts: false
 
 ---
-I’ve been tinkering with [**Cursor**](https://www.cursor.com/), [**GitHub](https://github.com/features/copilot)** Copilot, [**Lovable](https://lovable.dev/)** and other GenAI tools for a few personal projects.  And I landed on a couple of realizations:
+I’ve been tinkering with [**Cursor**](https://www.cursor.com/), [**GitHub Copilot**](https://github.com/features/copilot), [**Lovable**](https://lovable.dev/) and other GenAI tools for a few personal projects.  And I landed on a couple of realizations:
 
 1. It’s scary good
 
