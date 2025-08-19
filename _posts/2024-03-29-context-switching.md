@@ -6,7 +6,6 @@ description: How I try to deal with this silent productivity killer
 tags: context-switching
 categories: productivity
 thumbnail: /assets/post_imgs/context-switching.png
-featured: true
 related_posts: false
 
 ---
