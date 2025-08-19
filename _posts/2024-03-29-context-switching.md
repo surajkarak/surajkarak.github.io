@@ -22,15 +22,15 @@ But when the type of work you return to is different, or you have to switch betw
 
 For example, in the last two to three years, I have had to spend a lot of time on each of the following tasks at least once, almost every single day:
 
-- Work - where I have had to analyse data, develop ML models and design dashboards, which has involved attending meetings, working on product and code and communicating with various stakeholders over email, Slack and other messaging tools.
-- Keeping up with the latest developments in tech and AI – LLMs, AI Agents and more
-- Reinforcing fundamental statistics and math concepts
-- Doing coursework for my Master’s programme – homework assignments and assessment requirements, as well as the final Master’s thesis project.
-- Coding – this is part of coursework but it exercises a different part of my brain compared to other types of assignments like researching and reading.
-- Writing – this includes spending time thinking and putting those thoughts into words
-- Dealing with German bureaucracy and logistics
-- Learning German language – this started off with Duolingo in 2020, then progressed to in-person classes at my university, reading textbooks and tests myself and finding language partners to practice speaking
-- Sideprojects – other ideas for coding and data science projects outside of my actual work,  for which I had to find inspiration, read up on even more tools and frameworks, come up with  ideas and testing and implementing in code
+- **Work** - where I have had to analyse data, develop ML models and design dashboards, which has involved attending meetings, working on product and code and communicating with various stakeholders over email, Slack and other messaging tools.
+- **Reading** -  keeping up with the latest developments in tech and AI – LLMs, AI Agents and more
+- **Learning** - mainly reinforcing fundamental statistics and math concepts
+- **Coursework** - in the form of homework assignments, assessments and thesis for my Master’s programme.
+- **Coding** – either for coursework or sideprojects, and it exercises a different part of my brain compared to other types of assignments like researching and reading.
+- **Writing** – this includes spending time thinking and putting those thoughts into words
+- **Paperwork** - Dealing with German bureaucracy and logistics
+- **Language learning** (German) – this started off with Duolingo in 2020, then progressed to in-person classes at my university, reading textbooks and tests myself and finding language partners to practice speaking
+- **Sideprojects** – other ideas for coding and data science projects outside of my actual work,  for which I had to find inspiration, read up on even more tools and frameworks, come up with  ideas and testing and implementing in code
 
 Almost all of these exercise a different muscle in the brain and I found it hard to switch between one to the other. 
 
