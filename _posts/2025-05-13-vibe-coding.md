@@ -10,9 +10,7 @@ featured: true
 related_posts: false
 
 ---
-<div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="/assets/post_imgs/vibe-coding.png" title="Vibe coding" class="img-fluid rounded z-depth-1" %}
-</div>
+ 
 
 
 As with most AI-related trends these days, my first instinct was to treat “vibe coding” as another buzzword created by techbros, purely for marketing and piling on the hype to inflate the bubble. 

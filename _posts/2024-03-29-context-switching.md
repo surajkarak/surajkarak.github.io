@@ -1,14 +1,17 @@
 ---
 layout: post
-title:  On context switching and some tools I find helpful
+title:  On context switching and some helpful tools
 date:   2024-03-29 09:04:16
 description: How I try to deal with this silent productivity killer
 tags: context-switching
 categories: productivity
+thumbnail: /assets/post_imgs/context-switching.png
 featured: true
 related_posts: false
 
 ---
+ 
+
 Over the last two years and a bit more, I have had to work on more things that were significantly different from each other than before. And I have come to experience the real toll that the mind suffers when context switching. 
 
 It’s one thing to be absorbed in work all day and feel tired in the evening. But when that work is not of the same “type”, it can be even more mentally draining. Let me illustrate what I mean by this.
