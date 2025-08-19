@@ -1,30 +1,33 @@
 ---
 layout: post
-title:  On context switching 
+title:  On context switching and some tools I find helpful
 date:   2024-03-29 09:04:16
 description: How I try to deal with this silent productivity killer
 tags: context-switching
 categories: productivity
+featured: true
+related_posts: false
+
 ---
 Over the last two years and a bit more, I have had to work on more things that were significantly different from each other than before. And I have come to experience the real toll that the mind suffers when context switching. 
 
 It’s one thing to be absorbed in work all day and feel tired in the evening. But when that work is not of the same “type”, it can be even more mentally draining. Let me illustrate what I mean by this.
 
-Let’s say that your daily routine, whether it is a 9 to 5 job, or any kind, involves you doing work in that time period. If you are working on the same “kind” of work – coding, designing, writing, speaking whatever – as long as you stick to it, you don’t often have to make a significant mental switch. You will still need to take breaks, rest and get back to what you were doing, but you will still be resuming the same context when you do. 
+Let’s say that your daily routine, whether it is a 9 to 5 job, or any kind, involves you doing work in that time period. If you are engaged in the same “kind” of work – coding, designing, writing, speaking whatever – as long as you stick to it, you don’t often have to make a significant mental switch. You will still need to take breaks, rest and get back to what you were doing, but you will still be resuming the same context when you do. 
 
 But when the type of work you return to is different, or you have to switch between different types of work frequently, that switching can take a slight toll on the mind every time, and it can add up to a lot on top of the usual weariness by the end of the day. 
 
 For example, in the last two to three years, I have had to spend a lot of time on each of the following tasks at least once, almost every single day:
 
-- Learning about various new topics in data science and progressing to Machine Learning, Deep Learning and LLMs
+- Work - where I have had to analyse data, develop ML models and design dashboards, which has involved attending meetings, working on product and code and communicating with various stakeholders over email, Slack and other messaging tools.
+- Keeping up with the latest developments in tech and AI – LLMs, AI Agents and more
 - Reinforcing fundamental statistics and math concepts
 - Doing coursework for my Master’s programme – homework assignments and assessment requirements, as well as the final Master’s thesis project.
 - Coding – this is part of coursework but it exercises a different part of my brain compared to other types of assignments like researching and reading.
 - Writing – this includes spending time thinking and putting those thoughts into words
-- Dealing with German bureaucracy and visa logistics
-- Learning German – this started off with Duolingo in 2020, then progressed to in-person classes at my university, reading textbooks and tests myself and finding language partners to practice speaking
-- Work – I also had internships and part-time work with a tech company in Bremen, as part of which I had to attend meetings, work on product and code.
-- Sideprojects – simple ideas for coding and data science projects that are not part of coursework or work, for which I had to get inspired, think of ideas and research before testing and implementing in code
+- Dealing with German bureaucracy and logistics
+- Learning German language – this started off with Duolingo in 2020, then progressed to in-person classes at my university, reading textbooks and tests myself and finding language partners to practice speaking
+- Sideprojects – other ideas for coding and data science projects outside of my actual work,  for which I had to find inspiration, read up on even more tools and frameworks, come up with  ideas and testing and implementing in code
 
 Almost all of these exercise a different muscle in the brain and I found it hard to switch between one to the other. 
 
