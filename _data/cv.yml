@@ -26,13 +26,13 @@
     - title: Data Scientist/AI Engineer
       institution: <a href="https://www.rebuy.de/" target="_blank"> rebuy recommerce </a>, Berlin
       year: 05.2025 -
-      description: Working with the marketing team in charge of acquisition at rebuy to apply data science techniques to
-        - Develop, monitor and manage budget allocation tool (BAT) for paid campaigns
+      description: 
+        - Helping the marketing acquisition team optimize campaigns using data science and ML
+        - Developing, monitoring and managing budget allocation for paid campaigns
         - Data processing, feature engineering, validation and deployment
-        - Devise, test and deploy clustering and ML techniques to allocate budgets across campaigns
-        - Collaborate with data scientists, analysts, paid marketing and acquisition team to drive growth
-        - Extract actionable insights from complex datasets to provide ongoing BAT outputs 
-        - Influence decision-making by continuously improving the existing model
+        - Developing, testing and deploying clustering and ML techniques to allocate media budgets 
+        - Extracting actionable insights from complex datasets to provide ongoing outputs 
+        - Influencing decision-making by continuously improving the existing models
     - title: Data Scientist/ML Engineer
       institution: <a href="https://constructor.tech/" target="_blank"> Constructor Technology Group </a>, Bremen
       year: 07.2024 - 01.2025
@@ -40,7 +40,7 @@
         - Joined the research team under  <a href="https://constructor.university/faculty-member/petr-popov" target="_blank">Prof. Petr Popov</a>
         - Conducting Spatiotemporal analysis of protein-ligand interactions
         - Extracting and exploring distributions of interaction parameters from PDB files
-        - Developing interactive Streamlit dashboards for easy communication of research findings
+        - Developing interactive Streamlit dashboards to communicate research findings
     - title: Product Manager
       institution: <a href="https://constructor.tech/" target="_blank"> Constructor Technology Group </a>, Bremen
       year: 05.2023 - 06.2024
@@ -55,12 +55,12 @@
       description:
         - Managed the Digital Guru agency certification program
         - Defined product messaging in collaboration with Global Product Leads
-        - Created content with subject matter experts, data scientists and external media production agencies.
+        - Created content with subject matter experts, data scientists and agencies.
     - title: Data Science Consultant
       institution: <a href="https://parseinsight.com/" target="_blank">ParseInsight </a>, Remote
       year: 2020-2022
       description:
-        - Worked with multiple enterprises and startups, providing data science and marketing analytics services 
+        - Provided data science and marketing analytics consulting for enterprises and startups
         - Set up web data analytics and measurement frameworks using Google Analytics
         - Managed paid Google Ads campaigns and organic social content
         - Created dashboards for insights integrating various web analytics data sources
@@ -80,10 +80,11 @@
       institution: Independent Consulting, Remote
       year: 2017 - 2018
       description:
-        - Provided data science and marketing services to various clients including setting up of measurement frameworks
+        - Provided data science and marketing services to clients 
         - Managed writers and designers on content creation 
         - Partnered with market researchers and data analysts for surveys and owned research
         - Conducted competitor analysis and content audit to identify gaps and opportunities
+        - Set up measurement frameworks to track marketing performance
         - Monitored trends on artificial intelligence and machine learning for content opportunities
 
     - title: Content Strategist and Editor
@@ -92,9 +93,9 @@
       description:
         - Managed end-to-end content marketing for clients across a number of sectors in Asia
         - Developed data-driven content marketing strategies to meet clients' business objectives
-        - Managed the editorial production and commissioning content briefs to writers and journalists
+        - Managed editorial production and commissioning of briefs to writers and journalists
         - Conducted SEO keyword research, content audits and competitor analysis to aid strategy
-        - Developed content performance reports with insights and recommendations for optimisation
+        - Developed content performance reports with insights and recommendations 
 
 - title: Other Interests
   type: list
