@@ -105,6 +105,7 @@ Taking an average of the scores for each across all episodes:
     </div>
 </div>
 
+
 Spock has very low sentiment, even negative. This makes sense. But strangely, Kirk’s scores are much higher than the other two. This seems to go against the idea that McCoy is the emotional one and Kirk balances the two (in which case his score would have been in between the other two).
 
 But this could also be because sentiment captures positive aspects in the language used. And both Spock and McCoy tend to speak of dangers and warnings, while Kirk is usually the one who is optimistic and confident.
@@ -128,6 +129,7 @@ The weighted sentiment scores is plotted in an interactive graph as below:
 
 <iframe src="/assets/img/startrek/sentperepisode.html" width="900" height="600"></iframe>
 
+
 Spock can be seen to be more negative, although slightly more balanced than the other two. His lowest comes in The Galileo Seven, the 16th episode of the 1st season, which I remember being one of his best ones. It is the one where he crashes with his team on a planet populated by aggressive giants and has to lead his team out. He has to make some quick moves to escape the planet's gravity at the end and interestingly, refuses to admit that his final actions were motivated by emotion than logic.
 
 McCoy’s most positive episode is the The Tholian Web. Interestingly, it looks like Kirk is also the one who fluctuates between the highest of positives to the lowest of negatives throughout. His highest weighted sentiment score comes in the episodes "A Piece of the Action" and “The Immunity Syndrome" (the 17th and 18th episodes of the 2nd season respectively). A Piece of the Action is the one in which they visit the planet with Earth-like 1920s gangster culture, with Tommy guns and where Kirk teaches them the fictitious game of “fizzbin” to distract the guards who captured his team. In The Immunity Syndrome, the team encounters an energy-draining, space-dwelling organism and has to send a member to pilot a shuttlecraft into the gelatinous mass of the creature and conduct analysis. His lowest sentiments comes in the episodes “The Deadly Years”, where the crew experiences rapid aging after being exposed to radiation, “Obsession” in which Kirk becomes obsessed with hunting down a deadly creature that killed members of his previous crew and “Wolf in the Fold”, where the crew becomes embroiled in a murder investigation on a pleasure planet when a series of killings occur under mysterious circumstances.
@@ -147,6 +149,7 @@ I couldn’t do this for all episodes so I just choose from the first few.
 <iframe src="/assets/img/startrek/sentep3.html" width="900" height="700"></iframe>
 
 <iframe src="/assets/img/startrek/sentep4.html" width="900" height="700"></iframe>
+
 
 
 The result was not what I expected. There does not seem to be a common pattern. Episodes rise with positive sentiment sometimes while at other times it begins with negative sentiment, while in some cases it can just be fluctuating from the outset. What is common though is that at some point in the narrative the positive sentiment keeps building and after a drop towards the end, it rises back up again.
