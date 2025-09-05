@@ -8,7 +8,7 @@ featured: true
 category: fun   
 ---
 
-As I was playing around with NLP and sentiment analysis, I remembered this wonderful clip of Stephen Fry talking about Star Trek years ago. That was well before I had even watched a single episode.
+As I was playing around with NLP and sentiment analysis, I remembered this wonderful clip of Stephen Fry talking about Star Trek years ago. That was well before I had even watched a single episode. I must admit I was never a hardcore “Trekkie” but then during the COVID lockdowns, I got hooked and binge-watched The Original Series.
 
 <div>
 
@@ -17,7 +17,7 @@ As I was playing around with NLP and sentiment analysis, I remembered this wonde
 </div>
 
 
-I must admit I was never a hardcore “Trekkie” but I did remember having a blast binging The Original Series during the COVID lockdowns.
+
 
 Stephen Fry’s proposition that Kirk balances out Spock’s logic and McCoy’s emotion seemed like something that was worth testing using data. My first thought was to analyse the scripts of the episode using NLP.
 
