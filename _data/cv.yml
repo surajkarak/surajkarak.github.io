@@ -23,9 +23,19 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Data Scientist
+    - title: Data Scientist/AI Engineer
+      institution: <a href="https://www.rebuy.de/" target="_blank"> rebuy recommerce </a>, Berlin
+      year: 05.2025 -
+      description: Working with the marketing team in charge of acquisition at rebuy to apply data science techniques to
+        - Develop, monitor and manage budget allocation tool (BAT) for paid campaigns
+        - Data processing, feature engineering, validation and deployment
+        - Devise, test and deploy clustering and ML techniques to allocate budgets across campaigns
+        - Collaborate with data scientists, analysts, paid marketing and acquisition team to drive growth
+        - Extract actionable insights from complex datasets to provide ongoing BAT outputs 
+        - Influence decision-making by continuously improving the existing model
+    - title: Data Scientist/ML Engineer
       institution: <a href="https://constructor.tech/" target="_blank"> Constructor Technology Group </a>, Bremen
-      year: 07.2024 -
+      year: 07.2024 - 01.2025
       description:
         - Joined the research team under  <a href="https://constructor.university/faculty-member/petr-popov" target="_blank">Prof. Petr Popov</a>
         - Conducting Spatiotemporal analysis of protein-ligand interactions
