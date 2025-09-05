@@ -21,26 +21,27 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a Data scientist with a background in marketing. I have worked primarily in content, strategy and product, while also handling data analytics and measurement. I have also provided independent consulting for startups specialising in computer vision, artificial intelligence, retail, geospatial data analytics and conversational AI/chatbot development.
+I am an AI Data scientist with a background in marketing. I started off in copywriting, then grew into "content" and strategy development, while also handling data analytics and measurement. Over 8 years, I got to work with some leading tech enterprises and startups specialising in computer vision, artificial intelligence, geospatial data analytics and conversational AI/chatbot development, which inspired me to formally move into Data Science.
 
 I grew up in India, lived and worked in Singapore for 16 years and now I'm based in Germany.  
 
 **My specialties include**: 
-- Data mining
-- Data exploration
-- Data modeling
-- Machine learning
-- Deep learning
+- Data mining, data exploration and statistical modeling
+- Machine learning (supervised and unsupervised)
+- Deep learning 
 - Natural language processing 
-- Time series
-- Data visualisation
+- Time series analysis and forecasting
+- Data visualisation 
 
 **Tools/skills that I work with**: 
-- General programming: Python R 
-- IDE: Visual Studio, RStudio
-- General data science and ML: pandas, numpy, scikit-learn, statsmodels, NLTK, Spacy, XGBoost
+- General programming: Python, R 
+- IDE: Visual Studio, RStudio, Cursor, Jupyter Notebooks
+- General data science and ML: pandas, numpy, scikit-learn, statsmodels, NLTK, Spacy, XGBoost, 
 - Deep learning: PyTorch
-- Database: SQL, BigQuery
+- Database: SQL, BigQuery, Snowflake
+- Cloud: Google Cloud Platform, AWS
+- Version control: Git, GitHub
+- NLP: HuggingFace transformers, OpenAI GPT models, LangChain, LlamaIndex
 - Data visualisation: matplotlib, seaborn, plotly for packages and other specialised tools: Tableau, Google Data Studio (Looker Studio), PowerBI, Streamlit
 - Web analytics: Google Analytics, Search Console, Adobe Analytics, HubSpot
 
