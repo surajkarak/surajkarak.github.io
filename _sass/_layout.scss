@@ -48,3 +48,12 @@ body.sticky-bottom-footer {
 *****************************************************************************/
 
 // TODO: redefine projects layout.
+
+/******************************************************************************
+ * Blog Posts (custom narrower width)
+ ******************************************************************************/
+
+.layout--post .post {
+  max-width: 750px;   // adjust as needed
+  margin: 0 auto;
+}
