@@ -22,11 +22,11 @@ Some simple examples from my work:
 
 In one project, I had assigned a simple data preprocessing task to a junior data analyst. The task was to aggregate weather data for a number of cities across time and ready for time series analysis. Trusting the work, we proceeded to continue the analysis, only to find later that the data was not grouped per country. It might sound trivial but these are the kinds of errors that can happen if the focus is on getting the code for data transformations without understanding what the data looks like.  
 
-2. Overlapping week numbers at the end of the year
+2. Overlapping week numbers at the end of the year 
 
 Another simple instance was the “overlapping” of week numbers in another time series project. This was my own fault when I converted the date-time values of a time series into week numbers. I realised later that since the last week (span of 7 days in this context) of a year overlapped with day of the new year, which led to some inconsistency in the numbering of weeks. Not always unavoidable but spotting it as early as possible could lead to a lot of time saved in the analysis and modeling. 
 
-3. Understanding data (Protein Data Bank or PDB files) from a new domain
+3. Understanding data (Protein Data Bank or PDB files) from a new domain 
 
 Yet another example was in my work with the molecular biology research group at my university. In this particular case, I really had to spend a lot of time understanding the data and what it meant as I was not an expert in the domain. At first I tried to power through the code and let the results “show me” what I was doing. But this did not work as I hit a number of roadblocks in the code, and the only solution was to go back to the data, discuss with the research team and understand what I was dealing with in depth. 
 
