@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Understanding data is half the work
+_styles: |
+  .post { max-width: 700px !important; margin: 0 auto !important; }
+  .post .post-content { max-width: 700px !important; margin: 0 auto !important; }
 date: 2025-08-12 17:16:32
 description: It's critical to spend enough time on this first key step in every dat science task
 tags: data-science
