@@ -53,7 +53,12 @@ body.sticky-bottom-footer {
  * Blog Posts (custom narrower width)
  ******************************************************************************/
 
-.post {
-  max-width: 250px;   // adjust as needed
+.layout--post .post {
+  max-width: 750px;   // adjust to your liking
+  margin: 0 auto;     // center it
+}
+
+.layout--post .post-content {
+  max-width: 750px;   // ensures content doesn’t stretch
   margin: 0 auto;
 }
