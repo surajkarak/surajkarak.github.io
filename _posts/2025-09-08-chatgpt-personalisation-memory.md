@@ -4,7 +4,7 @@ title: ChatGPT and the problem with personalisation
 date: 2025-09-08 14:22:23
 description: Not every chat needs to be personalised to your interests.
 tags: chat-gpt
-categories: genai
+categories: productivity
 thumbnail: /assets/post_imgs/chatgpt-personalisation.jpg
 featured: false
 related_posts: false
