@@ -55,9 +55,11 @@ Again, something I encountered in my work. While working on a churn prediction m
         {% include figure.html path="/assets/post_imgs/churn_imbalance.png" title="churn imbalance" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-Churn
-No     5174
-Yes    1869
+Churn:
+
+No: 5174
+
+Yes: 1869
 
 Almost 73% in favour of one label. This meant that I had to either use SMOTE or class-weighting for handling the imbalance. I also saw that some of the one-hot encoded categorical variables were 100% correlated (redundant) with each other (e.g. InternetService_No and OnlineBackup_No internet service etc.).
 
@@ -72,7 +74,7 @@ This would have led to multicollinearity and one of these pairs of 100% correlat
 EDA also informed the choice of the model as tree-based models like CatBoost are better at handling non-linearity and categorical variables better than logistic regression.
 
 
-## 4. You often have to return to EDA at a later stage
+## 4. You often have to return to EDA multiple times
 
 I have often found that conducting EDA is not a one-off task. It is something we have to return to often at a later stage. For example, after modelling, we may find that the error metrics (RMSE, MAE or others) look subpar (or in the other direction - too good to be true). We test out different combinations of features to see how the RMSE changes. 
 
