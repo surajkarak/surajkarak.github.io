@@ -22,13 +22,13 @@ But one of the earliest steps in every data science project - that of explorator
 But the more projects I work on, and as I speak to more data scientists, I find the need to emphasise the importance of this step.
 
 
-## 1. It is a crucial step in understanding the data
+### 1. It is a crucial step in understanding the data
 
 I previously wrote about why it is important to “spend time with data”, before going into subsequent stages of the data science workflow. Taking time to understand the data - how it was extracted, the structure and schema, and what all the features stand for - can save a lot of headache further down the line. 
 
 EDA becomes an important part of this step. It allows us to understand what features are available, what their distributions are like, how they interact with each other and which features are most influential in any specific target variable you want to predict later on.
 
-## 2. It can help uncover hidden data issues early
+### 2. It can help uncover hidden data issues early
 
 Sometimes, entire projects are based on flawed data, say mismatched join keys, duplicated time series, inconsistent labels. Think of EDA as your first checkpoint for quality control, before you do any heavy analysis or modelling. Let’s say you are building a sales forecasting model for a retail chain using transactional data. And during EDA, you notice that some stores show negative sales for certain days. This lets you inspect further and maybe you realise that these negative values are due to refunds being logged as negative revenue. 
 
@@ -44,7 +44,7 @@ The price values were sometimes negative - these were instances where the firm g
 
 
 
-## 3. EDA helps define your modelling strategy
+### 3. EDA helps define your modelling strategy
 
 The insights from EDA often shape your model choice. It helps you figure out the distributions, patterns and relationships in your data, so that you can make more informed decisions about preprocessing steps, feature selection, and model choice. For example, it sheds light on questions like: Are the features linear? Is the target variable balanced? Is it a regression or classification task? The EDA step directs the decision on whether to use a linear model, tree-based method, or even rethink the problem.
 
@@ -74,7 +74,7 @@ This would have led to multicollinearity and one of these pairs of 100% correlat
 EDA also informed the choice of the model as tree-based models like CatBoost are better at handling non-linearity and categorical variables better than logistic regression.
 
 
-## 4. You often have to return to EDA multiple times
+### 4. You often have to return to EDA multiple times
 
 I have often found that conducting EDA is not a one-off task. It is something we have to return to often at a later stage. For example, after modelling, we may find that the error metrics (RMSE, MAE or others) look subpar (or in the other direction - too good to be true). We test out different combinations of features to see how the RMSE changes. 
 
@@ -82,15 +82,15 @@ This is when we go back to EDA and perhaps plot a correlation matrix of all the 
 
 As such, the data science process is not a linear one but rather circular and we have to go back to EDA several times to redo the analysis.
 
-## 5. You may also have to revisit EDA based on stakeholder feedback
+### 5. You may have to redo EDA based on feedback
 
 You may also have to go back to the start and redo the analysis again based on specific feedback you get from stakeholders. This could be due to a gap in understanding context, additional input from stakeholders who are closer to ground truth or changing business priorities. 
 
 As a simple example, you may find that the business has decided to change their pricing. This means that the features you considered previously for a clustering or MMM optimisation model may not be correct anymore. Or it could be cases where an entire product category has been paused, leading to new null values in your data.
 
-## 6. EDA can be helpful in communicating with non-technical stakeholders
+### 6. It can be key for stakeholder communication
 
-I have often found that the insights and visual summaries from the EDA stage can be used to communicate key insights for stakeholders. Stakeholders don’t always care about F1 scores or neural nets. 
+I have often found that the insights and visual summaries from the EDA stage can be used to communicate key insights for non-technical stakeholders. Stakeholders don’t always care about F1 scores or neural nets. 
 
 In presentations to non-technical stakeholders, I have found myself questioning the point of discussing ROC AUC scores and having to go in loops trying to explain confusion matrix and SHAP summary plots. Business teams really care about only how the data supports their decisions, and a lot of technical jargon can be avoided if we reuse the results from the EDA. 
 
