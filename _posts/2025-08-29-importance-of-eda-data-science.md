@@ -21,7 +21,7 @@ But the more projects I work on, and as I speak to more data scientists, I find 
 
 ### 1. It is a crucial step in understanding the data
 
-I previously wrote about why it is important to “spend time with data”, before going into subsequent stages of the data science workflow. Taking time to understand the data - how it was extracted, the structure and schema, and what all the features stand for - can save a lot of headache further down the line. 
+I previously wrote about [why it is important to “spend time with data”](https://surajkarak.github.io/blog/understanding-data-science-projects/), before going into subsequent stages of the data science workflow. Taking time to understand the data - how it was extracted, the structure and schema, and what all the features stand for - can save a lot of headache further down the line. 
 
 EDA becomes an important part of this step. It allows us to understand what features are available, what their distributions are like, how they interact with each other and which features are most influential in any specific target variable you want to predict later on.
 
