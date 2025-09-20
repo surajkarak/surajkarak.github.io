@@ -1,9 +1,6 @@
 ---
 layout: post
 title: Exploratory data analysis is much more than just fancy graphs
-_styles: |
-  .post { max-width: 700px !important; margin: 0 auto !important; }
-  .post .post-content { max-width: 700px !important; margin: 0 auto !important; }
 date: 2025-08-29 12:22:43
 description: A crucial, underrated step in every data science process.
 tags: data-science
