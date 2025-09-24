@@ -3,9 +3,9 @@ layout: page
 title: Spatiotemporal analysis of protein ligand interaction
 description: ETL pipeline to process PDB files, analyse interaction fingerprints & visualize distributions
 img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized)_resized.png
-importance: 1  
-featured: true
-category: work     
+importance: # 1  
+featured: # true
+category: # work     
 ---
 
 I recently worked with the research team under Dr. Petr Popov at Constructor University. Their team was working on protein-ligand interactions and looking for new insights that could be derived from a batch of PDB (Protein Data Bank) files. PDB files are commonly used dataformats in molecular biology. They generally store the three-dimensional structure of macromolecules to be used in analysing protein structures. This kind of work – where you use data to understand the structural and dynamic properties of molecules – is applied in many fields, from drug discovery to materials science. 
