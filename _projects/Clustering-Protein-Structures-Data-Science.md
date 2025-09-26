@@ -3,9 +3,9 @@ layout: page
 title: Clustering binding sites based on distance and similarity metrics
 description: ETL pipeline for exploring protein binding sites and similarity-based clustering
 img: assets/img/clustering-protein/clustering-protein-data-science.png
-importance:   
-featured: 
-category:  
+importance: 1   
+featured: true
+category: work
 ---
 
 This was a continuation of my work with the research team under Dr. Petr Popov at Constructor University. In the [first part of the project](https://surajkarak.github.io/projects/Spatiotemporal-analysis-protein-ligand-interactions/), I processed a collection of PDB files, computed the protein-ligand interaction fingerprints, explored their distributions including Gaussian smoothing and time series analysis followed by a visualization and an ETL pipeline to automate the whole workflow. 
@@ -56,7 +56,7 @@ The data for this project came from precomputed .pkl files - one for each frame 
 
 In order to cluster the different binding sites, I first had to decide on the appropriate features. After discussing with the research team, I first had to represent each binding site by a “distance” metric. This could take one of three forms.
 
-- 1. Residue overlap metric - a simple intersection of the sets of residues involved in two binding sites
+### 1. Residue overlap metric - a simple intersection of the sets of residues involved in two binding sites
 
 ```python
 def residue_overlap_distance(site1, site2):
@@ -65,7 +65,7 @@ def residue_overlap_distance(site1, site2):
     return 1 - len(residues1 & residues2) / len(residues1 | residues2)
 ```
 
-- 2. Residue score metric - directly using the hotspot “scores” as feature vectors representing each binding site and finding the distance (Euclidean, L1, or Jaccard distance)
+### 2. Residue score metric - directly using the hotspot “scores” as feature vectors representing each binding site and finding the distance (Euclidean, L1, or Jaccard distance)
 
 ```python
 def residue_score_distance(site1, site2, distancetype):
@@ -81,12 +81,11 @@ def residue_score_distance(site1, site2, distancetype):
     
     return dist
 ```
-- 3. Distance vector metric 
+### 3. Distance vector metric 
 
 This third approach is the most complex. It builds a consistent numerical representation of each binding site by encoding how its atoms relate to a global set of atoms of interest. This involved a few steps: 
 
-
-1. Identifying atoms in hotspots
+#### 1. Identifying atoms in hotspots
 
 A hotspot is essentially a functional region of a binding site. I needed to know exactly which atoms belonged to each hotspot. This involved mapping residue identifiers in a binding site to the corresponding atoms in the target structure. It ensures the right atoms are pulled out from the matching .pkl target file and records their details (chain ID, residue ID, atom name, element, and coordinates).
  
@@ -126,7 +125,7 @@ def get_atoms_in_binding_site(binding_site):
 		return atoms_in_site
 ```
 
-2. Defining a global set of atoms
+#### 2. Defining a global set of atoms
 
 Once atoms are extracted from all binding sites, I collected them into a global catalogue of unique atoms by:
 
@@ -152,7 +151,7 @@ def atoms_of_interest(binding_sites):
 ```
 This global set of atoms was crucial: it defines the dimensions of the vector space in which all binding sites will be represented.
 
-3. Looking up atom coordinates
+#### 3. Looking up atom coordinates
 
 I also wanted to retrieve the coordinates for any given atom ID. It searches through the global flat list of atom dictionaries (atoms_of_interest_flat) and returns the XYZ coordinates.
 
@@ -172,7 +171,7 @@ def get_atom_coordinates(atom_data):
 ``` 
 This step is what enables distance calculations later on.
 
-3. Building the binding site vector
+### 4. Building the binding site vector
 
 The heart of the method is binding_site_vector(binding_site, unique_atoms). For a given site, it constructs a fixed-length vector whose entries correspond to the global set of unique atoms.
 
@@ -220,10 +219,11 @@ def binding_site_vector(binding_site, unique_atoms):
 
 ``` 
 The result is a dense numerical vector of equal length for all binding sites, ready for pairwise comparison
-4. Computing the distance between 2 distance vectors and distance matrix
-Once I had site vectors, it was just a matter of computing the distance (using (L2/Euclidean or L1/Manhattan etc.) between 2 vectors and then the distance matrix. 
 
-The distance matrix is a 2D array where entry (i, j) represents the distance between binding site i and binding site j. And although the binding sites themselves are the “items” being clustered, each row in the distance matrix corresponds to a binding site, and the algorithm assigns a cluster label to that row.
+### Computing the distance between 2 distance vectors and distance matrix
+Once I had site vectors, it was just a matter of computing the distance (using (L2/Euclidean or L1/Manhattan etc.) between 2 vectors to get this third type of distance metric.
+
+For each type of distance metric, it was necessary to compute a distance matrix. The distance matrix is a 2D array where entry (i, j) represents the distance between binding site i and binding site j. And although the binding sites themselves are the “items” being clustered, each row in the distance matrix corresponds to a binding site, and the algorithm assigns a cluster label to that row.
 
 ```python
 def pairwise_distances_with_library(sites, distance_func, distance_type): 
@@ -234,6 +234,19 @@ def pairwise_distances_with_library(sites, distance_func, distance_type):
     condensed_matrix = pdist([[i] for i in indices], metric=lambda i, j: distance_wrapper(i, j, distance_type))
     
     return squareform(condensed_matrix)
+
+def calculate_distance_matrix(binding_sites, distance_metric, distance_type):
+        if distance_metric == 'residue_overlap':
+            return pairwise_distances_with_library(binding_sites, residue_overlap_distance, distance_type)
+        elif distance_metric == 'residue_score':
+            return pairwise_distances_with_library(binding_sites, residue_score_distance, distance_type)
+        elif distance_metric == 'distance_vector':
+            global unique_atoms, atoms_of_interest_flat
+            unique_atoms, atoms_of_interest_flat = atoms_of_interest(binding_sites)
+            return pairwise_distances_with_library(binding_sites, distance_between_vectors, distance_type)
+
+distance_matrix = calculate_distance_matrix(binding_sites, distance_metric, distance_type)
+
 ``` 
 This is unlike traditional clustering applications in “business” where a product or item is assigned a cluster based on its features. In fact, you can think of the distance matrix as a collection of items with their features, except the items themselves are entire rows (binding sites) and the features are the columns. Or in other words, instead of using the raw attributes of a binding site, we use its pattern of distances to every other binding site as its effective “feature vector.”
 
@@ -241,12 +254,68 @@ This is unlike traditional clustering applications in “business” where a pro
 
 For each distance metric, I used four clustering algorithms as the research team wanted the flexibility of using anyone of them based on their needs. 
 
-- Agglomerative Clustering - suitable for small to medium-sized dataset where hierarchy is meaningful
-- DBSCAN - density-based, can identify noise points.
-- OPTICS - Like DBSCAN but more flexible with varying densities (visualised via reachability plot).
-- MeanShift - Finds dense regions by shifting points to cluster centers.
+- Agglomerative Clustering - Builds a hierarchy of clusters by repeatedly merging the closest pair of sites. Best for small to medium datasets where the hierarchy itself is meaningful.
+```python 
+agglom_model = AgglomerativeClustering(n_clusters=len(clusters), metric='precomputed', linkage=linkage_method)
+cluster_labels = agglom_model.fit_predict(distance_matrix)
+``` 
 
-To visualise the clusters. I used t-SNE plots. This also helped with dimensionality reduction since the original data (or the pairwise distance matrix) might have many features or represent complex relationships. t-SNE converts the distance matrix into a two-dimensional representation where similar points are closer together and dissimilar points are farther apart.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/clustering-protein/dendogram-hierarchical-clustering.png" title="Reachability plot" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+
+- DBSCAN - Groups sites that are close together in dense regions and labels isolated points as noise. This is good when you suspect that some binding sites don’t really belong to any cluster but shouldn’t be forced into one.
+
+```python 
+dbscan = DBSCAN(metric='precomputed', eps=epsilon, min_samples=minimum_samples)
+dbscan_labels = dbscan.fit_predict(distance_matrix)
+``` 
+
+- OPTICS - Like DBSCAN but more flexible with varying densities (visualised via reachability plot).
+
+Similar to DBSCAN, but more flexible. Instead of fixing one density threshold, this explores clusters across a range of densities and produces a reachability plot.
+
+```python 
+ optics = OPTICS(metric='precomputed', min_samples=5, xi=xi, min_cluster_size=minimum_cluster_size)
+optics_labels = optics.fit_predict(distance_matrix)
+``` 
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/clustering-protein/reachability-plot.png" title="Reachability plot" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+
+- MeanShift - Shifts points toward the densest regions in the data until stable clusters form. It doesn’t need you to predefine the number of clusters, and it’s a good choice when clusters are expected to be roughly “blob-shaped” around centres.
+
+
+```python 
+mean_shift = MeanShift()
+mean_shift_labels = mean_shift.fit_predict(distance_matrix)
+``` 
+
+Since binding site vectors are high-dimensional, t-SNE plots can help project them down into 2D for visualization. 
+
+For example:
+
+```python 
+embedding = TSNE(n_components=2, metric='precomputed', init='random').fit_transform(distance_matrix)
+        plt.figure(figsize=(10, 6))
+        for cluster_id in np.unique(cluster_labels):
+            cluster_points = embedding[cluster_labels == cluster_id]
+            plt.scatter(cluster_points[:, 0], cluster_points[:, 1], label=f'Cluster {cluster_id}', s=50)
+        plt.title('Clusters (Agglomerative) visualized Using t-SNE')
+        plt.xlabel('t-SNE Dimension 1')
+        plt.ylabel('t-SNE Dimension 2')
+        plt.legend()
+        plt.show()
+``` 
+
+Points that end up close together in the plot are generally similar in the original feature space, giving an intuitive view of cluster separation.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -273,25 +342,72 @@ To support this, I built a single production-ready Python file (clustering_pipel
     - get_atoms_in_binding_site, atoms_of_interest (to list all unique atoms from all binding sites in all files), get_atom_coordinates (to get coordinates for atom specified)and binding_site_vector (to calculate the vector for a binding site based on the distances between hotspots and unique atoms)
     - pairwise_distances_with_library – builds pairwise distance matrices between binding sites for the chosen distance metric.
 - **Loading & Analysis**
-    - perform_clustering (that takes in the distance_matrix and other clustering_args ) – applies the chosen clustering algorithm (hierarchical, KMeans, DBSCAN, HDBSCAN) and
-    - Supports dimensionality reduction and generation of t-SNE plots for visualization.
+    - perform_clustering (that takes in the distance_matrix and other clustering_args ) – applies the chosen clustering algorithm (hierarchical, KMeans, DBSCAN, HDBSCAN) and generates t-SNE plots for visualization, while also returning the clustering labels
+    - a mapping function that takes in the binding site (or a subset of the binding site for testing calculations quickly) and clustering labels to output a JSON file that pairs the binding site with the cluster label.
+
+```python
+def mapping(subset, labels):
+    labels = [int(label) for label in labels]
+    subset_with_labels = [
+        {"residues": site["site"].get("residues", []), "cluster_label": label}
+        for site, label in zip(subset, labels)
+    ]
+    output_file = "bindingsites_with_labels.json"
+    with open(output_file, "w") as f:
+        json.dump(subset_with_labels, f, indent=4))
+```
+So the output JSON would contain elements like this:
+```json
+[
+    {
+        "residues": ["A_14_GLY", "A_15_VAL", ...],
+        "cluster_label": 0
+    },
+    {
+        "residues": ["A_20_SER", "A_21_THR", ...],
+        "cluster_label": 1
+    },
+    ...
+]
+```
+
 - **Configuration Layer**
-    - Parameters are stored in a JSON file (e.g., metric type, distance metric, clustering algorithm, number of clusters, subset size).
-    - The pipeline reads this JSON at runtime and executes the full workflow accordingly.
+    - A core function “cluster” to take in a JSON file path as the argument, which contains all the parameters for the pipeline such as the location of the folder with the pkl files, a subset to analyse if needed, distance metric types, and specifically what type of distance (Euclidean, Manhattan, Jaccard etc.), clustering algorithm, number of clusters, and other clustering parameters). The clustering parameters JSON file could look something like this:
+```json
+{
+  "path_to_pkl_files": "/path/to/pkl-folder/kras_md_sites_1",
+  "subset_to_analyse": 50, 
+  "distance_metric": {
+    "metric_type": "distance_vector", 
+    "distance_type": "jaccard"
+  },
+  "clustering_model": {
+    "type": "optics",
+    "parameters": {
+      "min_samples": 5,
+       "xi": 0.05, 
+       "min_cluster_size": 0.1
+    }
+  }
+}
+```
 - **Main Function**
-    - Orchestrates the end-to-end pipeline.
-    - Makes it easy to run the entire workflow with a single command:
-
+    - The _*main*_ function which orchestrates the end-to-end pipeline, accepting the path to the JSON file as input and calling the cluster function with this JSON file path to run the entire workflow.
+```python
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Cluster binding sites from PKL files (frames)")
+    parser.add_argument('--json_path', type=Path, help="Path to the folder containing the JSON files with the parameters")
+    args = parser.parse_args()
+    print(f"Folder Path: {args.json_path}") 
+    cluster(args.json_path)
+``` 
 This structure allowed the research team to test out with different settings and parameters without editing the codebase — they only need to update the JSON configuration file.
-
-
-
 
 ## Some challenges and lessons from this project
 
-- The **data extraction** was a bit tricky. The data type (pdb files) were new to me so I had to discuss with the research team in-depth and understand the ideas of “frame”, “ligand”, “amino acids”, ”interaction fingerprints” and protein structure, what metrics needed to be extracted and how to go about doing that.
-- The packages used for extraction - **MDAnalysis** and **ProLIF** - were new to me so I had to spend some time understanding the documentation and testing out object outputs.
-- The **extraction process** itself was not straightforward (calculate center of mass of ligand, then list of interacting amino acids and then get interaction fingerprints)
-- Unlike data science projects I was used to, the research team preferred **using command line prompts to accept inputs** - generally a path to a folder with a json file containing everything - files to extract, parameters for various functions, metrics to explore and arguments for plotting and smoothening the distributions. This took some getting used to but was manageable.
-- **Learning to think of the frames as snapshots** and looking at them as a “time series”, and also thinking of the time series and distributions as almost interchangeable. Again, not how I have traditionally done time series projects but in this particular use case I can see how it makes sense and got used to it.
-- Perhaps the most important lesson was **taking the time to understand the domain**, data structure and features, and discussing with the subject matter experts in-depth at the start.
+- **The data extraction**: The JSON files accompanying the PDB data included multiple layers of nested dictionaries and lists, containing various residues, targets and their properties and metrics
+- **The subject matter:** Initially, it was hard to wrap my head around the goal of the task, and what binding sites and targets were. The complex JSON structures in the data files did not make things easier. I had to discuss with the research team and subject matter experts in detail a few times before getting clarity.
+- **Representation matters**: A binding site isn’t naturally a vector - deciding whether to use residue overlap, hotspot scores, or atom distances fundamentally changes the clustering.
+- **Cluster count variability**: MeanShift might found 3 clusters while Agglomerative found 19 - not “wrong”, just a reflection of different assumptions.
+- **Mapping back to binding sites**: After clustering, the key was mapping each binding site back to its residues/atoms to interpret what the clusters actually represent.
+- **The ETL pipeline**: This was tricky due to the number of helper functions involved and how they depended on each other. But testing with smaller subsets for quick checks got me there eventually.

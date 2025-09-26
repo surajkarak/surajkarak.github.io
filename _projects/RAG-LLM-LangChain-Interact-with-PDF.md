@@ -3,7 +3,7 @@ layout: page
 title: RAG + Langchain – Interacting with PDF documents using prompts 
 description: Experimenting with OpenAI LLM to extract info from PDFs through prompts
 img: assets/img/RAG-Lanchain-PDF/RAG-LangChain-OpenAI-Interact-with-PDF.jpg 
-importance: 9 
+importance: 10 
 category: tinkering  
 
 ---
