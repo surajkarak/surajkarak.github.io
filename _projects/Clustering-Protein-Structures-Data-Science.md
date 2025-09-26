@@ -171,7 +171,7 @@ def get_atom_coordinates(atom_data):
 ``` 
 This step is what enables distance calculations later on.
 
-### 4. Building the binding site vector
+#### 4. Building the binding site vector
 
 The heart of the method is binding_site_vector(binding_site, unique_atoms). For a given site, it constructs a fixed-length vector whose entries correspond to the global set of unique atoms.
 
@@ -254,7 +254,8 @@ This is unlike traditional clustering applications in “business” where a pro
 
 For each distance metric, I used four clustering algorithms as the research team wanted the flexibility of using anyone of them based on their needs. 
 
-- Agglomerative Clustering - Builds a hierarchy of clusters by repeatedly merging the closest pair of sites. Best for small to medium datasets where the hierarchy itself is meaningful.
+#### Agglomerative Clustering
+Builds a hierarchy of clusters by repeatedly merging the closest pair of sites. Best for small to medium datasets where the hierarchy itself is meaningful.
 ```python 
 agglom_model = AgglomerativeClustering(n_clusters=len(clusters), metric='precomputed', linkage=linkage_method)
 cluster_labels = agglom_model.fit_predict(distance_matrix)
@@ -267,14 +268,15 @@ cluster_labels = agglom_model.fit_predict(distance_matrix)
 </div>
 
 
-- DBSCAN - Groups sites that are close together in dense regions and labels isolated points as noise. This is good when you suspect that some binding sites don’t really belong to any cluster but shouldn’t be forced into one.
+#### DBSCAN 
+Groups sites that are close together in dense regions and labels isolated points as noise. This is good when you suspect that some binding sites don’t really belong to any cluster but shouldn’t be forced into one.
 
 ```python 
 dbscan = DBSCAN(metric='precomputed', eps=epsilon, min_samples=minimum_samples)
 dbscan_labels = dbscan.fit_predict(distance_matrix)
 ``` 
 
-- OPTICS - Like DBSCAN but more flexible with varying densities (visualised via reachability plot).
+#### OPTICS 
 
 Similar to DBSCAN, but more flexible. Instead of fixing one density threshold, this explores clusters across a range of densities and produces a reachability plot.
 
@@ -290,7 +292,8 @@ optics_labels = optics.fit_predict(distance_matrix)
 </div>
 
 
-- MeanShift - Shifts points toward the densest regions in the data until stable clusters form. It doesn’t need you to predefine the number of clusters, and it’s a good choice when clusters are expected to be roughly “blob-shaped” around centres.
+#### MeanShift 
+Shifts points toward the densest regions in the data until stable clusters form. It doesn’t need you to predefine the number of clusters, and it’s a good choice when clusters are expected to be roughly “blob-shaped” around centres.
 
 
 ```python 
