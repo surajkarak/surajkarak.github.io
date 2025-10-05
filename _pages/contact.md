@@ -4,7 +4,7 @@ permalink: /contact/
 title: Contact
 description: Here's how you can work with me.
 nav: true
-nav_order: 5
+nav_order: 6
 ---
 
 <div class="form-container">

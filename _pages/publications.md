@@ -4,7 +4,7 @@ permalink: /publications/
 title: Publications
 description: Some papers and presentations that happened along the way.
 nav: true
-nav_order: 2
+nav_order: 3
 ---
 <!-- _pages/publications.md -->
 <div class="publications">

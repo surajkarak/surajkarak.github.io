@@ -4,7 +4,7 @@ permalink: /repositories/
 title: Repositories
 description: Look on my works, ye Mighty, and despair!
 nav: true
-nav_order: 3
+nav_order: 4
 ---
 
 ## GitHub users
