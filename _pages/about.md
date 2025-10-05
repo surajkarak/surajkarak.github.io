@@ -8,7 +8,7 @@ profile:
   align: right
   image: Profile_pic.jpg
   image_circular: true # crops the image to make it circular
-  more_info: |
+  more_info:|
     **Bremen, Germany**
 
     [LinkedIn](https://www.linkedin.com/in/surajkarakulath/)  
