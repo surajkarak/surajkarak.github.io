@@ -3,7 +3,7 @@ layout: post
 title: Vibe coding is scary
 date: 2025-05-13 10:02:23
 description: In a good way and a bad way
-tags: vibe-coding
+tags:  [ai, vibe-coding]
 categories: productivity
 thumbnail: /assets/post_imgs/vibe-coding.png
 featured: false

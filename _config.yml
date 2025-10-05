@@ -264,8 +264,8 @@ jekyll-archives:
     tag: '/blog/tag/:name/'
     category: '/blog/category/:name/'
 
-display_tags: ['formatting', 'images', 'math', 'code', 'context-switching'] # these tags will be displayed on the front page of your blog
-display_categories: ['blockquotes','productivity'] # these categories will be displayed on the front page of your blog
+display_tags: ['vibe-coding', 'context-switching','chat-gpt','AI'] # these tags will be displayed on the front page of your blog
+display_categories: ['data-science','productivity','AI'] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
