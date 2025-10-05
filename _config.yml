@@ -127,7 +127,7 @@ permalink: pretty
 blog_name: Thoughts # blog_name will be displayed in your blog page
 blog_nav_title: Blog # your blog must have a title for it to be displayed in the nav bar
 blog_description: A stream-of-(my)-consciousness
-permalink: /blog/:title/
+# permalink: /blog/:title/
 
 
 # Pagination
@@ -176,6 +176,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  posts:
+    output: true
+    permalink: /blog/:title/
 
 announcements:
   enabled: true
