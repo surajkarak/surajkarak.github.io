@@ -54,8 +54,9 @@ body.sticky-bottom-footer {
  ******************************************************************************/
 
 // /* Narrow blog posts only */
-.post-content {
-  max-width: 760px;   /* adjust width as you like */
+.post-blog .post-header,
+.post-blog .post-content {
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
 }
