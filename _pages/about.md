@@ -8,10 +8,10 @@ profile:
   align: right
   image: Profile_pic.jpg
   image_circular: true # crops the image to make it circular
-  more_info: |
-    Bremen, Germany
-    [LinkedIn](https://www.linkedin.com/in/surajkarakulath/)
-    [BlueSky](https://bsky.app/profile/surajkarak.bsky.social)
+  more_info:
+    <p>Bremen, Germany</p>
+    <p><a href="https://www.linkedin.com/in/surajkarakulath/">LinkedIn</a></p>
+    <p><a href="https://bsky.app/profile/surajkarak.bsky.social">BlueSky</a></p>
 
 
 news: false  # includes a list of news items
