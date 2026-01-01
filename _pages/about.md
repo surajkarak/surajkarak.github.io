@@ -21,7 +21,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am an AI Data scientist with a background in marketing. I started off in copywriting, then grew into "content" and strategy development, while also handling data analytics and measurement. Over 8 years, I got to work with some leading tech enterprises and startups specialising in computer vision, artificial intelligence, geospatial data analytics and conversational AI/chatbot development, which inspired me to formally move into Data Science.
+I am an AI Engineer/Data scientist with a background in marketing. I started off in copywriting, then grew into "content" and strategy development, while also handling data analytics and measurement. Over 8 years, I got to work with some leading tech enterprises and startups specialising in computer vision, artificial intelligence, geospatial data analytics and conversational AI/chatbot development, which inspired me to formally move into Data Science.
 
 I grew up in India, lived and worked in Singapore for 16 years and now I'm based in Germany.  
 
