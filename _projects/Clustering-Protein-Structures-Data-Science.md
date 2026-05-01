@@ -3,7 +3,7 @@ layout: page
 title: Clustering binding sites based on distance and similarity metrics
 description: ETL pipeline for exploring protein binding sites and similarity-based clustering
 img: assets/img/clustering-protein/clustering-protein-data-science.png
-importance: 1   
+importance: 2  
 featured: true
 category: work
 ---

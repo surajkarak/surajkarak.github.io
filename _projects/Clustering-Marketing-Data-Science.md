@@ -3,7 +3,7 @@ layout: page
 title: Audience segmentation with unsupervised learning
 description: kMeans clustering of visitors to Google Merchandise Store  
 img: assets/img/AudSeg/Audseg.png
-importance: 7
+importance: 8
 category: work
 giscus_comments: false
 ---

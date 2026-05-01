@@ -3,7 +3,7 @@ layout: page
 title: Visualization of sentiment and narrative in Star Trek scripts
 description: Boldly going where no sentiment analysis has gone before
 img: /assets/img/startrek/startrek.gif
-importance: 12
+importance: 13
 featured: true
 category: fun   
 ---

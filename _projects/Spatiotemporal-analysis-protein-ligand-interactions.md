@@ -3,7 +3,7 @@ layout: page
 title: Spatiotemporal analysis of protein ligand interaction
 description: ETL pipeline to process PDB files, analyse interaction fingerprints & visualize distributions
 img: assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized)_resized.png
-importance: 2  
+importance: 3  
 featured: true
 category: work     
 ---
