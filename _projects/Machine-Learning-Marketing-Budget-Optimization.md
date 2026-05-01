@@ -1,14 +1,12 @@
 ---
 layout: page
-title: Machine learning for marketing budget optimization at a recommerce company
+title: Clustering products for marketing budget optimization
 description: An ML clustering + budget optimization pipeline to maximize contribution margin
 img: assets/img/budget-allocation/predicting-budget-allocation.png
 importance: 1
 featured: true
 category: work
 ---
-
-This was a continuation of my work with the research team under Dr. Petr Popov at Constructor University. In the [first part of the project](https://surajkarak.github.io/projects/Spatiotemporal-analysis-protein-ligand-interactions/), I processed a collection of PDB files, computed the protein-ligand interaction fingerprints, explored their distributions including Gaussian smoothing and time series analysis followed by a visualization and an ETL pipeline to automate the whole workflow. 
 
 This project is a result of my work with [rebuy](https://www.rebuy.de/), a recommerce startup in Berlin. Their marketing and acquisitions team needed a data-driven way to allocate budgets for their marketing campaigns. 
 
@@ -34,12 +32,14 @@ The data was stored in the company’s central data warehouse using Snowflake. U
 - Some engineered features like PCI (Price Competitiveness Index): product price vs competitor price.
 
 The result was a nice usable dataframe that was essentially a weekly time series of all products going back 18 months like below (brand names masked for anonymization and only select features shown). 
+<br>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/budget-allocation/data-frame.png" title="Data frame for ML marketing budget optimization" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<br>
 
 ## Preprocessing and exploratory data analysis
 
@@ -49,11 +49,14 @@ Some essential preprocessing and EDA included:
 - Exploring distributions of the different features to get a sense of the range of values and which ones still have outliers.
 - Correlation analysis to find out what features are most correlated to CM1 (and which pairs are correlated among themselves to remove redundant ones and prevent multicollinearity before modelling).
 
+<br>
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/budget-allocation/correlation_matrix.png" title="Correlation matrix for ML marketing campaign budget optimization" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<br>
 
 It became clear that while no feature is highly correlated with CM1 or ROAS
 
@@ -88,23 +91,27 @@ Next up was the preparation of the dataframe that would go into the clustering a
 
 - **Include core products:**There was also a business requirement to check for some “core products” which was a list of products provided separately. I checked if any of these core products were dropped in the data cleaning stage (due to any missing value in any of the columns mainly) and merged them back into the latest week’s snapshot. This means that there would be some products that go into the clustering algorithm that had some features missing. This is fine because we do want to cluster all the products for the next month’s campaign.
 
-- **Impute missing a and b values in the latest snapshot.** : However, we do want to impute missing a and b values in this data set since the clustering should also consider how products behave in their ad-costs-CM1 response curve. And this is available for all products since the a and b values were predicted from historical data and not just the latest week’s data. The imputation is doing using **K-Nearest Neighbours **- i.e filling in missing a and b values by looking at similar products. The idea is that products with similar characteristics are likely to have similar response curves, so this method suffices in this case.
+- **Impute missing a and b values in the latest snapshot.** : However, we do want to impute missing a and b values in this data set since the clustering should also consider how products behave in their ad-costs-CM1 response curve. And this is available for all products since the a and b values were predicted from historical data and not just the latest week’s data. The imputation is doing using **K**-**Nearest** **Neighbours**- i.e filling in missing a and b values by looking at similar products. The idea is that products with similar characteristics are likely to have similar response curves, so this method suffices in this case.
 
 3. **Clustering using KMeans**
 
 For the actual clustering, I normalized the features to ensure that no individual feature was influencing the clustering disproportionately, and used the elbow method to find the approximate number of clusters. The elbow method yields a plot of the inertia against the no. of clusters tested. This gives an idea of how closely packed the products are within a cluster (so that different clusters are appropriately separated and distinguishable) for various cluster number choices.
 
-
+<br>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/budget-allocation/elbow-method-clustering.png" title="Elbow method for finding number of clusters" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
+<br>
+
 The no. of clusters to be chosen is the point at which there is an “elbow” in the graph - a point of somewhat sharp bent, which indicates that the products within each cluster for that many clusters are more closely packed and any more clusters don’t give significant improvements in distinguishing the product clusters. This usually came around to 8 to 10 in the graph but the decision also depended on business needs - how many campaigns the acquisition team wanted to set up in the coming month. 
 
 With the number of clusters chosen, a KMeans algorithm was used to cluster the products. KMeans again is a commonly used clustering algorithm - it is simple, fast, and works well on numerical data.
 
+<details>
+  <summary>See code</summary>
 
 ```python
 from sklearn.cluster import KMeans
@@ -126,14 +133,22 @@ def cluster_similar_products(df, n_clusters=10):
     return df
 
 ``` 
+</details>
+
+<br>
+
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/budget-allocation/cluster_table.png" title="Clustered dataframe with products tagged to clusters" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
+<br>
+
 Although it doesn’t show the product clusters as distinct in 2 dimensions (since the features used for clustering are many), it helps to see a pairwise plot of 2 metrics for each cluster. 
 
+<br>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -141,7 +156,14 @@ Although it doesn’t show the product clusters as distinct in 2 dimensions (sin
     </div>
 </div>
 
+<br>
+
 Once the clustering is done, I merged the cluster assignments of each product to the weekly snapshot data from the original data frame and aggregated the values of key metrics per cluster for each SNAPSHOT_DATE, to be fit these values to a log curve again. 
+
+<br>
+
+<details>
+  <summary>See code</summary>
 
 ```python
 
@@ -149,10 +171,17 @@ weekly_cluster_df = pd.merge(df[['SNAPSHOT_DATE','PRODUCT_ID','CM1','AD_COSTS']]
 weekly_cluster_grouped = weekly_cluster_df.groupby(['SNAPSHOT_DATE','Cluster'])[['CM1','AD_COSTS']].sum().reset_index()
 
 ``` 
+</details>
+
+<br>
 
 4. **Fitting the weekly aggregate data to a log curve**
 
 Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log curve. This is so that we can get the “a” and “b” similarity values for each cluster.
+<br>
+
+<details>
+  <summary>See code</summary>
 
 ```python 
 from scipy.optimize import curve_fit
@@ -179,6 +208,8 @@ for cluster in range(10):
     new_row = pd.DataFrame([{'Cluster': cluster, 'a': a, 'b': b, 'cost': mean_ad_cost}])
     df_cluster_function = pd.concat([df_cluster_function, new_row], ignore_index=True)
 ``` 
+</details>
+<br>
 
 And using these a and b values for each cluster, I optimized a set budget across the clusters.
 
@@ -189,6 +220,11 @@ The most important step in the project - the actual budget allocation - was esse
 - each cluster has minimum and maximum spend limits based on past data.
 - the total of minimum budgets should not exceed total budget and
 - sum of maximum budgets should be at least the total budget
+
+<br>
+
+<details>
+  <summary>See code</summary>
 
 ```python
 from scipy.optimize import minimize
@@ -233,7 +269,12 @@ result = minimize(objective, initial_budgets, args=(a_values, b_values),
 
 optimized_budgets = result.x
 ```
+</details>
+<br>
+
 The SLSQP (Sequential Least Squares Programming) method was chosen for the optimization  because  SLSQP, a method that can handle non-linear relationships and constraints. The result is an optimized budget allocation for the different clusters that together maximizes the CM1. 
+
+<br>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -241,11 +282,15 @@ The SLSQP (Sequential Least Squares Programming) method was chosen for the optim
     </div>
 </div>
 
+<br>
+
 6. **Merging small impact clusters**
 
 There may be some clusters which are small in their impact - small budget allocated and small resulting CM1 compared to the others. They may also have fewer products. From a business perspective, it makes sense to merge these together into a single cluster. 
 
 With these new clusters, the optimization is done again to get the optimum budgets allocated to the clusters.
+
+<br>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -253,11 +298,14 @@ With these new clusters, the optimization is done again to get the optimum budge
     </div>
 </div>
 
+<br>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/budget-allocation/final budget allocation output.png" title="ML Marketing Campagin Budget Optimization Results Final Output" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+<br>
 
 As a last step, products which have no data are bucketed in a “Cluster 100” so that the acquisition team can filter them out as needed.
