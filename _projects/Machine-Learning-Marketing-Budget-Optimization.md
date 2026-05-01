@@ -70,7 +70,7 @@ This means we could only include AD_COSTS among these, which also is necessary s
 
 The overall logic flow for this was as follows:
 
-1. **Engineer new features that represent ad cost-CM1 behaviour of each product** 
+#### 1. Engineer new features that represent ad cost-CM1 behaviour of each product
 
 In clustering the products into different buckets, we also want to include features that represent the product’s ad-cost CM1 behaviour - i.e. how each product’s CM1 changes with ad cost. This is done by a “response curve” creation - by fitting a log curve to the ad costs and CM1 value for each product, which will give us **2 “similarity features” - a and b** - that come from the log function that represents the response curve for each product. 
 
@@ -81,7 +81,7 @@ For this step, I also needed to generate artificial data of ad costs for each pr
 For the prediction, a **RandomForest model** was chosen, trained on the available data. RandomForest works well in this case because it can handle non-linear relationships between features (like price, margins, and competition) without requiring strong assumptions. It also performs well on tabular data and gives stable predictions, which is important since these predictions are later used to fit spend–response curves.
 
 
-2. **Preparing the data for clustering**
+#### 2. Preparing the data for clustering
 
 Next up was the preparation of the dataframe that would go into the clustering algorithm. This involved a few steps:
 
@@ -93,7 +93,7 @@ Next up was the preparation of the dataframe that would go into the clustering a
 
 - **Impute missing a and b values in the latest snapshot.** : However, we do want to impute missing a and b values in this data set since the clustering should also consider how products behave in their ad-costs-CM1 response curve. And this is available for all products since the a and b values were predicted from historical data and not just the latest week’s data. The imputation is doing using **K**-**Nearest** **Neighbours**- i.e filling in missing a and b values by looking at similar products. The idea is that products with similar characteristics are likely to have similar response curves, so this method suffices in this case.
 
-3. **Clustering using KMeans**
+#### 3. Clustering using KMeans
 
 For the actual clustering, I normalized the features to ensure that no individual feature was influencing the clustering disproportionately, and used the elbow method to find the approximate number of clusters. The elbow method yields a plot of the inertia against the no. of clusters tested. This gives an idea of how closely packed the products are within a cluster (so that different clusters are appropriately separated and distinguishable) for various cluster number choices.
 
@@ -113,26 +113,26 @@ With the number of clusters chosen, a KMeans algorithm was used to cluster the p
 <details>
   <summary>See code</summary>
 
-```python
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
+    ```python
+    from sklearn.cluster import KMeans
+    from sklearn.preprocessing import StandardScaler
 
-def cluster_similar_products(df, n_clusters=10):
-    feature_df = df.drop(['PRODUCT_ID','CM1','AD_COSTS'], axis=1)
+    def cluster_similar_products(df, n_clusters=10):
+        feature_df = df.drop(['PRODUCT_ID','CM1','AD_COSTS'], axis=1)
 
-    # Normalize the features
-    scaler = StandardScaler()
-    normalized_features = scaler.fit_transform(feature_df)
-    
-    # Perform K-means clustering
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-    clusters = kmeans.fit_predict(normalized_features)
-    
-    # Add cluster information to the feature DataFrame
-    df['Cluster'] = clusters
-    return df
+        # Normalize the features
+        scaler = StandardScaler()
+        normalized_features = scaler.fit_transform(feature_df)
+        
+        # Perform K-means clustering
+        kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+        clusters = kmeans.fit_predict(normalized_features)
+        
+        # Add cluster information to the feature DataFrame
+        df['Cluster'] = clusters
+        return df
 
-``` 
+    ``` 
 </details>
 
 <br>
@@ -162,20 +162,15 @@ Once the clustering is done, I merged the cluster assignments of each product to
 
 <br>
 
-<details>
-  <summary>See code</summary>
 
 ```python
-
-weekly_cluster_df = pd.merge(df[['SNAPSHOT_DATE','PRODUCT_ID','CM1','AD_COSTS']], clustered_df[['PRODUCT_ID','Cluster']], on=['PRODUCT_ID'], how='inner')
-weekly_cluster_grouped = weekly_cluster_df.groupby(['SNAPSHOT_DATE','Cluster'])[['CM1','AD_COSTS']].sum().reset_index()
-
+    weekly_cluster_df = pd.merge(df[['SNAPSHOT_DATE','PRODUCT_ID','CM1','AD_COSTS']], clustered_df[['PRODUCT_ID','Cluster']], on=['PRODUCT_ID'], how='inner')
+    weekly_cluster_grouped = weekly_cluster_df.groupby(['SNAPSHOT_DATE','Cluster'])[['CM1','AD_COSTS']].sum().reset_index()
 ``` 
-</details>
 
 <br>
 
-4. **Fitting the weekly aggregate data to a log curve**
+#### 4. Fitting the weekly aggregate data to a log curve
 
 Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log curve. This is so that we can get the “a” and “b” similarity values for each cluster.
 <br>
@@ -183,37 +178,38 @@ Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log cu
 <details>
   <summary>See code</summary>
 
-```python 
-from scipy.optimize import curve_fit
+    ```python 
+    from scipy.optimize import curve_fit
 
-def log_func(x, a, b):
-    return a * np.log(x) + b
+    def log_func(x, a, b):
+        return a * np.log(x) + b
 
 
 
-df_cluster_function = pd.DataFrame(columns=['Cluster', 'a', 'b', 'cost'])
+    df_cluster_function = pd.DataFrame(columns=['Cluster', 'a', 'b', 'cost'])
 
-for cluster in range(10):
-    weekly_cluster_select = weekly_cluster_grouped[weekly_cluster_grouped['Cluster'] == cluster]
-    
-    # Prepare data for curve fitting
-    x = weekly_cluster_select['AD_COSTS'].values
-    y = weekly_cluster_select['CM1'].values
-    
-    # Perform logarithmic curve fitting
-    popt, _ = curve_fit(log_func, x, y)
-    a, b = popt
-    mean_ad_cost = x.mean()
-    
-    new_row = pd.DataFrame([{'Cluster': cluster, 'a': a, 'b': b, 'cost': mean_ad_cost}])
-    df_cluster_function = pd.concat([df_cluster_function, new_row], ignore_index=True)
-``` 
+    for cluster in range(10):
+        weekly_cluster_select = weekly_cluster_grouped[weekly_cluster_grouped['Cluster'] == cluster]
+        
+        # Prepare data for curve fitting
+        x = weekly_cluster_select['AD_COSTS'].values
+        y = weekly_cluster_select['CM1'].values
+        
+        # Perform logarithmic curve fitting
+        popt, _ = curve_fit(log_func, x, y)
+        a, b = popt
+        mean_ad_cost = x.mean()
+        
+        new_row = pd.DataFrame([{'Cluster': cluster, 'a': a, 'b': b, 'cost': mean_ad_cost}])
+        df_cluster_function = pd.concat([df_cluster_function, new_row], ignore_index=True)
+    ``` 
 </details>
+
 <br>
 
 And using these a and b values for each cluster, I optimized a set budget across the clusters.
 
-5. **Budget allocation across clusters**
+#### 5. Budget allocation across clusters
 
 The most important step in the project - the actual budget allocation - was essentially an optimization problem. The goal was to distribute a fixed total budget across clusters to maximize expected CM1 (minimize the negative of expected CM1) based on the fitted response curves. The constraints were 
 
@@ -226,49 +222,49 @@ The most important step in the project - the actual budget allocation - was esse
 <details>
   <summary>See code</summary>
 
-```python
-from scipy.optimize import minimize
+    ```python
+    from scipy.optimize import minimize
 
-def objective(budgets, a_values, b_values):
-    return -np.sum([log_func(budget, a, b) for budget, a, b in zip(budgets, a_values, b_values)])
+    def objective(budgets, a_values, b_values):
+        return -np.sum([log_func(budget, a, b) for budget, a, b in zip(budgets, a_values, b_values)])
 
-def constraint(budgets):
-    return np.sum(budgets) - total_budget
+    def constraint(budgets):
+        return np.sum(budgets) - total_budget
 
-# Example data
-np.random.seed(42)  # for reproducibility
-num_campaigns = 10
-total_budget = 20000
+    # Example data
+    np.random.seed(42)  # for reproducibility
+    num_campaigns = 10
+    total_budget = 20000
 
-a_values = df_cluster_function['a'].values
-b_values = df_cluster_function['b'].values
+    a_values = df_cluster_function['a'].values
+    b_values = df_cluster_function['b'].values
 
-# # Define min and max boundaries for each campaign
-min_budgets = df_cluster_function['cost'].values * 0.5
-max_budgets = df_cluster_function['cost'].values * 3
+    # # Define min and max boundaries for each campaign
+    min_budgets = df_cluster_function['cost'].values * 0.5
+    max_budgets = df_cluster_function['cost'].values * 3
 
 
-# Ensure that the sum of min budgets doesn't exceed total budget
-# and the sum of max budgets is at least the total budget
-while np.sum(min_budgets) > total_budget or np.sum(max_budgets) < total_budget:
-    min_budgets = np.random.uniform(100, 500, num_campaigns)
-    max_budgets = np.random.uniform(1000, 2000, num_campaigns)
+    # Ensure that the sum of min budgets doesn't exceed total budget
+    # and the sum of max budgets is at least the total budget
+    while np.sum(min_budgets) > total_budget or np.sum(max_budgets) < total_budget:
+        min_budgets = np.random.uniform(100, 500, num_campaigns)
+        max_budgets = np.random.uniform(1000, 2000, num_campaigns)
 
-# Initial guess: equal distribution, but respecting min/max bounds
-initial_budgets = np.clip(np.ones(num_campaigns) * (total_budget / num_campaigns), min_budgets, max_budgets)
+    # Initial guess: equal distribution, but respecting min/max bounds
+    initial_budgets = np.clip(np.ones(num_campaigns) * (total_budget / num_campaigns), min_budgets, max_budgets)
 
-# Adjust initial guess to meet total budget constraint
-initial_budgets *= total_budget / np.sum(initial_budgets)
+    # Adjust initial guess to meet total budget constraint
+    initial_budgets *= total_budget / np.sum(initial_budgets)
 
-# Optimization
-constraints = {'type': 'eq', 'fun': constraint}
-bounds = [(min_budget, max_budget) for min_budget, max_budget in zip(min_budgets, max_budgets)]
+    # Optimization
+    constraints = {'type': 'eq', 'fun': constraint}
+    bounds = [(min_budget, max_budget) for min_budget, max_budget in zip(min_budgets, max_budgets)]
 
-result = minimize(objective, initial_budgets, args=(a_values, b_values), 
-                  method='SLSQP', bounds=bounds, constraints=constraints)
+    result = minimize(objective, initial_budgets, args=(a_values, b_values), 
+                    method='SLSQP', bounds=bounds, constraints=constraints)
 
-optimized_budgets = result.x
-```
+    optimized_budgets = result.x
+    ```
 </details>
 <br>
 
@@ -284,7 +280,7 @@ The SLSQP (Sequential Least Squares Programming) method was chosen for the optim
 
 <br>
 
-6. **Merging small impact clusters**
+### 6. Merging small impact clusters
 
 There may be some clusters which are small in their impact - small budget allocated and small resulting CM1 compared to the others. They may also have fewer products. From a business perspective, it makes sense to merge these together into a single cluster. 
 
