@@ -188,7 +188,7 @@ Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log cu
         
         new_row = pd.DataFrame([{'Cluster': cluster, 'a': a, 'b': b, 'cost': mean_ad_cost}])
         df_cluster_function = pd.concat([df_cluster_function, new_row], ignore_index=True)
-        ``` 
+``` 
 
 <br>
 
