@@ -110,7 +110,7 @@ The no. of clusters to be chosen is the point at which there is an “elbow” i
 
 With the number of clusters chosen, a KMeans algorithm was used to cluster the products. KMeans again is a commonly used clustering algorithm - it is simple, fast, and works well on numerical data.
 
-<details>
+<details markdown="1">
 <summary>See code</summary>
 ```python
 from sklearn.cluster import KMeans
@@ -161,7 +161,7 @@ Once the clustering is done, I merged the cluster assignments of each product to
 
 <br>
 
-<details>
+<details markdown="1">
 <summary>See code</summary>
 ```python
     weekly_cluster_df = pd.merge(df[['SNAPSHOT_DATE','PRODUCT_ID','CM1','AD_COSTS']], clustered_df[['PRODUCT_ID','Cluster']], on=['PRODUCT_ID'], how='inner')
@@ -175,7 +175,7 @@ Once the clustering is done, I merged the cluster assignments of each product to
 Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log curve. This is so that we can get the “a” and “b” similarity values for each cluster.
 <br>
 
-<details>
+<details markdown="1">
 <summary>See code</summary>
     ```python 
     from scipy.optimize import curve_fit
@@ -218,7 +218,7 @@ The most important step in the project - the actual budget allocation - was esse
 
 <br>
 
-<details>
+<details markdown="1">
 <summary>See code</summary>
     ```python
     from scipy.optimize import minimize
