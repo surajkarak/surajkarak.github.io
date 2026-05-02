@@ -111,28 +111,27 @@ The no. of clusters to be chosen is the point at which there is an “elbow” i
 With the number of clusters chosen, a KMeans algorithm was used to cluster the products. KMeans again is a commonly used clustering algorithm - it is simple, fast, and works well on numerical data.
 
 <details>
-  <summary>See code</summary>
+<summary>See code</summary>
+```python
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
-    ```python
-    from sklearn.cluster import KMeans
-    from sklearn.preprocessing import StandardScaler
+def cluster_similar_products(df, n_clusters=10):
+    feature_df = df.drop(['PRODUCT_ID','CM1','AD_COSTS'], axis=1)
 
-    def cluster_similar_products(df, n_clusters=10):
-        feature_df = df.drop(['PRODUCT_ID','CM1','AD_COSTS'], axis=1)
-
-        # Normalize the features
-        scaler = StandardScaler()
-        normalized_features = scaler.fit_transform(feature_df)
-        
-        # Perform K-means clustering
-        kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-        clusters = kmeans.fit_predict(normalized_features)
-        
-        # Add cluster information to the feature DataFrame
-        df['Cluster'] = clusters
-        return df
-
+    # Normalize the features
+    scaler = StandardScaler()
+    normalized_features = scaler.fit_transform(feature_df)
+    
+    # Perform K-means clustering
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    clusters = kmeans.fit_predict(normalized_features)
+    
+    # Add cluster information to the feature DataFrame
+    df['Cluster'] = clusters
+    return df
     ``` 
+
 </details>
 
 <br>
@@ -162,12 +161,13 @@ Once the clustering is done, I merged the cluster assignments of each product to
 
 <br>
 
-
+<details>
+<summary>See code</summary>
 ```python
     weekly_cluster_df = pd.merge(df[['SNAPSHOT_DATE','PRODUCT_ID','CM1','AD_COSTS']], clustered_df[['PRODUCT_ID','Cluster']], on=['PRODUCT_ID'], how='inner')
     weekly_cluster_grouped = weekly_cluster_df.groupby(['SNAPSHOT_DATE','Cluster'])[['CM1','AD_COSTS']].sum().reset_index()
-``` 
-
+    ``` 
+</details>
 <br>
 
 #### 4. Fitting the weekly aggregate data to a log curve
@@ -176,8 +176,7 @@ Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log cu
 <br>
 
 <details>
-  <summary>See code</summary>
-
+<summary>See code</summary>
     ```python 
     from scipy.optimize import curve_fit
 
@@ -220,8 +219,7 @@ The most important step in the project - the actual budget allocation - was esse
 <br>
 
 <details>
-  <summary>See code</summary>
-
+<summary>See code</summary>
     ```python
     from scipy.optimize import minimize
 
@@ -305,3 +303,24 @@ With these new clusters, the optimization is done again to get the optimum budge
 <br>
 
 As a last step, products which have no data are bucketed in a “Cluster 100” so that the acquisition team can filter them out as needed.
+
+
+## Results & Findings
+
+Through this work, I was able to help rebuy take a data-driven approach to allocating their marketing budgets for paid acquisition campaigns by clustering products into different buckets. The clustering was done in a way that took into account the products' historical performance data and their behaviour in how CM1 varies with ad costs. The actual allocation across clusters was done through constrained optimization with the objective of maximising the collective CM1. 
+
+In terms of impact, I wasn’t able to measure a clean causal uplift (since there was no controlled experiment and implementation wasn’t fully observable). However, looking at the data before and after this approach was introduced, performance became noticeably more stable, with a large drop in week-to-week ROAS volatility. This helped the team have more control over how budget was being distributed, even during periods with lower overall spend and without major promotional events.
+
+Another useful takeaway is that this approach helps shift the focus from chasing short-term spikes (e.g. Black Friday peaks) to maintaining consistent, controlled performance over time. In that sense, the main value of the project was less about one-off gains and more about creating a reliable system for ongoing budget decisions.
+
+## Limitations & Assumptions
+
+There are a few important caveats to keep in mind when interpreting the results.
+
+First, this is not a controlled experiment. The evaluation is based on a before–after comparison, and the two periods are not directly comparable. The pre-period includes major seasonal peaks (like Black Friday and year-end demand), while the post-period does not, which naturally affects metrics like ROAS and CM1.
+
+Second, the clusters themselves change over time. Since products are re-clustered regularly, it doesn’t make sense to compare cluster-level performance across months. Because of that, all evaluation is done at an aggregated level rather than trying to track individual clusters.
+
+Third, I didn’t have visibility into how closely the recommended budgets were followed in practice. The results reflect what actually happened in the data, not a perfect execution of the optimized allocation.
+
+Finally, the spend–response curves are based on modeled relationships. They assume that the relationship between spend and CM1 is relatively stable in the short term, which is a simplification. In reality, things like competitor pricing, stock changes, and demand shifts can all affect performance.
