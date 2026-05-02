@@ -110,29 +110,22 @@ The no. of clusters to be chosen is the point at which there is an “elbow” i
 
 With the number of clusters chosen, a KMeans algorithm was used to cluster the products. KMeans again is a commonly used clustering algorithm - it is simple, fast, and works well on numerical data.
 
-<details markdown="1">
-<summary>See code</summary>
 ```python
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
+    from sklearn.cluster import KMeans
+    from sklearn.preprocessing import StandardScaler
 
-def cluster_similar_products(df, n_clusters=10):
-    feature_df = df.drop(['PRODUCT_ID','CM1','AD_COSTS'], axis=1)
+    def cluster_similar_products(df, n_clusters=10):
+        feature_df = df.drop(['PRODUCT_ID','CM1','AD_COSTS'], axis=1)
 
-    # Normalize the features
-    scaler = StandardScaler()
-    normalized_features = scaler.fit_transform(feature_df)
-    
-    # Perform K-means clustering
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-    clusters = kmeans.fit_predict(normalized_features)
-    
-    # Add cluster information to the feature DataFrame
-    df['Cluster'] = clusters
-    return df
-    ``` 
-
-</details>
+        scaler = StandardScaler()
+        normalized_features = scaler.fit_transform(feature_df)
+        
+        kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+        clusters = kmeans.fit_predict(normalized_features)
+        
+        df['Cluster'] = clusters
+        return df 
+``` 
 
 <br>
 
@@ -161,13 +154,10 @@ Once the clustering is done, I merged the cluster assignments of each product to
 
 <br>
 
-<details markdown="1">
-<summary>See code</summary>
 ```python
     weekly_cluster_df = pd.merge(df[['SNAPSHOT_DATE','PRODUCT_ID','CM1','AD_COSTS']], clustered_df[['PRODUCT_ID','Cluster']], on=['PRODUCT_ID'], how='inner')
     weekly_cluster_grouped = weekly_cluster_df.groupby(['SNAPSHOT_DATE','Cluster'])[['CM1','AD_COSTS']].sum().reset_index()
-    ``` 
-</details>
+``` 
 <br>
 
 #### 4. Fitting the weekly aggregate data to a log curve
@@ -175,15 +165,12 @@ Once the clustering is done, I merged the cluster assignments of each product to
 Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log curve. This is so that we can get the “a” and “b” similarity values for each cluster.
 <br>
 
-<details markdown="1">
-<summary>See code</summary>
-    ```python 
+
+```python 
     from scipy.optimize import curve_fit
 
     def log_func(x, a, b):
         return a * np.log(x) + b
-
-
 
     df_cluster_function = pd.DataFrame(columns=['Cluster', 'a', 'b', 'cost'])
 
@@ -201,8 +188,7 @@ Next, for each cluster, I fit the aggregated AD_COSTS and CM1 values to a log cu
         
         new_row = pd.DataFrame([{'Cluster': cluster, 'a': a, 'b': b, 'cost': mean_ad_cost}])
         df_cluster_function = pd.concat([df_cluster_function, new_row], ignore_index=True)
-    ``` 
-</details>
+        ``` 
 
 <br>
 
@@ -218,9 +204,7 @@ The most important step in the project - the actual budget allocation - was esse
 
 <br>
 
-<details markdown="1">
-<summary>See code</summary>
-    ```python
+```python
     from scipy.optimize import minimize
 
     def objective(budgets, a_values, b_values):
@@ -262,8 +246,8 @@ The most important step in the project - the actual budget allocation - was esse
                     method='SLSQP', bounds=bounds, constraints=constraints)
 
     optimized_budgets = result.x
-    ```
-</details>
+```
+
 <br>
 
 The SLSQP (Sequential Least Squares Programming) method was chosen for the optimization  because  SLSQP, a method that can handle non-linear relationships and constraints. The result is an optimized budget allocation for the different clusters that together maximizes the CM1. 
