@@ -6,6 +6,36 @@ div.container-link-button {
   margin-right: 0.5rem;
 }
 
+// Download as PDF / print button on the CV page
+button.cv-pdf-btn {
+  background: var(--global-theme-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  transition: filter 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    filter: brightness(0.92);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  i {
+    font-size: 0.9rem;
+  }
+}
+
 table.table-cv {
   background-color: transparent !important;
 }

@@ -1,0 +1,122 @@
+/******************************************************************************
+ * Print stylesheet — used when visitors choose "Print" / "Save as PDF" from
+ * the browser. Triggered from the Download-as-PDF button on the CV page,
+ * but applies to any page they choose to print.
+ ******************************************************************************/
+
+@media print {
+  // Reasonable page margins
+  @page {
+    margin: 0.5in 0.6in;
+  }
+
+  // Force a printable color scheme regardless of theme
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+  }
+
+  // Hide everything that isn't content
+  nav#navbar,
+  footer,
+  progress#progress,
+  #light-toggle,
+  .social,
+  .no-print,
+  .navbar-toggler,
+  nav#toc-sidebar {
+    display: none !important;
+  }
+
+  // Hide the sidebar column and expand main content to full width.
+  // (The CV layout uses col-sm-3 for the TOC sidebar and col-sm-9 for content.)
+  .col-sm-3 {
+    display: none !important;
+  }
+
+  .col-sm-9 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  // Make container full-width and tighten spacing
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .post,
+  .post-header {
+    margin-top: 0 !important;
+  }
+
+  // Cards: drop shadow/border. DO NOT use page-break-inside: avoid here —
+  // the Experience card is bigger than a page, so forcing it to stay
+  // intact pushes it whole to page 2 and creates a big blank gap on page 1.
+  // Let cards flow; keep individual entries together instead.
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    background: #fff !important;
+    margin-top: 0.4rem !important;
+    padding: 0.4rem 0.6rem !important;
+  }
+
+  // Keep individual CV entries (work item, education item) on one page.
+  li.list-group-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+  }
+
+  // Tighten list and table spacing inside CV
+  ul.list-group,
+  ul.list-group-flush {
+    margin-bottom: 0 !important;
+  }
+
+  table.table-cv {
+    margin-bottom: 0 !important;
+  }
+
+  // Tighten typography for print
+  h1 {
+    font-size: 22pt !important;
+    margin-bottom: 0.3rem !important;
+    margin-top: 0 !important;
+  }
+
+  h2, h3 {
+    font-size: 14pt !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  h6 {
+    margin-bottom: 0.1rem !important;
+  }
+
+  p, li, td {
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  // Drop description paragraph spacing
+  .post-description {
+    margin-bottom: 0.3rem !important;
+  }
+
+  // Keep link URLs out of the printed output for cleanliness
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  a[href]:after {
+    content: "" !important;
+  }
+}
