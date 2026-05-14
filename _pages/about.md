@@ -69,3 +69,5 @@ When I'm not working, I'm usually
 - watching films (classics - a bit obsessed with Danny Boyle and Aaron Sorkin these days) or checking out what's on at local arthouse theatres 
 - learning German
 - or catching up with friends
+
+If any of this sounds interesting, or if you'd like to work together, [drop me a line](/contact/).

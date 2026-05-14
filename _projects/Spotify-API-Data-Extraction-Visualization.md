@@ -50,7 +50,7 @@ After retrieving the data from the csv file for analysis, my first instinct was 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/Beatles/corrmatrix.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/Beatles/corrmatrix.png" title="Correlation matrix of Beatles song audio features" alt="Heatmap correlating Spotify audio features for Beatles tracks, with the strongest correlation between Energy and Loudness" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -78,7 +78,7 @@ First I want to explore how some of the important audio features are distributed
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/Beatles/distribution.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/Beatles/distribution.png" title="Distributions of selected Beatles audio features" alt="Histograms of Tempo, Key, Energy, Danceability, Valence, Loudness and Duration across pre-breakup Beatles tracks" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

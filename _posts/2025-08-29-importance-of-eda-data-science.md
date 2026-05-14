@@ -35,7 +35,7 @@ The price values were sometimes negative - these were instances where the firm g
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/data.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/data.png" title="Wood waste price time series with positive and negative values" alt="Line chart of wood waste prices showing both positive values (firm paying sellers) and negative values (firm being paid for collection)" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -49,7 +49,7 @@ Again, something I encountered in my work. While working on a churn prediction m
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/post_imgs/churn_imbalance.png" title="churn imbalance" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/post_imgs/churn_imbalance.png" title="churn imbalance" alt="churn imbalance" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 Churn:
@@ -62,7 +62,7 @@ Almost 73% in favour of one label. This meant that I had to either use SMOTE or 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/post_imgs/correlation_matrix.png" title="correlation matrix" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/post_imgs/correlation_matrix.png" title="correlation matrix" alt="correlation matrix" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

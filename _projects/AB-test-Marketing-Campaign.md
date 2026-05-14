@@ -44,26 +44,26 @@ Before doing the A/B testing, the data needs to be explored to ensure that the 3
 Exploring how the sales generated is distributed across the 3 campaigns, it can be seen that all 3 campaigns contribute to the sales roughly equally although Promotion group 3 results in largest sales amount.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/AB-test/salesbycampaign.png" title="Sales by campaign" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/AB-test/salesbycampaign.png" title="Sales by campaign" alt="Sales by campaign" class="img-fluid rounded z-depth-1" %}
 </div>
 
 Similarly, exploring the market sizes reveals that all 3 campaigns were exposed to stores with different market sizes, with the Medium sized markets leading followed by Large sized and then Small sized.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/AB-test/marketsbycampaigns.png" title="Market sizes by campaign" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/AB-test/marketsbycampaigns.png" title="Market sizes by campaign" alt="Market sizes by campaign" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
 Next, looking at the age of the stores, we see that most of them are less than 10 years old, with a significant number of them being 1 year old. 
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/AB-test/storeagedistribution.png" title="Market sizes by campaign" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/AB-test/storeagedistribution.png" title="Distribution of store ages" alt="Histogram of store ages showing most stores are under 10 years old, with a peak at 1 year" class="img-fluid rounded z-depth-1" %}
 </div>
 
 Breaking this down into individual campaigns:
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/AB-test/store-distribution-boxplot.png" title="Market sizes by campaign" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/AB-test/store-distribution-boxplot.png" title="Store age distribution by campaign" alt="Boxplot showing similar 8-9 year average store age across all three campaign groups" class="img-fluid rounded z-depth-1" %}
 </div>
 
 We see that all 3 campaigns were exposed to a similar age profiles - with the average age of store being 8 to 9 years old.  

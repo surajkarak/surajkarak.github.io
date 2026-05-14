@@ -45,7 +45,7 @@ Next, the bias values are encoded as 'Left': 0,'Center': 1 and ,'Right': 2, so t
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/TANLP/corpus.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/TANLP/corpus.png" title="Bias label distribution in training corpus" alt="Bar chart of Left, Center and Right article counts in the training dataset, showing more Left-biased samples" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -97,7 +97,7 @@ The same processes above are repeated on the ChatGPT responses, namely cleaning,
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/TANLP/quiz1results.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/TANLP/quiz1results.png" title="Political Spectrum Quiz: predicted bias of ChatGPT responses" alt="Predicted bias labels for ChatGPT answers to Political Spectrum Quiz questions, on a 0 (left) to 2 (right) scale" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -106,7 +106,7 @@ The same processes above are repeated on the ChatGPT responses, namely cleaning,
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/TANLP/quiz2results.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/TANLP/quiz2results.png" title="Political Compass Test: predicted bias of ChatGPT responses" alt="Predicted bias labels for ChatGPT answers to Political Compass Test questions, on a 0 (left) to 2 (right) scale" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

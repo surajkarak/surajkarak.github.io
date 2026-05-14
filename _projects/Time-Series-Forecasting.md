@@ -25,7 +25,7 @@ The data used for this analysis and forecasting was provided by the client. It i
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/dataframe.png" title="dataframe" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/time_series_forecasting/dataframe.png" title="dataframe" alt="dataframe" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -54,7 +54,7 @@ When the wPreis values were plotted, it was seen that for all 3 categories in th
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/data_exploration.png" title="data exploration" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/time_series_forecasting/data_exploration.png" title="data exploration" alt="data exploration" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -86,7 +86,7 @@ The plotting functions plot_acf, plot_pacf from the statsmodels.graphics.tsaplot
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/acf_pcf.png" title="ACF and PCF" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/time_series_forecasting/acf_pcf.png" title="ACF and PCF" alt="ACF and PCF" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -105,7 +105,7 @@ When applied on the price values for the cluster ['25', '24'] and for the catego
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/seasonal_decomposition.png" title="Seasonal Decomposition" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/time_series_forecasting/seasonal_decomposition.png" title="Seasonal Decomposition" alt="Seasonal Decomposition" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -130,7 +130,7 @@ The ADF test is performed by using the adfuller function from the statsmodels.ts
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/ADF_first.png" title="ADF for one cluster" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/time_series_forecasting/ADF_first.png" title="ADF for one cluster" alt="ADF for one cluster" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -141,7 +141,7 @@ Applying the test for all the categories and clusters showed that most were non-
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/ADF_table.png" title="Stationarity Test Results" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/ADF_table.png" title="Stationarity Test Results" alt="Stationarity Test Results" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -172,7 +172,7 @@ As seen from the ADF tests and differencing steps, the value of d can be taken a
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/AIC_forP.png" title="AIC for different p values" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/AIC_forP.png" title="AIC for different p values" alt="AIC for different p values" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -182,12 +182,12 @@ Getting the predictions for the cluster ['25', '24'] and for the category 'A1 & 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_static.png" title="ARIMA Model Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_static.png" title="ARIMA Model Static Forecast" alt="ARIMA Model Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_static_metrics.png" title="ARIMA Model Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_static_metrics.png" title="ARIMA Model Static Forecast Metrics" alt="ARIMA Model Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -195,12 +195,12 @@ Getting the predictions for the cluster ['25', '24'] and for the category 'A1 & 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_WF.png" title="ARIMA Model Walk-forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_WF.png" title="ARIMA Model Walk-forward Forecast" alt="ARIMA Model Walk-forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_WF_metrics.png" title="ARIMA Model Walk-forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/ARIMA_WF_metrics.png" title="ARIMA Model Walk-forward Forecast Metrics" alt="ARIMA Model Walk-forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -215,12 +215,12 @@ Decision trees are non-parametric supervised learning methods which work by part
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DT_static.png" title="Decision Tree Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DT_static.png" title="Decision Tree Static Forecast" alt="Decision Tree Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DT_static_metrics.png" title="Decision Tree Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DT_static_metrics.png" title="Decision Tree Static Forecast Metrics" alt="Decision Tree Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -228,12 +228,12 @@ Decision trees are non-parametric supervised learning methods which work by part
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DT_rolling.png" title="Decision Tree Rolling Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DT_rolling.png" title="Decision Tree Rolling Forecast" alt="Decision Tree Rolling Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DT_rolling_metrics.png" title="Decision Tree Rolling Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DT_rolling_metrics.png" title="Decision Tree Rolling Forecast Metrics" alt="Decision Tree Rolling Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -241,12 +241,12 @@ Decision trees are non-parametric supervised learning methods which work by part
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DT_WF.png" title="Decision Tree Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DT_WF.png" title="Decision Tree Walk-Forward Forecast" alt="Decision Tree Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DT_WF_metrics.png" title="Decision Tree Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DT_WF_metrics.png" title="Decision Tree Walk-Forward Forecast Metrics" alt="Decision Tree Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -262,12 +262,12 @@ When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - g
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RF_static.png" title="Random Forest Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RF_static.png" title="Random Forest Static Forecast" alt="Random Forest Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RF_static_metrics.png" title="Random Forest Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RF_static_metrics.png" title="Random Forest Static Forecast Metrics" alt="Random Forest Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -275,12 +275,12 @@ When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - g
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RF_rolling.png" title="Random Forest Rolling Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RF_rolling.png" title="Random Forest Rolling Forecast" alt="Random Forest Rolling Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RF_rolling_metrics.png" title="Random Forest Rolling Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RF_rolling_metrics.png" title="Random Forest Rolling Forecast Metrics" alt="Random Forest Rolling Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -288,12 +288,12 @@ When this is done for the cluster ['25', '24'] and for the category 'A1 & A2 - g
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RF_WF.png" title="Random Forest Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RF_WF.png" title="Random Forest Walk-Forward Forecast" alt="Random Forest Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RF_WF_metrics.png" title="Random Forest Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RF_WF_metrics.png" title="Random Forest Walk-Forward Forecast Metrics" alt="Random Forest Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -309,12 +309,12 @@ When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24']
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/XGB_static.png" title="XGBoost Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/XGB_static.png" title="XGBoost Static Forecast" alt="XGBoost Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/XGB_static_metrics.png" title="XGBoost Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/XGB_static_metrics.png" title="XGBoost Static Forecast Metrics" alt="XGBoost Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -322,12 +322,12 @@ When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24']
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/XGB_rolling.png" title="XGBoost Rolling Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/XGB_rolling.png" title="XGBoost Rolling Forecast" alt="XGBoost Rolling Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/XGB_rolling_metrics.png" title="XGBoost Rolling Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/XGB_rolling_metrics.png" title="XGBoost Rolling Forecast Metrics" alt="XGBoost Rolling Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -335,12 +335,12 @@ When XGBoost is used with the 3 forecasting methods for the cluster ['25', '24']
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/XGB_WF.png" title="XGBoost Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/XGB_WF.png" title="XGBoost Walk-Forward Forecast" alt="XGBoost Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/XGB_WF_metrics.png" title="XGBoost Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/XGB_WF_metrics.png" title="XGBoost Walk-Forward Forecast Metrics" alt="XGBoost Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -358,12 +358,12 @@ Using Prophet, the 3 forecasting methods for the same cluster and category yield
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/Prophet_static.png" title="Prophet Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/Prophet_static.png" title="Prophet Static Forecast" alt="Prophet Static Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/Prophet_static_metrics.png" title="Prophet Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/Prophet_static_metrics.png" title="Prophet Static Forecast Metrics" alt="Prophet Static Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -371,12 +371,12 @@ Using Prophet, the 3 forecasting methods for the same cluster and category yield
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/Prophet_WF.png" title="Prophet Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/Prophet_WF.png" title="Prophet Walk-Forward Forecast" alt="Prophet Walk-Forward Forecast" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/Prophet_WF_metrics.png" title="Prophet Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/Prophet_WF_metrics.png" title="Prophet Walk-Forward Forecast Metrics" alt="Prophet Walk-Forward Forecast Metrics" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -397,12 +397,12 @@ to forecast values of wPreis as closely as possible to the real values that will
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/RMSE_all.png" title="RMSE values from all models for one category" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/RMSE_all.png" title="RMSE values from all models for one category" alt="RMSE values from all models for one category" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/DirAcc_all.png" title="Direction Accuracy values from all models for one category" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/DirAcc_all.png" title="Direction Accuracy values from all models for one category" alt="Direction Accuracy values from all models for one category" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -416,12 +416,12 @@ In fact, counting the number of times each model-method combination produced the
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/Models_RMSE_count.png" title="No. of time series in which each model showed lowest RMSE" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/Models_RMSE_count.png" title="No. of time series in which each model showed lowest RMSE" alt="No. of time series in which each model showed lowest RMSE" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/time_series_forecasting/Models_DirAcc_count.png" title="No. of time series in which each model showed highest Direction Accuracy" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/time_series_forecasting/Models_DirAcc_count.png" title="No. of time series in which each model showed highest Direction Accuracy" alt="No. of time series in which each model showed highest Direction Accuracy" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 

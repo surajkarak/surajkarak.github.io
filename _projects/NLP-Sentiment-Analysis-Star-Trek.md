@@ -85,7 +85,7 @@ Functions that calculate the word count and lines count by each character is use
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/startrek/wordsandlines.png" title="words and lines" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/startrek/wordsandlines.png" title="words and lines" alt="words and lines" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -101,7 +101,7 @@ Taking an average of the scores for each across all episodes:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/startrek/avgsentiment.png" title="average of sentiments" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/startrek/avgsentiment.png" title="average of sentiments" alt="average of sentiments" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

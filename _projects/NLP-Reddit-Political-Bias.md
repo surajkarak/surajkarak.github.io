@@ -58,7 +58,7 @@ First I did a quick sentiment analysis to check how positive or negative each of
 
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="/assets/img/RedditBias/sentiment_score_distribution.png" title="Sentiment Score Distribution" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="/assets/img/RedditBias/sentiment_score_distribution.png" title="Sentiment Score Distribution" alt="Sentiment Score Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -66,7 +66,7 @@ Categorising the scores above 0 to be positive, below 0 to be negative and 0 as 
 
  
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="/assets/img/RedditBias/sentiment_category_distribution.png" title="Sentiment Category Distribution" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="/assets/img/RedditBias/sentiment_category_distribution.png" title="Sentiment Category Distribution" alt="Sentiment Category Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
 
 Interestingly, all the politics-related subreddits were leaning towards negative (not surprising as these subreddits often or even mostly share posts from news outlets, which of course are catered towards grabbing attention and building audience which means they tend to be negative). AskReddit is the only one which has a neutral majority, which makes sense as that subreddit is not exclusively about politics.
@@ -84,7 +84,7 @@ The files in each folder are read and their content extracted into one dataframe
 When put together, the dataframe has 17362 rows, with no missing values. The dataframe’s rows need to be shuffled first to avoid all rows of the same labels being together. Next, the bias values are encoded as ‘Left’: 0,’Center’: 1 and ,’Right’: 2, to do numerical calculations. Plotting the distribution of the bias values shows the following graph.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="/assets/img/RedditBias/labelled_data_distribution.png" title="Labelled Data Distribution" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="/assets/img/RedditBias/labelled_data_distribution.png" title="Labelled Data Distribution" alt="Labelled Data Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
 
 This shows that the training dataset itself will not be perfectly balanced, as there are more left-biased samples than others.
@@ -114,7 +114,7 @@ Next, I wanted to predict the bias for the subreddit texts using SVC. For this, 
 
    
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="/assets/img/RedditBias/subreddit_bias_distribution.png" title="Subreddit Political Bias Distribution" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="/assets/img/RedditBias/subreddit_bias_distribution.png" title="Subreddit Political Bias Distribution" alt="Subreddit Political Bias Distribution" class="img-fluid rounded z-depth-1" %}
 </div>
 
 

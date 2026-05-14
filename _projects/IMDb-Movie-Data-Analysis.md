@@ -52,7 +52,7 @@ Using the weightedRating, applying a threshold of minimum 10,000 votes and norma
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/topmovies.png" title="toprated movies" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/topmovies.png" title="Top rated movies by weighted rating" alt="Bar chart of top rated films with at least 10,000 votes, ranked by IMDb weighted rating, including The Shawshank Redemption and The Dark Knight" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -64,7 +64,7 @@ Exploring the weightedRating averaged for all films in a year, it looks like the
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/ratingovertime.png" title="rating averaged per year" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/ratingovertime.png" title="Average weighted rating by release year" alt="Line chart of average IMDb weighted ratings across release years, peaking in the 1920s-1930s" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -75,7 +75,7 @@ Diving into the movies in the peak period of 1920s.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/top1920movies.png" title="top 1920s movies" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/top1920movies.png" title="Top rated films from 1915-1930" alt="Bar chart of top 1920s films including Metropolis, Sunrise, The Cabinet of Dr. Caligari and works of Chaplin and Keaton" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -87,7 +87,7 @@ I also looked at the filmography of directors and the average ratings of their m
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/topdirectors.png" title="top 1920s movies" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/topdirectors.png" title="Top directors by average movie rating" alt="Bar chart of directors with the highest average weighted ratings, including Nolan, Tarantino and Miyazaki" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -97,7 +97,7 @@ I also exploreed whether particular film genres exhibit a tendency to receive hi
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/ratingpergenre.png" title="top 1920s movies" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/ratingpergenre.png" title="Average rating per genre" alt="Bar chart of average IMDb ratings by genre, with News, Film-Noir, Documentary and War scoring highest" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -105,7 +105,7 @@ It seems like News, Film-Noir, Documentary and War have a higher rating on avera
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/moviespergenre.png" title="top 1920s movies" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/moviespergenre.png" title="Number of films per genre" alt="Bar chart of film counts by genre, with Biography, Animation and Drama leading with over 400 titles each" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -117,7 +117,7 @@ Lastly, I also looked at whether film duration has a measurable impact on audien
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/imdbdata/runtimevsrating.png" title="top 1920s movies" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/imdbdata/runtimevsrating.png" title="Runtime vs weighted rating" alt="Scatter plot of film runtime against weighted rating, showing most highly-rated films are 100-200 minutes long with outliers above 300 minutes" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

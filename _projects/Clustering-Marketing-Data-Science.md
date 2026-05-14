@@ -33,7 +33,7 @@ Some observations from exploring the data:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/Exploration.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/Exploration.png" title="Exploratory plots of channels, continents, browsers, devices and OS" alt="Bar charts showing distribution of website visits by channel, continent, browser, device type and operating system" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -53,7 +53,7 @@ From these graphs, we can see that:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/countries.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/countries.png" title="Top countries by visits to Google Merchandise Store" alt="Bar chart of top 5 countries sending traffic to the store: US, India, UK, Canada and Vietnam" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -63,7 +63,7 @@ It is also useful to explore how the visits change over time, throughout the yea
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/time.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/time.png" title="Visit patterns over time (annual, weekly, hourly)" alt="Time-series plots showing higher visits Oct-Jan, lower on weekends, and peak hours 11am-11pm" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -80,7 +80,7 @@ We can drop some of the features. Just to be thorough, we also check for multico
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/multicol.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/multicol.png" title="Correlation heatmap of numerical features" alt="Heatmap showing high correlation between hits and pageviews; other numerical features less correlated" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -101,7 +101,7 @@ We first try clustering based only on the numerical variables first. So for the 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/clustering1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/clustering1.png" title="Initial kMeans clustering on visit numerical variables" alt="Scatter plot of 4 clusters based on visitNumbers, transaction revenue and pageviews" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -125,7 +125,7 @@ The data has been provided by a Kaggle user in corresponding csv files here http
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/clustering2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/clustering2.png" title="Clustering with additional numerical variables" alt="Scatter plot of 3 clusters incorporating session duration, bounce rate and transactions" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -149,7 +149,7 @@ Visualising the distribution of categorical variables in each cluster
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/clustering3cat.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/clustering3cat.png" title="Categorical variable distribution per cluster" alt="Bar charts showing browser, OS and device distribution across the 4 visitor clusters" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -164,7 +164,7 @@ Visualising the distribution of categorical variables in each cluster
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/AudSeg/clustering3num.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/AudSeg/clustering3num.png" title="Numerical variable distribution per cluster" alt="Plots of pageviews, session duration, bounce rate and transaction revenue across the 4 visitor clusters" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

@@ -263,7 +263,7 @@ cluster_labels = agglom_model.fit_predict(distance_matrix)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/clustering-protein/dendogram-hierarchical-clustering.png" title="Reachability plot" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/clustering-protein/dendogram-hierarchical-clustering.png" title="Reachability plot" alt="Reachability plot" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -287,7 +287,7 @@ optics_labels = optics.fit_predict(distance_matrix)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/clustering-protein/reachability-plot.png" title="Reachability plot" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/clustering-protein/reachability-plot.png" title="Reachability plot" alt="Reachability plot" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -322,7 +322,7 @@ Points that end up close together in the plot are generally similar in the origi
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/clustering-protein/mean-shift-t-sne.png" title="Meanshift t-SNE plot" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/clustering-protein/mean-shift-t-sne.png" title="Meanshift t-SNE plot" alt="Meanshift t-SNE plot" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
   

@@ -36,7 +36,7 @@ The result was a nice usable dataframe that was essentially a weekly time series
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/data-frame.png" title="Data frame for ML marketing budget optimization" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/data-frame.png" title="Data frame for ML marketing budget optimization" alt="Data frame for ML marketing budget optimization" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <br>
@@ -53,7 +53,7 @@ Some essential preprocessing and EDA included:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/correlation_matrix.png" title="Correlation matrix for ML marketing campaign budget optimization" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/correlation_matrix.png" title="Correlation matrix for ML marketing campaign budget optimization" alt="Correlation matrix for ML marketing campaign budget optimization" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <br>
@@ -100,7 +100,7 @@ For the actual clustering, I normalized the features to ensure that no individua
 <br>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/elbow-method-clustering.png" title="Elbow method for finding number of clusters" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/elbow-method-clustering.png" title="Elbow method for finding number of clusters" alt="Elbow method for finding number of clusters" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -132,7 +132,7 @@ With the number of clusters chosen, a KMeans algorithm was used to cluster the p
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/cluster_table.png" title="Clustered dataframe with products tagged to clusters" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/cluster_table.png" title="Clustered dataframe with products tagged to clusters" alt="Clustered dataframe with products tagged to clusters" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -144,7 +144,7 @@ Although it doesn’t show the product clusters as distinct in 2 dimensions (sin
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/pairwise_plot_cluster.png" title="Pairwise plot of products by cluster" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/pairwise_plot_cluster.png" title="Pairwise plot of products by cluster" alt="Pairwise plot of products by cluster" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -256,7 +256,7 @@ The SLSQP (Sequential Least Squares Programming) method was chosen for the optim
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/CM1-Budget-Curves-per-cluster.png" title="CM1 Budget Response Curves per cluster" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/CM1-Budget-Curves-per-cluster.png" title="CM1 Budget Response Curves per cluster" alt="CM1 Budget Response Curves per cluster" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -272,7 +272,7 @@ With these new clusters, the optimization is done again to get the optimum budge
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/budget-allocation-results.png" title="ML Marketing Campagin Budget Optimization Results" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/budget-allocation-results.png" title="ML Marketing Campagin Budget Optimization Results" alt="ML Marketing Campagin Budget Optimization Results" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -280,7 +280,7 @@ With these new clusters, the optimization is done again to get the optimum budge
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/budget-allocation/final budget allocation output.png" title="ML Marketing Campagin Budget Optimization Results Final Output" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/budget-allocation/final budget allocation output.png" title="ML Marketing Campagin Budget Optimization Results Final Output" alt="ML Marketing Campagin Budget Optimization Results Final Output" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

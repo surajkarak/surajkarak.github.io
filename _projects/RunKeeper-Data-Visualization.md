@@ -36,7 +36,7 @@ Finally! This had what I needed. There is a csv file listing all my recorded car
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/runkeeper/cardio_table.png" title="Cardio data" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/runkeeper/cardio_table.png" title="Cardio data" alt="Cardio data" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -59,7 +59,7 @@ First, setting the Date variable to index and checking how the distance covered 
 #### Distance
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/runkeeper/distance.png" title="Distance over time" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/runkeeper/distance.png" title="Distance over time" alt="Distance over time" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -92,7 +92,7 @@ cardio['Duration (seconds)'] = cardio['Duration'].apply(duration_to_seconds)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/runkeeper/duration.png" title="Duration over time" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/runkeeper/duration.png" title="Duration over time" alt="Duration over time" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -113,7 +113,7 @@ Also, as it turns out, there were some outliers in the data, with some records s
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/pace_speed.png" title="Average pace and speed" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/pace_speed.png" title="Average pace and speed" alt="Average pace and speed" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 That's more like it. I usually average around 9 to 10 minutes per km (including walks + sprints). And Average speed almost mirrors the pace, as expected. There might have been a slight increase in speed in late 2023 to early 2024, despite the distance being generally the same. This may have been due to me trying to push myself a bit more.
@@ -124,7 +124,7 @@ Calories burned also seems to have outliers (some to the order of 8). No way am 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/calories.png" title="Calories burned" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/calories.png" title="Calories burned" alt="Calories burned" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -140,7 +140,7 @@ Not sure what I can glean from change in the climb over time. I have usually tak
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/climb.png" title="Climb" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/climb.png" title="Climb" alt="Climb" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -162,7 +162,7 @@ cardio['Time_seconds'] = cardio['Time'].apply(lambda x: x.hour * 3600 + x.minute
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/activity_time.png" title="Activity start time" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/activity_time.png" title="Activity start time" alt="Activity start time" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -212,7 +212,7 @@ sg_merged_df = cardio.merge(sg_sunset_df, left_index=True, right_index=True)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/sg_sunset.png" title="Activity start time vs Singapore sunset time" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/sg_sunset.png" title="Activity start time vs Singapore sunset time" alt="Activity start time vs Singapore sunset time" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -221,7 +221,7 @@ As mentioned earlier, the workouts in Singapore were usually in the evening well
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/br_sunset.png" title="Activity start time vs Bremen sunset time" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/br_sunset.png" title="Activity start time vs Bremen sunset time" alt="Activity start time vs Bremen sunset time" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -234,7 +234,7 @@ A bit of fancy visualisation to add: I wanted to also see how I run "past the su
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/runkeeper/br_sunset_with_duration.png" title="Activity start time vs Bremen sunset time with Duration" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/runkeeper/br_sunset_with_duration.png" title="Activity start time vs Bremen sunset time with Duration" alt="Activity start time vs Bremen sunset time with Duration" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

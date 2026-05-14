@@ -28,7 +28,7 @@ There is a visible increase in the years from 1900 to 2000 and beyond, with 4-5 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ClimateChange/globaltempchange.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/globaltempchange.png" title="Global monthly average temperatures, 1750-2015" alt="Time series of monthly land and ocean temperatures from 1750 to 2015, showing seasonal bands and a visible rise after 1900" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -38,7 +38,7 @@ This displays the entire dataset with temperatures for every month, which fluctu
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ClimateChange/smoothed_year.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/smoothed_year.png" title="Annual average global temperature, 1750-2015" alt="Year-smoothed time series showing steady rise in average temperatures with a steeper increase in the last 50 years" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -49,7 +49,7 @@ The decade distribution shows the same increase:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ClimateChange/smoothed_decade.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/smoothed_decade.png" title="Decade-averaged global temperature" alt="Bar chart of average global temperatures aggregated by decade, with each decade higher than the previous" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -62,14 +62,14 @@ Climate science is a constantly evolving field; different models use different b
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ClimateChange/deviations_year.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/deviations_year.png" title="Annual temperature departure from 1750-1850 baseline" alt="Yearly deviations from the pre-1850 baseline temperature, rising sharply after 1950" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ClimateChange/deviations_decade.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/deviations_decade.png" title="Decade-averaged temperature departure from baseline" alt="Bar chart of decade-averaged departures from the 1750-1850 baseline, increasing each decade" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -127,7 +127,7 @@ F-statistic: 0.8724 on 1 and 127 DF,  p-value: 0.3521
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ClimateChange/model.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ClimateChange/model.png" title="Linear model: country GDP vs temperature departure" alt="Scatter plot of country GDP against average temperature departure with a near-flat regression line, indicating weak linear relationship" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

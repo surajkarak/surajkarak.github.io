@@ -35,13 +35,13 @@ The dataset contains 10127 observations with 23 features – a mix of demographi
 A quick exploration of the distribution of the features:
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/churn-prediction/customer_age.png" title="Customer age distribution" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/churn-prediction/customer_age.png" title="Customer age distribution" alt="Customer age distribution" class="img-fluid rounded z-depth-1" %}
 </div>
 
 Age seems to be normally distributed.  
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/churn-prediction/categorical_variables_distributions.png" title="Market sizes by campaign" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/churn-prediction/categorical_variables_distributions.png" title="Distributions of categorical variables" alt="Bar charts showing distributions of gender, dependents, education, marital status, income, card type, months on book, and product count among bank customers" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -55,7 +55,7 @@ Age seems to be normally distributed.
 - Fairly even distribution with 3 products being the most common, followed by 4. Since there is not much variation in this variable, it might not be a useful predictor of churn.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/churn-prediction/total_trans_amt.png" title="Multimodal distribution for Total transaction amount" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/churn-prediction/total_trans_amt.png" title="Multimodal distribution for Total transaction amount" alt="Multimodal distribution for Total transaction amount" class="img-fluid rounded z-depth-1" %}
 </div>
 
 The distribution for Total_Trans_Amt (Total transaction amount in the last 12 months) seems to be multimodal. This suggests that there could be different distinct groups in the data, which could be helpful for a clustering task, to see what the differences between the groups are. It may have a direct influence on churn though.
@@ -63,7 +63,7 @@ The distribution for Total_Trans_Amt (Total transaction amount in the last 12 mo
 Lastly, checking the distribution of the target variable reveals an imbalance.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/churn-prediction/imbalanced_churn.png" title="Imbalanced churn" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/churn-prediction/imbalanced_churn.png" title="Imbalanced churn" alt="Imbalanced churn" class="img-fluid rounded z-depth-1" %}
 </div>
 
 There are various techniques to deal with such imbalanced data, like oversampling (increasing number of examples from the minority class), undersampling (decreasing instances from majority class) and SMOTE (Synthetic Minority Over-sampling Technique), which involves generating synthetic samples for the minority class. In this case, I went with SMOTE since I wanted to keep as much of the available data as possible for training. 
@@ -104,7 +104,7 @@ data.Gender = data.Gender.replace({'F':1,'M':0})
 If two features are highly correlated with each other, they provide redundant information. In this case, only one of them need to be used. 
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/churn-prediction/correlation_matrix.png" title="Correlation matrix heatmap" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/churn-prediction/correlation_matrix.png" title="Correlation matrix heatmap" alt="Correlation matrix heatmap" class="img-fluid rounded z-depth-1" %}
 </div>
 
 The only major correlations (above 0.5 in positive or negative direction) are 
@@ -154,7 +154,7 @@ svm_f1_cross_val_scores=cross_val_score(svm_pipe,X_train,y_train,cv=5,scoring='f
 ```
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/churn-prediction/f1_cross_validation_scores.png" title="Correlation matrix heatmap" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/churn-prediction/f1_cross_validation_scores.png" title="F1 cross-validation scores for Random Forest, AdaBoost and SVM" alt="Box plot comparing F1 cross-validation scores across Random Forest, AdaBoost and SVM classifiers" class="img-fluid rounded z-depth-1" %}
 </div>
 
 The Random Forest model produced the highest F1 scores. Using the trained models on the test dataset also yielded f1 scores in a similar order:

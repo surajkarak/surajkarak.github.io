@@ -22,7 +22,7 @@ Sometimes this is necessary and also incredibly useful. I was recently in Paris 
 Later on, I was unsure of what to eat at a restaurant - partly due to the language barrier, and partly due to me indecision. Unable to think clearly, I just took a photo of the menu and asked ChatGPT to help me decide.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="/assets/post_imgs/chatgpt-image.png" title="ChatGPT helps me decide lunch" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="/assets/post_imgs/chatgpt-image.png" title="ChatGPT helps me decide lunch" alt="ChatGPT helps me decide lunch" class="img-fluid rounded z-depth-1" %}
 </div>
 
 Bingo, perfect response. This was super helpful and in the end, I did not regret what I ate. Done and done.

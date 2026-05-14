@@ -42,7 +42,7 @@ Another function `process_multiple_pdb_files` iterates over a list of PDB file
 The end result of the extraction looked something like this:
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/dataframe.png" title="Dataframe" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/dataframe.png" title="Dataframe" alt="Dataframe" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -73,10 +73,10 @@ The histnorm='probability density' argument shows the relative frequency of valu
 
 <div style="display: flex; gap: 16px; justify-content: center;">
   <div style="flex: 1; max-width: 600px;">
-    {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/Distribution of Hydrophonic.distance (normalized).png" title="Distribution of Hydrophonic.distance (normalized)" alt="Distribution of Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1; max-width: 600px;">
-    {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/Distribution of VdWContact.distance (normalized).png" title="Distribution of VdWContact.distance (normalized).png" alt="Distribution of VdWContact.distance (normalized).png" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 
@@ -101,10 +101,10 @@ I was able to provide the research team with these plots as results:
 
 <div style="display: flex; gap: 16px; justify-content: center;">
   <div style="flex: 1; max-width: 600px;">
-    {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized).png" title="Gaussian_smoothed_Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_Hydrophonic.distance (normalized).png" title="Gaussian_smoothed_Hydrophonic.distance (normalized)" alt="Gaussian_smoothed_Hydrophonic.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1; max-width: 600px;">
-    {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_VdWContact.distance (normalized).png" title="Gaussian_smoothed_VdWContact.distance (normalized)" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/Gaussian_smoothed_VdWContact.distance (normalized).png" title="Gaussian_smoothed_VdWContact.distance (normalized)" alt="Gaussian_smoothed_VdWContact.distance (normalized)" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 
@@ -121,11 +121,11 @@ final_results_df.groupby('PDB_File')['Hydrophobic.distance'].mean()
 
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/Mean of Hydrophobic.distance across frames.png" title="Mean of Hydrophobic.distance across frames" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/Mean of Hydrophobic.distance across frames.png" title="Mean of Hydrophobic.distance across frames" alt="Mean of Hydrophobic.distance across frames" class="img-fluid rounded z-depth-1" %}
 </div>
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/Mean of VdWContact.distance across frames.png" title="Mean of VdWContact.distance across frames" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/Mean of VdWContact.distance across frames.png" title="Mean of VdWContact.distance across frames" alt="Mean of VdWContact.distance across frames" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -142,11 +142,11 @@ I thought it might also be useful to check if there were any signals that sugges
 For this the commonly used ACF and PCF plots were as follows:
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/acf.png" title="Autocorrelation Function" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/acf.png" title="Autocorrelation Function" alt="Autocorrelation Function" class="img-fluid rounded z-depth-1" %}
 </div>
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/pacf.png" title="Partial Autocorrelation Function" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/pacf.png" title="Partial Autocorrelation Function" alt="Partial Autocorrelation Function" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -161,21 +161,21 @@ The trend component extract any long-term direction or pattern in the data, smoo
 
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/trend.png" title="Trend component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/trend.png" title="Trend component of seasonal decomposition" alt="Trend component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
 The seasonal component looks for any repeating patterns or cycles in the data that occur at fixed intervals. There does seem to be a regular wave-like pattern in this plot but this could also be a result of oscillations.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/seasonal.png" title="Seasonal component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/seasonal.png" title="Seasonal component of seasonal decomposition" alt="Seasonal component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
 The residual component represents what's left of the original data after the trend and seasonal components have been removed. Here, they fluctuate around zero, which is good and there are no obvious patterns. That means that the trend and seasonal components have successfully captured the systematic variations in the data.
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.html path="assets/img/protein-ligand/residual.png" title="Residual component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/residual.png" title="Residual component of seasonal decomposition" alt="Residual component of seasonal decomposition" class="img-fluid rounded z-depth-1" %}
 </div>
 
 
@@ -184,7 +184,7 @@ I also explored if there were any correlations between the parameters themselves
 
 
 <div style="flex: 1; max-width: 800px;">
-    {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
+    {% include figure.html path="assets/img/protein-ligand/correlation_matrix.png" title="Correlation matrix of Interaction Fingerprint metrics" alt="Correlation matrix of Interaction Fingerprint metrics" class="img-fluid rounded z-depth-1" %}
 </div>
 
 

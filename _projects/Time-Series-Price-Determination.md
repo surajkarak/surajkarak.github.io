@@ -24,7 +24,7 @@ There were also 10 unique clusters or collection of Postleitzahl (postal code in
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/data.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/data.png" title="wPreis time series by cluster and waste category" alt="Line charts of waste prices over time across postal-code clusters and product categories (A1, A2, A3 geschreddert)" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -42,7 +42,7 @@ We explored a few different variables to see how they correlated with the wPreis
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/weather.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/weather.png" title="wPreis plotted against weather variables" alt="Line charts of waste prices overlaid with temperature, wind speed and precipitation; correlations near zero" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -60,7 +60,7 @@ We used data from [netztransparenz.de](https://www.netztransparenz.de/EEG/Marktp
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/electricity.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/KIPA/electricity.png" title="wPreis plotted against German electricity prices" alt="Line chart overlaying waste price and electricity price in cents per kWh from Jan 2021" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -68,13 +68,13 @@ Although visually it looks like there was some correlation in some parts, the co
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/elec_correlation.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/elec_correlation.png" title="wPreis vs electricity price correlations" alt="Table of correlation coefficients between waste prices and electricity prices per cluster and category, most near zero except A2 & A3 at 0.52" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/elec_correlation_lag.png" title="wPreis vs electricity correlations with 1-week lag" alt="Correlation coefficients between waste prices and lagged electricity prices, similar low values to the unlagged case" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -92,7 +92,7 @@ We found that there was a close correlation from Sep 2020 to around Jan 2022 for
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/oil.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/oil.png" title="wPreis plotted against global oil prices" alt="Line chart overlaying waste price and global crude oil adjusted close price; visible co-movement from 2020-2022" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -102,7 +102,7 @@ Correlation coefficients also validate this, with 0.6 for A3 - geschreddert cate
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/oil_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/oil_correlation.png" title="wPreis vs oil price correlation coefficients" alt="Correlation table showing 0.6 (A3) and 0.62 (A2 & A3) coefficients between waste prices and oil" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -118,14 +118,14 @@ Similar to oil, we used data the [Global Gas prices from Yahoo Finance](https://
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/gas.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/gas.png" title="wPreis plotted against global gas prices" alt="Line chart overlaying waste price and global natural gas adjusted close price" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/gas_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/gas_correlation.png" title="wPreis vs gas price correlation coefficients" alt="Correlation table showing weaker ~0.4 coefficients between waste prices and global gas prices" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -141,14 +141,14 @@ For exploring correlation of wPreis with the business cycle we used the [**DAX**
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/dax.png" title="example image" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/dax.png" title="wPreis plotted against the DAX index" alt="Line chart overlaying waste price and weekly average DAX (GER40) adjusted close price" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/dax_correlation.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/dax_correlation.png" title="wPreis vs DAX correlation coefficients" alt="Correlation table showing inverse coefficients between -0.45 and -0.63 across categories" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
@@ -161,7 +161,7 @@ We also tried to explore whether there was any correlation between construction 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/KIPA/construction.png" title="electricity correlation with 1 week lag" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
+        {% include figure.html path="assets/img/KIPA/construction.png" title="wPreis plotted against German construction permits" alt="Line chart overlaying waste price and monthly construction permit counts per Bundesland, with strong inverse correlation in some clusters" class="img-fluid rounded z-depth-1" width="1294" height="450" %}
     </div>
 </div>
 
