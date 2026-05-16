@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Discovering waste price determinants 
-description: Finding correlations between the price of waste and various potential price determinants.
+description: Finding correlations between the price of waste and potential price determinants.
 img: assets/img/KIPA/KIPA.png
 importance: 7
 category: work
