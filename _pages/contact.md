@@ -47,10 +47,7 @@ nav_order: 6
       formStatus.className = '';
 
       try {
-        const response = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
-        if (!response.ok) {
-          throw new Error('HTTP ' + response.status);
-        }
+        await fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' });
         formStatus.textContent = 'Message sent — I\'ll reply soon.';
         formStatus.className = 'status-success';
         form.reset();
