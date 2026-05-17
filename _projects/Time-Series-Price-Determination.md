@@ -10,6 +10,8 @@ category: work
 
 This was a project that I worked on for a market-leading energy trading firm in Germany. The firm wanted to identify correlations and patterns between waste prices and potential price determinants such as weather, energy, and business cycle factors, and wanted me to recommend which were the best ones to consider for future prediction and modeling work.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/KIPA_DigiTrans).)*
+
 ## Tech used
 
 - Python in Visual Studio
@@ -168,12 +170,16 @@ We also tried to explore whether there was any correlation between construction 
 The main insight is that the pattern of correlations is the same. The correlation between actual waste prices and number of permits is large and negative. We assume it has something to do with the waste offer: usually the timespan between getting a construction permit and starting the construction itself is forced to be as short as possible =\> construction works start as soon as the permit is obtained =\> the waste is produced immediately =\> there is more waste offered on the market =\> the price decreases.
 
 
-## **Conclusions**
+## What we found
 
 Based on this analysis, we find that
 
 -   Weather determinants show very low correlation with wPreis (which makes sense somewhat) and can be ignored.
 
--   Energy determinants show different variations with oil showing a somewhat significant correlation of around 0.6 (that too overall including ‘black swan’ events like the Russia-Ukraine situation. Gas shows lesser correlation than oil and so does electricity.
+-   Energy determinants show different variations with oil showing a somewhat significant correlation of around 0.6 (that too overall including ‘black swan’ events like the Russia-Ukraine situation). Gas shows lesser correlation than oil and so does electricity.
 
 -   Business Cycle (DAX) shows some significant inverse correlation while construction permits show high inverse correlation for some clusters.
+
+Of the variables tested, oil prices and construction permit activity came out as the most reliable signals — though the relationship with oil weakened significantly after the 2022 energy crisis stabilised, which is worth bearing in mind for any model trained on pre-2022 data. The DAX inverse correlation makes sense intuitively: when economic activity slows, demand for wood waste products likely softens too, which pulls prices down. Construction permits are arguably the most structurally interesting finding — there’s a plausible causal mechanism (permits → construction → waste supply → price pressure) that gives the correlation some explanatory grounding, not just statistical noise.
+
+This price determinants analysis served as the foundation for a follow-up [time series forecasting project](/projects/Time-Series-Forecasting/) using the same dataset, in which ARIMA, Decision Trees, Random Forest, XGBoost and Prophet models were compared to predict future prices.

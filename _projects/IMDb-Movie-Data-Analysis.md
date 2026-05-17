@@ -10,6 +10,8 @@ category: fun
 
 This project analyses the IMDb movie ratings, and looks at trends, patterns, and factors that influence the reception of a film. By analysing the IMDb dataset, we explore movie ratings across genres, time periods, and key metrics such as weighted ratings.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/VisComProject).)*
+
 ## Tech used 
 
 - R and Quarto in RStudio
@@ -93,7 +95,7 @@ I also looked at the filmography of directors and the average ratings of their m
 
 ## Drama, comedy and action genres are the most popular
 
-I also exploreed whether particular film genres exhibit a tendency to receive higher average ratings. In the IMDb dataset, the genres are not mutually exclusive, i.e., the same film could have been tagged “drama” and “history” in the dataset, separated by a comma. So I first separated these into different columns and then grouped by genre to get summary statistics.
+I also explored whether particular film genres exhibit a tendency to receive higher average ratings. In the IMDb dataset, the genres are not mutually exclusive, i.e., the same film could have been tagged “drama” and “history” in the dataset, separated by a comma. So I first separated these into different columns and then grouped by genre to get summary statistics.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -122,4 +124,6 @@ Lastly, I also looked at whether film duration has a measurable impact on audien
 </div>
 
 There is no clear correlation between runtime and weightedRating. But we do see that the majority of highly rated films are in the range of 100 to 200 minutes. And also noticeable is the fact that there are some outliers with runtimes of over 300 minutes (even up to 550 minutes). These outliers are usually higher rated (over 7.5) and the ratings don’t tend to decrease the longer the film gets. However, keep in mind that there was a 10,000 vote limit for this threshold, meaning that this insight is only applicable for those films which had more than this threshold of votes. And also worth considering is the behavior and traits of the users who do manage to watch the entire length of these high-runtime films. It is reasonably to expect that these users may have liked the film or found it engaging enough to sit through the entire runtime, which makes it more likely for them to give the film a higher rating. In contrast, those who did not watch the entire length of the film may have not bothered voting a rating at all.
+
+Interested in more pop culture data analysis? See also [exploring The Beatles through Spotify's audio features](/projects/Spotify-API-Data-Extraction-Visualization/) and [sentiment analysis of Star Trek episode scripts](/projects/NLP-Sentiment-Analysis-Star-Trek/).
 

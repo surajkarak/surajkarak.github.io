@@ -9,6 +9,7 @@ category: work
 
 A/B testing is one of the most common practices followed in data-driven organisations. It can be used to tweak product features, optimise ad campaigns, improve checkout experiences in e-commerce stores and in many other use cases. In fact, it is seen as a go-to, tried-and-tested approach based on trust and evidence for making decisions today, unlike the older way of being based on HiPPO (Highest Paid Person's Opinion) . It is also a data science task that brings together domain knowledge, expertise in statistics and experimentation and communication skills. In this project, I explore the marketing campaign data from a company that is launching a new product and use A/B testing to determine which among 3 variants of a campaign yields the best results. 
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/ab-testing).)*
 
 ## Data set
 
@@ -149,3 +150,13 @@ Ttest_indResult(statistic=1.5560224307758634, pvalue=0.1205914774222948)
 Using the t.test from the scipy.stats package we get the same results for the comparison between campaigns 1 and 2 and campaigns 1 and 3. 
 
 Thus, campaigns 1 and 2 are better than 3 and either of those can be used for driving sales.
+
+## So, which campaign?
+
+The t-tests make it clear: campaigns 1 and 2 both outperform campaign 3 by a statistically significant margin, while the difference between 1 and 2 themselves is not significant. So either can be rolled out — the final call between the two would probably come down to cost, execution effort, or a brief follow-up test pitting them head to head.
+
+One practical note: running multiple pairwise t-tests at once slightly inflates the risk of a false positive. A Bonferroni correction — dividing the significance threshold by the number of comparisons — is a simple fix if you want to be stricter about that.
+
+More broadly, what makes the result trustworthy here is the pre-test validation: confirming that all three campaigns were tested across comparable market sizes and store ages. A statistically significant result only means something if the experiment was set up fairly in the first place.
+
+For a more sophisticated approach to optimising marketing spend — using machine learning to cluster products and allocate budgets through constrained optimization — see the [ML marketing budget optimization project](/projects/Machine-Learning-Marketing-Budget-Optimization/). For clustering-based audience segmentation that can inform which campaign to target at which visitors, see the [audience segmentation project](/projects/Clustering-Marketing-Data-Science/).

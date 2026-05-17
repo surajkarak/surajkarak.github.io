@@ -12,6 +12,8 @@ I have been researching the topic of RAGs lately so I thought of tinkering on a 
 
 So I wondered whether it was possible to automate this task - i.e. given a set of PDFs, extract the relevant info and format them in a specific citation standard.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/structured-rag-pdf).)*
+
 ## **Tech and tools used for this project**
 
 - RAG

@@ -16,6 +16,7 @@ There are phases when I get on a decent streak. But at other times, and days whe
 
 Most people do this kind of analysis easily with their smart watches, FitBit, fitness tracker, heart rate monitor or other wearable device automatically tracking data and showing reports in real-time. Unfortunately, I don’t use any of those dedicated devices. But I do take my old phone, without a SIM card, start the RunKeeper app and listen to podcasts which I have downloaded beforehand. I thought I could try and analyse the data from RunKeeper to see how I have been doing.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/runkeeper_data_analysis).)*
 
 ## What I used
 
@@ -238,4 +239,6 @@ A bit of fancy visualisation to add: I wanted to also see how I run "past the su
     </div>
 </div>
 
-That looks nice. So I did finish after the sunset time for the most part of the winter but in the summer of 2024 I began to prefer getting to be outside more when the sun was out so rarely did I cross the sunset time then. 
+That looks nice. So I did finish after the sunset time for the most part of the winter but in the summer of 2024 I began to prefer getting to be outside more when the sun was out so rarely did I cross the sunset time then.
+
+The RunKeeper data is essentially a time series, and the same modelling techniques used in the [time series forecasting project](/projects/Time-Series-Forecasting/) — including ARIMA, Random Forest and Prophet — could in principle be applied to predict future pace or distance trends. 

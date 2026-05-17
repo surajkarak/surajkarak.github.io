@@ -21,6 +21,8 @@ As I was playing around with NLP and sentiment analysis, I remembered this wonde
 
 Stephen Fry’s proposition that Kirk balances out Spock’s logic and McCoy’s emotion seemed like something that was worth testing using data. My first thought was to analyse the scripts of the episode using NLP.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/star_trek).)*
+
 ## What I used
 
 -   Python in Visual Studio for data cleaning and analysis
@@ -153,3 +155,5 @@ I couldn’t do this for all episodes so I just choose from the first few.
 
 
 The result was not what I expected. There does not seem to be a common pattern. Episodes rise with positive sentiment sometimes while at other times it begins with negative sentiment, while in some cases it can just be fluctuating from the outset. What is common though is that at some point in the narrative the positive sentiment keeps building and after a drop towards the end, it rises back up again.
+
+Interested in more NLP projects? See also [detecting political bias in ChatGPT responses](/projects/NLP-ChatGPT-Bias/) and [political bias analysis across popular subreddits](/projects/NLP-Reddit-Political-Bias/).

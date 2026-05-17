@@ -16,6 +16,7 @@ Binding sites are specific regions on a protein where small molecules - these co
 
 Understanding these binding sites is central to structural bioinformatics. So in this project, I helped the research team find patterns among the various binding sites and hot spots. I proposed clustering the sites after representing them as numerical vectors, and based on comparable distance metrics, and finally creating a pipeline to automate the tasks from extraction to clustering and visualisations.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/protein-ligand).)*
 
 ## What I used
 

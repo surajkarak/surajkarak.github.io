@@ -14,6 +14,10 @@ There are other markets though, such as wood waste, where information is not as 
 
 In this project, I helped a market-leading firm in Germany forecast future prices using a variety of time series forecasting models. The firm supplies combined heat and power plants with the desired combustibles including waste wood. Their business model relies on collecting wood waste from sellers, which could be consumers or businesses, at a specific price and selling it to power plants for energy generation. This makes it critical for the company to know what the price of the wood waste will be in the future, in order to understand and arrive at an appropriate number for negotiations.
 
+This was a direct continuation of an earlier [price determinants analysis](/projects/Time-Series-Price-Determination/) for the same client, which identified energy prices (oil in particular) and construction activity as the most significant correlates of waste prices.
+
+*(The code for this project is [on GitHub](https://github.com/surajkarak/thesis).)*
+
 ## Tech used
 
 - Python in Visual Studio
@@ -427,3 +431,11 @@ In fact, counting the number of times each model-method combination produced the
 
 
 As seen from the above plot, the walk-forward validation method using ARIMA model produced the lowest RMSEs most times (7) out of all the 33 time series, followed by the rolling forecast method using Decision Tree (5) and the walk-forward method using Prophet (4) times. Similarly, in the case of the highest direction accuracy among all model-method combination, the static forecasting using Decision Tree was the best in 7 out of the 33 time series, followed by the static forecasting using ARIMA (6) and Random Forest (5). Thus there is no single best model or indeed, the specific forecasting method within each model that can be applied universally across all time series and different categories and clusters may require specific choices of models and methods for the best predictive capabilities.
+
+## Takeaways
+
+No single model wins across all 33 time series — and that's actually one of the more practically useful findings here. It means a one-size-fits-all forecasting approach would leave performance on the table for some clusters and waste categories.
+
+One thing worth calling out: RMSE and direction accuracy don't always agree on which model is best, and for a firm that negotiates prices weekly, direction accuracy often matters more. Knowing whether prices are likely to go up or down in the next period is more actionable than knowing the exact predicted value. By that measure, the Decision Tree with walk-forward validation is a stronger contender than its RMSE ranking alone would suggest.
+
+The broader practical lesson is that per-series model selection — combined with regular retraining as new price data comes in — is likely to outperform any fixed choice. The walk-forward validation procedure approximates exactly that during evaluation, which is part of why it performs well. For a real deployment, this would mean running the evaluation pipeline monthly, comparing model performance on the most recent data, and updating the model selection accordingly.

@@ -12,7 +12,7 @@ This project is a result of my work with [rebuy](https://www.rebuy.de/), a recom
 
 As is typical in the ecommerce industry, companies handle thousands of unique products with widely varying margins, stock levels, and price competitiveness. To efficiently allocate their ad budgets across their inventory, I developed a budget allocation tool - a machine learning pipeline that predicts product-level performance, clusters similar items into campaigns, and optimizes marketing spend at the campaign level. 
 
-Each campaign would group a set of products in a way as to maximise the profit (contribution margin). The pipeline involved data extraction from their data warehouse Snowflake, EDA, feature engineering, predicting modelling, response curve generation, clustering and constrianed optimization.
+Each campaign would group a set of products in a way as to maximise the profit (contribution margin). The pipeline involved data extraction from their data warehouse Snowflake, EDA, feature engineering, predicting modelling, response curve generation, clustering and constrained optimization.
 
 
 ## What I used
@@ -20,7 +20,7 @@ Each campaign would group a set of products in a way as to maximise the profit (
 - Snowflake for data warehousing
 - SQL for data extraction
 - [HEX notebook](https://hex.tech/product/notebooks/) - the company tool for data science projects and publishing, works just like Jupyter
-- scipy, numpy, sklearn, scipy, plotly, matplotlib - Packages relevant for data science, ML prediction, constrained optimization and plotting
+- numpy, sklearn, scipy, plotly, matplotlib - Packages relevant for data science, ML prediction, constrained optimization and plotting
 
 ## Data source and extraction
 
@@ -308,3 +308,5 @@ Second, the clusters themselves change over time. Since products are re-clustere
 Third, I didn’t have visibility into how closely the recommended budgets were followed in practice. The results reflect what actually happened in the data, not a perfect execution of the optimized allocation.
 
 Finally, the spend–response curves are based on modeled relationships. They assume that the relationship between spend and CM1 is relatively stable in the short term, which is a simplification. In reality, things like competitor pricing, stock changes, and demand shifts can all affect performance.
+
+For a simpler example of audience clustering applied to web visitors — using kMeans to segment visitors into behavioural personas — see the [audience segmentation project](/projects/Clustering-Marketing-Data-Science/).

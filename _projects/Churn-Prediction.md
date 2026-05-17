@@ -13,6 +13,7 @@ There are various nuances that can be added to improve the analysis but essentia
 
 In this project, I analyse the transaction data of some customers in a bank, explore the distribution of various features, select the ones which have the most predictive value, train 3 classification models on the data and predict on a test set to compare the accuracies.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/churn_prediction).)*
 
 ## Data set
 
@@ -58,7 +59,7 @@ Age seems to be normally distributed.
     {% include figure.html path="assets/img/churn-prediction/total_trans_amt.png" title="Multimodal distribution for Total transaction amount" alt="Multimodal distribution for Total transaction amount" class="img-fluid rounded z-depth-1" %}
 </div>
 
-The distribution for Total_Trans_Amt (Total transaction amount in the last 12 months) seems to be multimodal. This suggests that there could be different distinct groups in the data, which could be helpful for a clustering task, to see what the differences between the groups are. It may have a direct influence on churn though.
+The distribution for Total_Trans_Amt (Total transaction amount in the last 12 months) seems to be multimodal. This suggests that there could be different distinct groups in the data, which could be helpful for a [clustering task](/projects/Clustering-Marketing-Data-Science/), to see what the differences between the groups are. It may have a direct influence on churn though.
 
 Lastly, checking the distribution of the target variable reveals an imbalance.
 
@@ -169,8 +170,14 @@ Just as a comparison, the predictions without oversampling were much lower in F1
 - AdaBoost F1 Score: 0.63
 - SVM F1 Score: 0.62
 
-## Conclusion
+## What the models showed
 
-This was a simple churn prediction task to predict which customers would churn based on various features that would be available as data collected by a bank. It involved exploration, one-hot encoding, checking for multi-collinearity, dimensionality reduction using PCA and feature scaling, followed by model training and evaluation on test set.
+Random Forest came out on top with an F1 score of 0.93 — a significant step up from the 0.69 you'd get without handling the class imbalance. The most predictive features were transaction count and changes in transaction patterns, which makes intuitive sense: customers who suddenly reduce how often or how much they transact are likely disengaging before they formally leave.
 
-In real world projects, there could be be more complexity involved. For example, there could be instances of delayed churn, such as in the case of a cancellation that would go into effect at a much later date. This is where additional techniques like survival modelling can be useful. 
+The practical use case is straightforward: score the existing customer base monthly with the trained model, flag anyone above a churn probability threshold, and hand them to a retention team with a targeted offer. The model is just one part of that pipeline — you'd also need to decide on the intervention and work out which probability threshold gives the best tradeoff between reach and cost.
+
+This was a relatively standard setup but it shows how much of the work in a churn project happens before any model is trained: cleaning, handling the class imbalance, encoding, reducing dimensionality, and selecting the right features. The modelling itself is almost the easy part.
+
+In real world projects, there could be more complexity involved. For example, there could be instances of delayed churn, such as in the case of a cancellation that would go into effect at a much later date. This is where additional techniques like survival modelling can be useful.
+
+For another applied ML project in a business setting — this time using clustering and constrained optimization to allocate marketing budgets across product groups — see the [ML marketing budget optimization project](/projects/Machine-Learning-Marketing-Budget-Optimization/). 

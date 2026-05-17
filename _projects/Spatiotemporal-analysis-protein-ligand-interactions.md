@@ -12,6 +12,7 @@ I recently worked with the research team under Dr. Petr Popov at Constructor Uni
 
 I helped the team extract the molecular data from the PDB files, identify interaction-related features and analyse how these properties changed over time through various distributions.
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/protein-ligand).)*
 
 ## What I used
 

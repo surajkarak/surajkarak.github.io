@@ -12,6 +12,8 @@ So I have been going through one of those phases where I revisit the music of Th
 
 Knowing that the Spotify API provides some attributes regarding each song I decided to do a quick analysis of the songs of The Beatles. 
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/beatles).)*
+
 ## What I used
 
 -   Python in Visual Studio for extraction and analysis
@@ -103,3 +105,5 @@ Some observations from this plot that stand out:
 -   Helter Skelter and Come Together are also high on positivity while not so positive are A Day in the Life (which makes sense – *“He blew his mind out in a car”),* Let It Be (*”…times of trouble…*”) and Sgt. Pepper’s Lonely Hearts Club Band among others.
 
 -   Surprised that Ob-La-Di, Ob-La-Da is not positive because I always found that song to be cheerful.
+
+For more pop culture data projects, see also [what IMDb data reveals about cinema's golden age](/projects/IMDb-Movie-Data-Analysis/) and [sentiment and narrative patterns in Star Trek scripts](/projects/NLP-Sentiment-Analysis-Star-Trek/).

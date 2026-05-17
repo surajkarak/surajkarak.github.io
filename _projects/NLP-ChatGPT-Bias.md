@@ -19,7 +19,7 @@ While David's approach involved asking ChatGPT questions based standard politica
 
 The trained model will then aim to classify the texts from ChatGPT’S responses into 3 categories - Biased Left, Neutral and Biased Right - using some of the common classification algorithms – Naive Bayes, Random Forest and Support Vector Machines. The expectation is that there will be a similar left-leaning bias in the responses.
 
-*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/detecting-political-bias-in-chatgpt-responses-using-nlp-ba782c41a816"> check out the long-form article at Medium </a>.)*
+*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/detecting-political-bias-in-chatgpt-responses-using-nlp-ba782c41a816">check out the long-form article at Medium</a>. The code is also [on GitHub](https://github.com/surajkarak/TANLP_Project).)*
 
 
 ## Tech and techniques used
@@ -128,3 +128,5 @@ Some limitations that can be overcome in future work include the problem of subj
 There is also the issue of the cutoff date of 2021 for ChatGPT's knowledge, as its responses are based on a pre-trained language model which might not have up-to-date information beyond 2021. This means it may not be familiar with recent events or developments that could influence political bias and as such responses might not generalize well to new or unseen data.
 
 Lastly, there is the issue of interpretability associated with deep learning models like the one that ChatGPT uses. These models are often considered black boxes, making it challenging to interpret and explain their predictions. Understanding how the model arrived at its classifications might be difficult, limiting the ability to validate or question the results.
+
+The same NLP methodology was extended to a related question: [how politically biased are some of the most popular subreddits?](/projects/NLP-Reddit-Political-Bias/)

@@ -26,6 +26,8 @@ First, I had to think about which subreddits to analyse and how. There are count
 
 And I could not analyse all the content in these subreddits since the beginning - that would take days or weeks or more to extract and maybe still doable with some hacks. So I decided to look at the latest posts from these subreddits (more specifically, those which show up when you sort by “new” at the top).
 
+*(The code for this project is [on GitHub](https://github.com/surajkarak/subredditpoliticalbias).)*
+
 ## What I used
 
 -   Python in Visual Studio for extraction and analysis
@@ -73,7 +75,7 @@ Interestingly, all the politics-related subreddits were leaning towards negative
 
 ## Political bias
 
-To analyse the political bias, I decided to use a labelled training dataset from [PoliticalBias_AllSides_Txt](https://huggingface.co/datasets/valurank/PoliticalBias_AllSides_Txt) at Hugginface. This contains a corpus of articles that has already been labeled with a specific bias — from left, right or center. These are 17,362 articles labeled left, right, or center by the editors of [allsides.com](http://allsides.com/). Articles were manually annotated by news editors who were attempting to select representative articles from the left, right and center of each article topic. In other words, the dataset should generally be balanced — the left/right/center articles cover the same set of topics, and have roughly the same amount of articles in each.
+To analyse the political bias, I decided to use a labelled training dataset from [PoliticalBias_AllSides_Txt](https://huggingface.co/datasets/valurank/PoliticalBias_AllSides_Txt) at Huggingface. This contains a corpus of articles that has already been labeled with a specific bias — from left, right or center. These are 17,362 articles labeled left, right, or center by the editors of [allsides.com](http://allsides.com/). Articles were manually annotated by news editors who were attempting to select representative articles from the left, right and center of each article topic. In other words, the dataset should generally be balanced — the left/right/center articles cover the same set of topics, and have roughly the same amount of articles in each.
 
 ### Training
 
@@ -127,3 +129,5 @@ Interestingly, the AskReddit community seems to be the one with the most differe
 Firstly, we could compare the results with those produced by other models, even pre-trained LLM models. One could also analyse the discussion in the comments section under the subreddit’s posts and layer them on top of the post content itself to get a more holistic view of the bias in that specific thread. This will give us a better idea of what a general user can expect when they land on and spend time with the thread.
 
 There are also other more extreme and potentially more incendiary subreddits that could analyse. One interesting use case I can think of is to have real-time monitor of the bias of a thread (and a continuous one at that, instead of a discrete one) so that visitors and “lurkers” can get an idea of whether they should spend time on it before proceeding. One could also give users and option to view a more “balanced” feed where, depending on the overall bias, more content from other viewpoints are surfaced, so that readers can avoid spiralling into the much-talked about political “echo-chambers”.
+
+For another application of NLP to extract patterns from text — this time tracking sentiment and narrative arc across TV episode scripts — see the [Star Trek sentiment analysis project](/projects/NLP-Sentiment-Analysis-Star-Trek/).

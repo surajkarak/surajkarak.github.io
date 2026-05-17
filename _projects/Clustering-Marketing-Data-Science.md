@@ -10,9 +10,9 @@ giscus_comments: false
 
 Marketers generally adopt some standard segmentation and clustering techniques to identify and group customers based on their purchase behaviour. But this project explores how a similar clustering approach can be used to segment audiences at the top stage of the funnel, i.e., those that are in the awareness stage and may not have converted yet. Brands spend a lot of time and resources trying to understand their audience before they convert to a customer. Identifying the different groups or clusters of audience characteristics at this stage will help marketers device appropriate strategies, campaigns and tactics to ensure that they target those visitors with the best chance of converting and building loyalty with them further down the line.
 
-In this project, we performed clustering of the web visitors to <a href="https://www.googlemerchandisestore.com/"> Google’s Merchandise Store </a> using kMeans clustering, using their web analytics data. The clustering stage is preceded by the standard steps of data science, including cleaning, exploration, feature selectiona and preprocessing.
+In this project, we performed clustering of the web visitors to <a href="https://www.googlemerchandisestore.com/"> Google’s Merchandise Store </a> using kMeans clustering, using their web analytics data. The clustering stage is preceded by the standard steps of data science, including cleaning, exploration, feature selection and preprocessing.
 
-*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/segmenting-website-visitors-into-personas-using-unsupervised-learning-649ea8e39c9e">  check out the long-form article at Medium </a> or if you want to run the code along with each step, <a href="https://www.kaggle.com/code/surajkarakulath/clustering-audiences-to-create-personas/"> see the Kaggle notebook </a> .)*
+*(For a walkthrough of the code and explanation of each step, <a href="https://medium.com/@karakulath.suraj/segmenting-website-visitors-into-personas-using-unsupervised-learning-649ea8e39c9e">check out the long-form article at Medium</a> or if you want to run the code along with each step, <a href="https://www.kaggle.com/code/surajkarakulath/clustering-audiences-to-create-personas/">see the Kaggle notebook</a>. The code is also [on GitHub](https://github.com/surajkarak/dataminingproject).)*
 
 ## Tech and techniques used
 
@@ -218,3 +218,5 @@ One practical way in which this kind of clustering can be operationalized in the
 -   clusters of website visitors who show patterns of leaving or ending their purchase patterns, who can be nudged to continue purchasing
 
 -   automatic assignment of a new website visitor into a specific cluster (say one of high spending repeat visitors) based on their initial digital behavior.
+
+For a more sophisticated application of clustering to product marketing — where a similar kMeans approach was used alongside constrained optimization to allocate ad budgets across product clusters — see the [ML marketing budget optimization project](/projects/Machine-Learning-Marketing-Budget-Optimization/).
