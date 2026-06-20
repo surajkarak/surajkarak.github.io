@@ -29,7 +29,7 @@ It’s never as as simple as creating a pipeline to do extraction → cleaning �
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/post_imgs/data-science-workflow" title="Data science workflow" alt="Comparison of expected data science workflow (linear) and reality (non-linear)" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/post_imgs/data-science-workflow.png" title="Data science workflow" alt="Comparison of expected data science workflow (linear) and reality (non-linear)" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
