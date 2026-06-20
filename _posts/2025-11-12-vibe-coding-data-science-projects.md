@@ -66,7 +66,7 @@ And carefully reviewing the response with a critical eye:
 
 Does anything seem too perfect? If it’s too good to be true, it should ring alarm bells. And this is where the “scientist” brain should kick in and where a scientific method has to be adopted to critically evaluate and iterate as needed.
 
-## 5. Stakeholder communication is overlooked but critical
+## 5. Communication is overlooked but critical
 
 You can automate a lot of the data science workflow - maybe even the entire process. But when faced with questions from stakeholders - the what of a model, the why of the decision to choose a specific model and the ramifications on latency, costs and complexity - you will need to be prepared with domain knowledge. This is also where soft skills like communication become incredibly valuable. One can easily generate reports, dashboards and visualizations in single-shot prompts but having a knack of how to adapt your communication style to meet the needs of different levels of stakeholders and their styles can make a big difference.
 
