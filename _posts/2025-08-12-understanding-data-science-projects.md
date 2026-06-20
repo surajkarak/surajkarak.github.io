@@ -2,7 +2,7 @@
 layout: post
 title: Understanding data is half the work
 date: 2025-08-12 17:16:32
-description: It's critical to spend enough time on this first key step in every dat science task
+description: It's critical to spend enough time on this first key step in every data science task
 tags: data-science
 categories: data-science
 thumbnail: /assets/post_imgs/understanding-data-science-projects.jpg
