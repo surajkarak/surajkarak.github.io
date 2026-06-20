@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why you can’t vibe-code your way through a data science project
+title: Why you can’t vibe-code through a data science project
 date: 2025-11-12 17:12:28
 description: Knowing what to build, trust, and deploy is the real challenge.
 tags: data-science
@@ -18,9 +18,11 @@ In my own line of work of data science too, there is discussion around how much 
 
 ## 1. Data science work is fundamentally ambiguous
 
-The very idea behind vibe based coding work is that you get things done through natural language. When the goals, expected outcomes and end product is clear, such as the case of simply building and app or software product, this might work. 
+The very idea behind [vibe based coding work](https://surajkarak.github.io/blog/vibe-coding/) is that you get things done through natural language. When the goals, expected outcomes and end product is clear, such as the case of simply building and app or software product, this might work. 
 
 But data science as a practice is by its very nature ambiguous. Half the work involves understanding the problem, [examining the data available](https://surajkarak.github.io/blog/understanding-data-science-projects/), figuring out what can be measured, modelled or predicted and how, setting up experiments and communicating results. This requires a lot of attention to detail, sound domain knowledge, deep understanding of business context and collaboration across teams and disciplines. 
+
+For example, take the simple case of customer churn prediction. A generated notebook might achieve Accuracy of 97% and AUC of 0.99 which may sound great on paper. But closer examination reveals that a feature like "Customer cancellation date" was also accidentally included. The model effectively had the answer sheet through data leakage. If one were to blindly rely on a vibe-coded notebook, this nuance may not have been picked up. This is where the data scientist, with prior exposure to the domain, understanding of the business context and the problem of data leakage will be able to pinpoint the issue and flag it early enough.
 
 ## 2. The “workflow” is often circular, never linear
 
@@ -34,13 +36,15 @@ It’s never as as simple as creating a pipeline to do extraction → cleaning �
 </div>
 
 
-Take [exploratory data analysis](https://surajkarak.github.io/blog/importance-of-eda-data-science/) for example. You will have to check the distribution of various parameters, plot correlations and visualise time series plots before proceeding to modelling. And very often, you will have to relook at features selected or engineered for modelling, and therefore return to EDA again. Sometimes you will even have to engineer new features and retrain + re-evaluate the model. Trying to automate this is not only tricky, but could result in a lot of suboptimal performance.
+Take [exploratory data analysis](https://surajkarak.github.io/blog/importance-of-eda-data-science/) for example. You will have to check the distribution of various parameters, plot correlations and visualise time series plots before proceeding to modelling. And very often, you will have to relook at features selected or engineered for modelling, and therefore return to EDA again. Sometimes you will even have to engineer new features and retrain + re-evaluate the model. While parts of this iterative process can be automated, determining which paths are worth exploring and deciding when a result is actually meaningful still requires substantial human judgement.
 
 ## 3. Human judgement drives decisions
 
 Despite being heavily quantitative, there is an aspect of data science that relies on human judgement. What are the best features to focus on? Should they be engineered or are they already captured? What type of model best suits a use case? And why can’t another model be preferred if it performs better in evaluation? Someone has to make a call when it comes to these questions, based on experience and domain knowledge. 
 
-Purely relying on a metric or logic to try and automate this may give you better performance but it may lack interpretability or scalability, for example. Then there is the question of the actual business KPIs and how they map to the in-model metrics - again something that the data scientist has to discuss with stakeholders.
+Purely relying on a metric or logic to try and automate this may give you better performance but it may lack interpretability or scalability, for example. Then there are questions related to the actual business KPIs and how they map to the in-model metrics, latency impact, maintenance considerations, regulatory aspects and deployment - again things that the data scientist has to discuss with stakeholders.
+
+> The best-performing model is not always the best business solution. Latency requirements, explainability, maintenance burden, regulatory constraints and deployment costs all influence model choice.
 
 ## 4. The “science” part of data science 
 
@@ -70,3 +74,4 @@ Does anything seem too perfect? If it’s too good to be true, it should ring al
 
 You can automate a lot of the data science workflow - maybe even the entire process. But when faced with questions from stakeholders - the what of a model, the why of the decision to choose a specific model and the ramifications on latency, costs and complexity - you will need to be prepared with domain knowledge. This is also where soft skills like communication become incredibly valuable. One can easily generate reports, dashboards and visualizations in single-shot prompts but having a knack of how to adapt your communication style to meet the needs of different levels of stakeholders and their styles can make a big difference.
 
+**TL;DR**: AI can increasingly automate the mechanics of data science. The harder challenge is deciding what problem should be solved, whether the results can be trusted, and how those results should influence real-world decisions.
